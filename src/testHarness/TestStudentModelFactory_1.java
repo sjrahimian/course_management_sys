@@ -24,14 +24,17 @@ public class TestStudentModelFactory_1 {
 //		Create an instance of an OfferingFactory
 		OfferingFactory factory = new OfferingFactory();
 		BufferedReader br = new BufferedReader(new FileReader(new File("note_1.txt")));
+
 //		Use the factory to populate as many instances of courses as many files we've got.
 		CourseOffering	courseOffering = factory.createCourseOffering(br);
 		br.close();
+
 //		Loading 1 file at a time
 		br = new BufferedReader(new FileReader(new File("note_2.txt")));
 //		here we have only two files
 		courseOffering = factory.createCourseOffering(br);
 		br.close();
+
 //		code to perform sanity checking of all our code
 //		by printing all of the data that we've loaded
 		for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
@@ -49,7 +52,7 @@ public class TestStudentModelFactory_1 {
 				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
 			}
 		}
-		
+
 		
 	}
 }

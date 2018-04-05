@@ -1,0 +1,4 @@
+Name Surname ID PW UserType
+Lucky Luke 1234 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJXWKyfQAyWeiQ74lcjjU0Kj Admin
+Groucho Marx 0000 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJVUpJXxzONfUi+8I8Zxavc2 Instructor
+Bart Sampsan 2500 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJUYShWHziywtGCGwjbU/yWD Student
