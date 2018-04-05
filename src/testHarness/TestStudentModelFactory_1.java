@@ -34,7 +34,7 @@ public class TestStudentModelFactory_1 {
 //		here we have only two files
 		courseOffering = factory.createCourseOffering(br);
 		br.close();
-		
+
 //		code to perform sanity checking of all our code
 //		by printing all of the data that we've loaded
 		for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
@@ -52,6 +52,7 @@ public class TestStudentModelFactory_1 {
 				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
 			}
 		}
+
 
 		
 	}
