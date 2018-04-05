@@ -51,7 +51,6 @@ public class Authenticate {
      * @return boolean true if equal, otherwise false
      */
     public Boolean checkPassword(String firstPW, String secondPW){
-
         if(firstPW.equals(secondPW))
             return true;
         else

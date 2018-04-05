@@ -14,6 +14,7 @@ private Hashtable<Integer, String[]> database;
      * @throws IOException
      */
     public Database(String file, String choice) throws IOException {
+        this.database = new Hashtable<>();
         if (choice.equals("UD")){
             BufferedReader br = new BufferedReader(new FileReader(new File(file)));
             br.readLine(); //skip the first line
@@ -24,7 +25,7 @@ private Hashtable<Integer, String[]> database;
             buildCourseOffering(file);
         }
         else{
-            System.out.println("!!!!!!!!!\n  >>>>>ERROR :: Use either \'UD\' or \'LC\' for UserDatabase or LoadCourses respectively.\n!!!!!!!!!");
+            System.out.println("!!!!!!!!!\n  >>>>>ERROR :: Use either \'UD\' for UserDatabase -OR- \'LC\' for LoadCourses respectively.\n!!!!!!!!!");
         }
     }
 
@@ -47,9 +48,10 @@ private Hashtable<Integer, String[]> database;
 
         while((line = br.readLine()) != null){
             String[] broken = line.split(" ");
-            Integer num = Integer.parseInt(broken[2]);
-            if(num == null)
-                this.database.put(num,broken);
+//            Integer num = ;
+//            System.out.println(num);
+                System.out.println(">>" + broken[2]);
+                this.database.put(Integer.parseInt(broken[2]),broken);
         }
     }
 
