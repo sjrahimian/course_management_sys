@@ -4,8 +4,8 @@
  * @version 0.1
  * Fall cs2212
  *
- * Class will perform authentication and encryption activity
- * as required by Course Management System (CMS)
+ * Will perform password authentication (e.g., comparison) and encryption activity
+ *
  *
  */
 
@@ -26,23 +26,11 @@ public class Authenticate {
      * @return boolean true if length is minimum 8 inclusive, otherwise false
      */
     public Boolean checkLength(String password) {
-        if(password.length() >= 8){
+        if(password.length() >= 6){
             return true;
         }
 
         return false;
-    }
-
-    /** Compare two user IDs.
-     * @param firstID int: first user ID
-     * @param secondID int: second user ID
-     * @return boolean true if equal, otherwise false
-     */
-    public Boolean checkID(int firstID, int secondID){
-        if(firstID == secondID)
-            return true;
-        else
-            return false;
     }
 
     /** Compare two passwords
@@ -90,56 +78,39 @@ public class Authenticate {
 
     }
 
-
-    /** Decryption of string using standard Java's AES decryption algorithm
-     * @param toDecrypt string - encrypted to be decrypted
-     * @return decrypted string password
-     */
-    public String decode(String toDecrypt) throws AuthenticateError {
-        //setup encryption methods
-        String key = "eL1vLWk3tn6oP6vN";
-        String decryptedSaltyPassword;
-        Key aesKey = new SecretKeySpec(key.getBytes(), "AES");
-
-        try {   //decrypt the user password
-            Cipher cipher = Cipher.getInstance(cipher_info);
-            cipher.init(Cipher.DECRYPT_MODE, aesKey);
-            byte[] decordedValue = Base64.getDecoder().decode(toDecrypt);
-            byte[] decValue = cipher.doFinal(decordedValue);
-            decryptedSaltyPassword = new String(decValue);
-        }
-        catch(Exception e){
-            throw new AuthenticateError(e.toString());
-        }
-
-        //make sure decrypted string is not null
-        if(decryptedSaltyPassword == null) {
-            throw new AuthenticateError("Decryption Failure; value: null");
-        }
-
-
-        //remove salt
-        String pw = decryptedSaltyPassword.replace(salt,"");
-        return pw;
-
-
-    }
-
-    // test Auth class; delete later
-    public static void main(String[] args) {
-        Authenticate auth = new Authenticate();
-        try {
-            String pw = "123456789";
-            String p1 = auth.encode("hat123");
-
-
-        }
-        catch (AuthenticateError authenticateError) {
-            authenticateError.printStackTrace();
-        }
-    }
-
-
+//    /** Decryption of string using standard Java's AES decryption algorithm
+//     * @param toDecrypt string - encrypted to be decrypted
+//     * @return decrypted string password
+//     */
+//    public String decode(String toDecrypt) throws AuthenticateError {
+//        //setup encryption methods
+//        String key = "eL1vLWk3tn6oP6vN";
+//        String decryptedSaltyPassword;
+//        Key aesKey = new SecretKeySpec(key.getBytes(), "AES");
+//
+//        try {   //decrypt the user password
+//            Cipher cipher = Cipher.getInstance(cipher_info);
+//            cipher.init(Cipher.DECRYPT_MODE, aesKey);
+//            byte[] decordedValue = Base64.getDecoder().decode(toDecrypt);
+//            byte[] decValue = cipher.doFinal(decordedValue);
+//            decryptedSaltyPassword = new String(decValue);
+//        }
+//        catch(Exception e){
+//            throw new AuthenticateError(e.toString());
+//        }
+//
+//        //make sure decrypted string is not null
+//        if(decryptedSaltyPassword == null) {
+//            throw new AuthenticateError("Decryption Failure; value: null");
+//        }
+//
+//
+//        //remove salt
+//        String pw = decryptedSaltyPassword.replace(salt,"");
+//        return pw;
+//
+//
+//    }
 
 }
 
