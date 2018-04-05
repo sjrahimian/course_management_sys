@@ -1,7 +1,7 @@
 # Course Management System
 ### Java, Git, GitHub
 
-  The simple <b>Course Management System (CMS)</b> uses a prototype server system that
+  This simple <b>Course Management System (CMS)</b> uses a prototype server system that
 extends course and course-related services to three different user roles (“System 
 Administrator”, “Instructor”, & “Student”).
 
