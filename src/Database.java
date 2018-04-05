@@ -47,15 +47,9 @@ private Hashtable<Integer, String[]> database;
 
         while((line = br.readLine()) != null){
             String[] broken = line.split(" ");
-            System.out.println(line + "\n"+ broken);
-
-            for(int i=0;i<5;i++){
-                System.out.println(broken[i]);
-            }
-
-                this.database.put(Integer.parseInt(broken[2]),broken);
-
-
+            Integer num = Integer.parseInt(broken[2]);
+            if(num == null)
+                this.database.put(num,broken);
         }
     }
 
