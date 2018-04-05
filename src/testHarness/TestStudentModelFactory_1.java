@@ -23,8 +23,8 @@ public class TestStudentModelFactory_1 {
 	public static void main(String[] args) throws IOException{
 //		Create an instance of an OfferingFactory
 		OfferingFactory factory = new OfferingFactory();
-		BufferedReader br = new BufferedReader(new FileReader(new File("note_1.txt")));
 
+		BufferedReader br = new BufferedReader(new FileReader(new File("note_1.txt")));
 //		Use the factory to populate as many instances of courses as many files we've got.
 		CourseOffering	courseOffering = factory.createCourseOffering(br);
 		br.close();
@@ -34,7 +34,7 @@ public class TestStudentModelFactory_1 {
 //		here we have only two files
 		courseOffering = factory.createCourseOffering(br);
 		br.close();
-
+		
 //		code to perform sanity checking of all our code
 //		by printing all of the data that we've loaded
 		for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
