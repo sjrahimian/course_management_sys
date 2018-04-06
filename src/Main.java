@@ -142,17 +142,16 @@ class CMS{
     }
 
     public void Instructor(AuthenticationToken tk, String[] user){
-        LoggedInUserFactory log = new LoggedInUserFactory();
+    	Scanner input = new Scanner(System.in);
+    	LoggedInUserFactory log = new LoggedInUserFactory();
         LoggedInInstructor instructor;
-
         instructor = (LoggedInInstructor) log.createAuthenticatedUser(tk);
-        System.out.println("Welcome Instructor " + instructor.getName() +".");
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Welcome Administrator " + user[0] + " " + user[1] + ". Select an option:");
-        System.out.print("\t1. ------------------" +
-                "\n\t2. ------------------" +
-                "\n\t3. ------------------" +
+        System.out.println("Welcome Instructor " + user[0] + " " + user[1] + ". Select an option:");
+        System.out.print("\t1. Add mark for a student." +
+                "\n\t2. Modify mark for a student." +
+                "\n\t3. Calculate final grade." +
+                "\n\t4. Print class record." +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
@@ -165,6 +164,8 @@ class CMS{
                     break;
                 case "3":
                     break;
+                case "4":
+                    break;
                 default:
                     System.out.println("\nInvalid option.");
             }
@@ -174,6 +175,7 @@ class CMS{
                     "\n\t1. ------------------" +
                     "\n\t2. ------------------" +
                     "\n\t3. ------------------" +
+                    "\n\t4. ------------------" +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
@@ -185,17 +187,16 @@ class CMS{
     }
 
     public void Student(AuthenticationToken tk, String[] user){
+    	Scanner input = new Scanner(System.in);
         LoggedInUserFactory log = new LoggedInUserFactory();
         LoggedInStudent student;
-
         student = (LoggedInStudent) log.createAuthenticatedUser(tk);
-        System.out.println("User: " + student.getName() + student.getSurname());
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Welcome Administrator " + user[0] + " " + user[1] + ". Select an option:");
-        System.out.print("\t1. ------------------" +
-                "\n\t2. ------------------" +
-                "\n\t3. ------------------" +
+        System.out.println("Welcome Student " + user[0] + " " + user[1] + ". Select an option:");
+        System.out.print("\t1. Enroll in course." +
+                "\n\t2. Select notification status." +
+                "\n\t3. Add notification preferences." +
+                "\n\t4. Print course record." +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
@@ -208,6 +209,8 @@ class CMS{
                     break;
                 case "3":
                     break;
+                case "4":
+                    break;
                 default:
                     System.out.println("\nInvalid option.");
             }
@@ -217,6 +220,7 @@ class CMS{
                     "\n\t1. ------------------" +
                     "\n\t2. ------------------" +
                     "\n\t3. ------------------" +
+                    "\n\t4. ------------------" +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
@@ -235,7 +239,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         CMS run = new CMS();
         for(;;){
-            System.out.println("College of Oarsmanship: Course Management System (CMS)");
+            System.out.println("Trump University: Course Management System (CMS)");
             System.out.println("\t\tCTRL-D to exit.\n");
             run.login();
 
