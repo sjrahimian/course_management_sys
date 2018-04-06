@@ -60,9 +60,9 @@ private Hashtable<Integer, String[]> database;
         return this.database.get(id);
     }
 
-    public Integer getUserType(int id){
+    public String getUserType(int id){
         String[] temp = this.database.get(id);
-        return Integer.parseInt(temp[4]);
+        return temp[4];
     }
 
 }

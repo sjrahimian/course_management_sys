@@ -54,14 +54,12 @@ class CMS{
                             String OS = System.getProperty("os.name");
                             System.out.println("\n\tCollege of Oarsmanship: Course Management System (CMS)");
                             System.out.println("\tLogging in on " + OS + " on " + now.format(dtf) + "\n");
+
                             //generate whenever someone logs in and set methods
-                            //id will determine user type
-                            //increment token ID
-                            //session date and time
                             token = new AuthenticationToken();
-                            token.setSessionID((int) System.currentTimeMillis());
-                            token.setTokenID(this.counter++);
-                            token.setUserType(possibleUser[4]);
+                            token.setSessionID((int) System.currentTimeMillis());//session date and time
+                            token.setTokenID(this.counter++);//increment token ID
+                            token.setUserType(db.getUserType(Integer.parseInt(id)));//id will determine user type
                             break;
                         }
                     }
@@ -95,25 +93,50 @@ class CMS{
     private void logout(){}
 
     public void Administrator(AuthenticationToken tk, String[] user){
+        Scanner input = new Scanner(System.in);
         LoggedInUserFactory log = new LoggedInUserFactory();
         LoggedInAdmin admin;
         admin = (LoggedInAdmin) log.createAuthenticatedUser(tk);
-        System.out.println("Welcome Administrator " + user[0] + " " + user[1]);
 
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("\n\t1) something\n\t2)somethingElse\n\tType \"logout\" to exit\n\t$> ");
+        System.out.println("Welcome Administrator " + user[0] + " " + user[1] + ". Select an option:");
+        System.out.print("\t1. START System State (will also activate option 3)" +
+                "\n\t2. STOP System State" +
+                "\n\t3. Create Courses" +
+                "\n\t4. SomethingSomething" +
+                "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
         while((line.equals("logout")) != true){
-            System.out.print("\n\t1) something\n\t2)somethingElse\n\tType \"logout\" to exit\n\t$> ");
+
+            switch(line){
+                case "1":
+                    sys_state = admin.modifySystemState(sys_state,1);
+                    admin.createCourses();
+                    break;
+                case "2":
+                    sys_state = admin.modifySystemState(sys_state,0);
+                    break;
+                case "3":
+                    admin.createCourses();
+                    break;
+                default:
+                    System.out.println("\nInvalid option.");
+
+            }
+
+
+            System.out.print("\nSelect an option:" +
+                    "\n\t1. START System State (will also activate option 3)" +
+                    "\n\t2. STOP System State" +
+                    "\n\t3. Create Courses" +
+                    "\n\t4. SomethingSomething" +
+                    "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
-
-
 
         }
 
         logout();
+        System.out.println();
 
     }
 
