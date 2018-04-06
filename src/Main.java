@@ -9,6 +9,7 @@ import java.time.format.*;
 
 class CMS{
     private static Boolean sys_state = false;  //system is off
+    private static Boolean sys_state_create = true;
     private int counter;
 
     public void CMS(){
@@ -102,7 +103,7 @@ class CMS{
         System.out.print("\t1. START System State (will also activate option 3)" +
                 "\n\t2. STOP System State" +
                 "\n\t3. Create Courses" +
-                "\n\t4. SomethingSomething" +
+                //"\n\t4. SomethingSomething" +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
@@ -111,7 +112,10 @@ class CMS{
             switch(line){
                 case "1":
                     sys_state = admin.modifySystemState(sys_state,1);
-                    admin.createCourses();
+                    if(sys_state_create) {
+                        sys_state_create = false;
+                        admin.createCourses();
+                    }
                     break;
                 case "2":
                     sys_state = admin.modifySystemState(sys_state,0);
@@ -121,7 +125,6 @@ class CMS{
                     break;
                 default:
                     System.out.println("\nInvalid option.");
-
             }
 
 
@@ -129,7 +132,7 @@ class CMS{
                     "\n\t1. START System State (will also activate option 3)" +
                     "\n\t2. STOP System State" +
                     "\n\t3. Create Courses" +
-                    "\n\t4. SomethingSomething" +
+                    //"\n\t4. SomethingSomething" +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
@@ -178,8 +181,6 @@ class CMS{
         while((line.equals("logout")) != true){
             System.out.print("\n\t1) something\n\t2)somethingElse\n\tType \"logout\" to exit\n\t$> ");
             line = input.next();
-
-
 
         }
 
