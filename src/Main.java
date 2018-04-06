@@ -100,10 +100,9 @@ class CMS{
         admin = (LoggedInAdmin) log.createAuthenticatedUser(tk);
 
         System.out.println("Welcome Administrator " + user[0] + " " + user[1] + ". Select an option:");
-        System.out.print("\t1. START System State (will also activate option 3)" +
+        System.out.print("\t1. START System State (auto-activates option 3)" +
                 "\n\t2. STOP System State" +
                 "\n\t3. Create Courses" +
-                //"\n\t4. SomethingSomething" +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
@@ -132,7 +131,6 @@ class CMS{
                     "\n\t1. START System State (will also activate option 3)" +
                     "\n\t2. STOP System State" +
                     "\n\t3. Create Courses" +
-                    //"\n\t4. SomethingSomething" +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
@@ -146,7 +144,7 @@ class CMS{
     public void Instructor(AuthenticationToken tk, String[] user){
         LoggedInUserFactory log = new LoggedInUserFactory();
         LoggedInInstructor instructor;
-        
+
         instructor = (LoggedInInstructor) log.createAuthenticatedUser(tk);
         System.out.println("Welcome Instructor " + instructor.getName() +".");
 
