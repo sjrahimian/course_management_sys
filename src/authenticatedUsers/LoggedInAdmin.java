@@ -2,7 +2,12 @@ package authenticatedUsers;
 
 import authenticationServer.AuthenticationToken;
 import offerings.CourseOffering;
+import offerings.OfferingFactory;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class LoggedInAdmin implements LoggedInAuthenticatedUser {
@@ -69,7 +74,15 @@ public class LoggedInAdmin implements LoggedInAuthenticatedUser {
 	    String line;
         System.out.print("\n\tGive filename: ");
         line = input.next();
-        System.out.println("line");
+
+    }
+
+    private void buildCourseOffering(String file) throws IOException {
+        OfferingFactory factory = new OfferingFactory();
+        BufferedReader br = new BufferedReader(new FileReader(new File(file)));
+        CourseOffering courseOffering = factory.createCourseOffering(br);
+        br.close();
+
     }
 	 
 }

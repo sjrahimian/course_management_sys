@@ -19,7 +19,7 @@ class CMS{
     public void login() throws IOException {
         AuthenticationToken token;
         Authenticate auth = new Authenticate();
-        Database db = new Database("userDB.txt","UD");
+        Database db = new Database("userDB.txt");
         Scanner input = new Scanner(System.in);
         String password, id;
         String[] possibleUser;
@@ -146,22 +146,43 @@ class CMS{
     public void Instructor(AuthenticationToken tk, String[] user){
         LoggedInUserFactory log = new LoggedInUserFactory();
         LoggedInInstructor instructor;
+        
         instructor = (LoggedInInstructor) log.createAuthenticatedUser(tk);
         System.out.println("Welcome Instructor " + instructor.getName() +".");
 
         Scanner input = new Scanner(System.in);
-
-        System.out.print("\n\t1) something\n\t2)somethingElse\n\tType \"logout\" to exit\n\t$> ");
-        System.out.print("\n\t$> ");
+        System.out.println("Welcome Administrator " + user[0] + " " + user[1] + ". Select an option:");
+        System.out.print("\t1. ------------------" +
+                "\n\t2. ------------------" +
+                "\n\t3. ------------------" +
+                "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
         while((line.equals("logout")) != true){
-            System.out.print("\n\t1) something\n\t2)somethingElse\n\tType \"logout\" to exit\n\t$> ");
+
+            switch(line){
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                default:
+                    System.out.println("\nInvalid option.");
+            }
+
+
+            System.out.print("\nSelect an option:" +
+                    "\n\t1. ------------------" +
+                    "\n\t2. ------------------" +
+                    "\n\t3. ------------------" +
+                    "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
         }
 
         logout();
+        System.out.println();
 
     }
 
@@ -173,18 +194,38 @@ class CMS{
         System.out.println("User: " + student.getName() + student.getSurname());
 
         Scanner input = new Scanner(System.in);
-
-        System.out.print("\n\t1) something\n\t2)somethingElse\n\tType \"logout\" to exit\n\t$> ");
-        System.out.print("\n\t$> ");
+        System.out.println("Welcome Administrator " + user[0] + " " + user[1] + ". Select an option:");
+        System.out.print("\t1. ------------------" +
+                "\n\t2. ------------------" +
+                "\n\t3. ------------------" +
+                "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
         while((line.equals("logout")) != true){
-            System.out.print("\n\t1) something\n\t2)somethingElse\n\tType \"logout\" to exit\n\t$> ");
+
+            switch(line){
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                default:
+                    System.out.println("\nInvalid option.");
+            }
+
+
+            System.out.print("\nSelect an option:" +
+                    "\n\t1. ------------------" +
+                    "\n\t2. ------------------" +
+                    "\n\t3. ------------------" +
+                    "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
         }
 
         logout();
+        System.out.println();
 
     }
 
