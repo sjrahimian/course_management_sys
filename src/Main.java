@@ -61,7 +61,7 @@ class CMS{
                             token = new AuthenticationToken();
                             token.setSessionID((int) System.currentTimeMillis());
                             token.setTokenID(this.counter++);
-                            token.setUserType(db.getUserType(Integer.parseInt(id)).toString());
+                            token.setUserType(possibleUser[4]);
                             break;
                         }
                     }
@@ -103,7 +103,6 @@ class CMS{
         Scanner input = new Scanner(System.in);
 
         System.out.print("\n\t1) something\n\t2)somethingElse\n\tType \"logout\" to exit\n\t$> ");
-        System.out.print("\n\t$> ");
         String line = input.next();
 
         while((line.equals("logout")) != true){
