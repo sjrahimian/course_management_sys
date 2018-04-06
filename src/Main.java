@@ -172,10 +172,10 @@ class CMS{
 
 
             System.out.print("\nSelect an option:" +
-                    "\n\t1. ------------------" +
-                    "\n\t2. ------------------" +
-                    "\n\t3. ------------------" +
-                    "\n\t4. ------------------" +
+                    "\n\t1. Add mark for a student." +
+                    "\n\t2. Modify mark for a student." +
+                    "\n\t3. Calculate final grade." +
+                    "\n\t4. Print class record." +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
@@ -217,10 +217,10 @@ class CMS{
 
 
             System.out.print("\nSelect an option:" +
-                    "\n\t1. ------------------" +
-                    "\n\t2. ------------------" +
-                    "\n\t3. ------------------" +
-                    "\n\t4. ------------------" +
+                    "\n\t1. Enroll in course." +
+                    "\n\t2. Select notification status." +
+                    "\n\t3. Add notification preferences." +
+                    "\n\t4. Print course record." +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
