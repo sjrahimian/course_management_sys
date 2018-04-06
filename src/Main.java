@@ -1,6 +1,6 @@
 import authenticatedUsers.*;
 import authenticationServer.AuthenticationToken;
-import com.sun.deploy.util.StringUtils;
+//import com.sun.deploy.util.StringUtils;
 import loggedInUserFactory.LoggedInUserFactory;
 
 import java.io.*;
@@ -32,12 +32,11 @@ class CMS{
             id = input.next();
 
             //check for non-numeric characters
-            if(Pattern.matches("[a-zA-Z0-9]+", id)){
-                System.out.println("Invalid entry, try again.\n");
+            if(!id.matches("[0-9]+")) {
+            	System.out.println("Bad id: " + id + ". Try again.");
             }
-            else if(!db.containsUser(Integer.parseInt(id))){
-                System.out.println("No such user. Try again.\n");
-            }
+            
+         
             else{   //user id in database
                 possibleUser = db.getAllData(Integer.parseInt(id)); //try for password
                 System.out.print("Password: ");
@@ -48,7 +47,11 @@ class CMS{
 //                password = new String(passString);
 
                 try {
-                    if (auth.checkPassword(auth.encode(password), possibleUser[3])) {
+                	if(!password.matches("[0-9]+")) {
+                    	System.out.println("Password " + password + " invalid. Try again.");
+                    }
+                		
+                else if (auth.checkPassword(auth.encode(password), possibleUser[3])) {
 
                         //check system state
                         if(!possibleUser[4].equals("Admin") && !sys_state){ //system state is offline
