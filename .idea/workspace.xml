@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cbac6bd-c36c-40f1-9c3b-c7a2908fcdf5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java" afterPath="$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/Database.java" afterPath="$PROJECT_DIR$/src/Database.java" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/authenticatedUsers/LoggedInAdmin.java" afterPath="$PROJECT_DIR$/src/authenticatedUsers/LoggedInAdmin.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,10 +22,12 @@
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="553">
-                  <caret line="88" column="84" lean-forward="false" selection-start-line="88" selection-start-column="84" selection-end-line="88" selection-end-column="84" />
+                <state relative-caret-position="451">
+                  <caret line="76" column="9" lean-forward="true" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#334#335#0" expanded="true" />
+                    <element signature="e#366#367#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -32,8 +36,8 @@
           <file leaf-file-name="LoggedInAdmin.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/authenticatedUsers/LoggedInAdmin.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="162">
-                  <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+                <state relative-caret-position="510">
+                  <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#323#324#0" expanded="true" />
@@ -87,31 +91,31 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="TestStudentModelFactory_1.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="TestStudentModelFactory_1.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="556">
+                <state relative-caret-position="726">
                   <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Database.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+                <state relative-caret-position="491">
+                  <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="docComment;method#Database#0;class#Database#0" expanded="false" />
-                    <element signature="method#Database#0;class#Database#0" expanded="false" />
                     <element signature="docComment;method#buildCourseOffering#0;class#Database#0" expanded="false" />
                     <element signature="method#buildCourseOffering#0;class#Database#0" expanded="false" />
-                    <element signature="e#1826#1827#0" expanded="true" />
-                    <element signature="e#1878#1879#0" expanded="true" />
-                    <element signature="e#1919#1920#0" expanded="true" />
-                    <element signature="e#1963#1964#0" expanded="true" />
+                    <element signature="method#buildDB#0;class#Database#0" expanded="false" />
+                    <element signature="e#1703#1704#0" expanded="true" />
+                    <element signature="e#1755#1756#0" expanded="true" />
+                    <element signature="e#1796#1797#0" expanded="true" />
+                    <element signature="e#1840#1841#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -158,16 +162,16 @@
         <option value="$PROJECT_DIR$/src/authenticationServer/AuthenticateError.java" />
         <option value="$PROJECT_DIR$/src/groupAdditions/AuthenticateError.java" />
         <option value="$PROJECT_DIR$/src/AuthenticateError.java" />
-        <option value="$PROJECT_DIR$/src/Database.java" />
-        <option value="$PROJECT_DIR$/src/authenticatedUsers/LoggedInAdmin.java" />
         <option value="$PROJECT_DIR$/src/Authenticate.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java" />
+        <option value="$PROJECT_DIR$/src/authenticatedUsers/LoggedInAdmin.java" />
+        <option value="$PROJECT_DIR$/src/Database.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1287" />
+    <option name="width" value="1309" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -230,24 +234,6 @@
               <item name="cm_sys" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="authenticatedUsers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cm_sys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cm_sys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="loggedInUserFactory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cm_sys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cm_sys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="systemUserModelFactories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cm_sys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cm_sys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="testHarness" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -504,25 +490,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/offerings/CourseOffering.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="e#736#737#0" expanded="false" />
-            <element signature="e#773#774#0" expanded="false" />
-            <element signature="method#setStudentsAllowedToEnroll#0;class#CourseOffering#0" expanded="false" />
-            <element signature="method#setEvaluationStrategies#0;class#CourseOffering#0" expanded="false" />
-            <element signature="method#calculateFinalGrades#0;class#CourseOffering#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/offerings/ICourseOffering.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -763,7 +735,7 @@
         <state relative-caret-position="238">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#0#3636#0" expanded="true" />
+            <element signature="e#0#3636#0" expanded="false" />
             <element signature="method#encode#0;class#Authenticate#0" expanded="false" />
             <element signature="e#2382#2459#0" expanded="false" />
           </folding>
@@ -775,24 +747,6 @@
         <state relative-caret-position="561">
           <caret line="37" column="29" lean-forward="false" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#Database#0;class#Database#0" expanded="false" />
-            <element signature="method#Database#0;class#Database#0" expanded="false" />
-            <element signature="docComment;method#buildCourseOffering#0;class#Database#0" expanded="false" />
-            <element signature="method#buildCourseOffering#0;class#Database#0" expanded="false" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1878#1879#0" expanded="true" />
-            <element signature="e#1919#1920#0" expanded="true" />
-            <element signature="e#1963#1964#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -820,10 +774,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/authenticatedUsers/LoggedInAdmin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        <state relative-caret-position="510">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#323#324#0" expanded="true" />
@@ -832,21 +794,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="88" column="84" lean-forward="false" selection-start-line="88" selection-start-column="84" selection-end-line="88" selection-end-column="84" />
+        <state relative-caret-position="451">
+          <caret line="76" column="9" lean-forward="true" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java">
+    <entry file="file://$PROJECT_DIR$/src/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="491">
+          <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#Database#0;class#Database#0" expanded="false" />
+            <element signature="docComment;method#buildCourseOffering#0;class#Database#0" expanded="false" />
+            <element signature="method#buildCourseOffering#0;class#Database#0" expanded="false" />
+            <element signature="method#buildDB#0;class#Database#0" expanded="false" />
+            <element signature="e#1703#1704#0" expanded="true" />
+            <element signature="e#1755#1756#0" expanded="true" />
+            <element signature="e#1796#1797#0" expanded="true" />
+            <element signature="e#1840#1841#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

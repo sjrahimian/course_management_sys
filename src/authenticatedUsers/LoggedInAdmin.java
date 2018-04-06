@@ -45,6 +45,7 @@ public class LoggedInAdmin implements LoggedInAuthenticatedUser {
 	public Boolean modifySystemState(Boolean currentState, int changeStateTo){
         if(currentState == false && changeStateTo == 1){
             return true;    //turn system ON
+
         }
         else if(currentState == false && changeStateTo == 0){
             System.out.println("The system is OFFLINE.");
