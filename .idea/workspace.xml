@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cbac6bd-c36c-40f1-9c3b-c7a2908fcdf5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/Database.java" afterPath="$PROJECT_DIR$/src/Database.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,18 +101,17 @@
           <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Database.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="491">
-                  <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+                <state relative-caret-position="321">
+                  <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="docComment;method#Database#0;class#Database#0" expanded="false" />
                     <element signature="docComment;method#buildCourseOffering#0;class#Database#0" expanded="false" />
                     <element signature="method#buildCourseOffering#0;class#Database#0" expanded="false" />
-                    <element signature="method#buildDB#0;class#Database#0" expanded="false" />
-                    <element signature="e#1703#1704#0" expanded="true" />
-                    <element signature="e#1755#1756#0" expanded="true" />
-                    <element signature="e#1796#1797#0" expanded="true" />
-                    <element signature="e#1840#1841#0" expanded="true" />
+                    <element signature="e#1699#1700#0" expanded="true" />
+                    <element signature="e#1751#1752#0" expanded="true" />
+                    <element signature="e#1792#1793#0" expanded="true" />
+                    <element signature="e#1836#1837#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -163,12 +161,12 @@
         <option value="$PROJECT_DIR$/src/Authenticate.java" />
         <option value="$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java" />
         <option value="$PROJECT_DIR$/src/authenticatedUsers/LoggedInAdmin.java" />
-        <option value="$PROJECT_DIR$/src/Database.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Database.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1309" />
     <option name="height" value="1050" />
   </component>
@@ -418,7 +416,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -800,24 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#Database#0;class#Database#0" expanded="false" />
-            <element signature="docComment;method#buildCourseOffering#0;class#Database#0" expanded="false" />
-            <element signature="method#buildCourseOffering#0;class#Database#0" expanded="false" />
-            <element signature="method#buildDB#0;class#Database#0" expanded="false" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1755#1756#0" expanded="true" />
-            <element signature="e#1796#1797#0" expanded="true" />
-            <element signature="e#1840#1841#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-17">
@@ -826,6 +806,23 @@
             <element signature="imports" expanded="true" />
             <element signature="e#334#335#0" expanded="true" />
             <element signature="e#366#367#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#Database#0;class#Database#0" expanded="false" />
+            <element signature="docComment;method#buildCourseOffering#0;class#Database#0" expanded="false" />
+            <element signature="method#buildCourseOffering#0;class#Database#0" expanded="false" />
+            <element signature="e#1699#1700#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1792#1793#0" expanded="true" />
+            <element signature="e#1836#1837#0" expanded="true" />
           </folding>
         </state>
       </provider>
