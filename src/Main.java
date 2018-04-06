@@ -33,10 +33,11 @@ class CMS{
 
             //check for non-numeric characters
             if(!id.matches("[0-9]+")) {
-            	System.out.println("Bad id: " + id + ". Try again.");
+            	System.out.println("Invalid ID: " + id + ". Try again.\n");
             }
-            
-         
+            else if(!db.containsUser(Integer.parseInt(id))){
+                System.out.println("No such user.\n");
+            }
             else{   //user id in database
                 possibleUser = db.getAllData(Integer.parseInt(id)); //try for password
                 System.out.print("Password: ");
@@ -48,10 +49,9 @@ class CMS{
 
                 try {
                 	if(!password.matches("[0-9]+")) {
-                    	System.out.println("Password " + password + " invalid. Try again.");
+                    	System.out.println("Password invalid. Try again.\n");
                     }
-                		
-                else if (auth.checkPassword(auth.encode(password), possibleUser[3])) {
+                    else if (auth.checkPassword(auth.encode(password), possibleUser[3])) {
 
                         //check system state
                         if(!possibleUser[4].equals("Admin") && !sys_state){ //system state is offline
