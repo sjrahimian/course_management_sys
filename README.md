@@ -2,8 +2,12 @@
 ### Java, Git, GitHub
 
   This simple <b>Course Management System (CMS)</b> uses a prototype server system that
-extends course and course-related services to three different user roles (“System 
-Administrator”, “Instructor”, & “Student”).
+extends course and course-related services to three different user roles (<i>System 
+Administrator</i>, <i>Instructor</i>, & <i>Student</i>).
+
+  Operations include start/stop of system, adding students, creating courses, adding 
+grades, calculation of said grades, printing class roster or student records (individual 
+or groups), communicating to student via email or SMS that a grade has been added.
 
 Worked in <b>Agile</b> environment with weekly meetings and daily code reviews before every commit.
 
