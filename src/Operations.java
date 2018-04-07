@@ -26,8 +26,8 @@ public class Operations {
 
     public void createCourses(){
         Scanner input = new Scanner(System.in);
-        System.out.print("\n\tGive filename: ");
-        String line = input.next();
+//        System.out.print("\n\tGive filename: ");
+//        String line = input.next();
         try {
             buildCourseOffering("note_1.txt");
             buildCourseOffering("note_2.txt");
@@ -45,30 +45,38 @@ public class Operations {
         br.close();
     }
 
-    public void printClassRecord(String id) {
+    public void printClassRecord(String courseName, String id) {
         for (CourseOffering course : ModelRegister.getInstance().getAllCourses()) {
-            for(InstructorModel instructor : course.getInstructor()){
-        	
-            	System.out.println("Course ID: " + course.getCourseID() +
-                    "\nCourse name: " + course.getCourseName() +
-                    "\nSemester: " + course.getSemester() +
-                    "\nInstructor: " + course.getInstructor());
+            //if course is requested;
+            if(course.getCourseID().equals(courseName)) {
+                for(InstructorModel instructor : course.getInstructor()){
+                    //print only logged in profs class
+                    if(instructor.getID().equals(id))
+                        System.out.println("Course ID: " + course.getCourseID() +
+                                "\nCourse name: " + course.getCourseName() +
+                                "\nSemester: " + course.getSemester() +
+                                "\nInstructor: " + course.getInstructor());
 
-                System.out.println("Instructor: " + instructor.getName() + " " + instructor.getSurname() +
-                                    "\nInstructor ID: " + instructor.getID());
-            
+                    for(InstructorModel teach : course.getInstructor()) {
+                        System.out.println("Instructor: " + teach.getName() + " " + teach.getSurname() +
+                                "\nInstructor ID: " + teach.getID());
+                    }
 
-	            System.out.println("\nStudents allowed to enroll:");
-	            for (StudentModel student : course.getStudentsAllowedToEnroll()) {
-	                System.out.println("Student name: " + student.getName() + student.getSurname() +
-	                        "\nStudent ID: " + student.getID() +
-	                        "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) + "\n\n");
-	            }
+
+                    System.out.println("\nStudents allowed to enroll:");
+                    for (StudentModel student : course.getStudentsAllowedToEnroll()) {
+                        System.out.println("Student name: " + student.getName() + " " + student.getSurname() +
+                                "\nStudent ID: " + student.getID() +
+                                "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) + "\n\n");
+                    }
+
+                }
             }
 
-            System.out.println("\t\t--------");
         }
+
     }
+
 
     public void calcFinalGrade(String id){
 

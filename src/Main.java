@@ -177,7 +177,9 @@ class CMS{
                     break;
                 case "3":
                     break;
-                case "4": operations.printClassRecord();
+                case "4": System.out.print("\n\tGive course name (e.g., \"CS2212B\": ");
+                    String cou = input.next();
+                    operations.printClassRecord(cou.toUpperCase(), instructor.getID());
                     break;
                 default:
                     System.out.println("\nInvalid option.");
