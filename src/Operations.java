@@ -6,10 +6,7 @@ import registrar.ModelRegister;
 import systemUsers.InstructorModel;
 import systemUsers.StudentModel;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -24,20 +21,30 @@ public class Operations {
         this.coursesOffered = this.register.getAllCourses();
     }
 
-    public void createCourses(){
-        Scanner input = new Scanner(System.in);
-//        System.out.print("\n\tGive filename: ");
-//        String line = input.next();
+    public void createCourses() {
         try {
-            buildCourseOffering("note_1.txt");
-            buildCourseOffering("note_2.txt");
-        } catch (IOException e) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//            System.out.print("\n\tGive filename: ");
+//            String line = reader.readLine();
+//            String[] lineSplit = line.split(" ");
+
+//            for (int i = 0; i <= lineSplit.length; i++) {
+                buildCourseOffering("note_1.txt");
+                buildCourseOffering("note_2.txt");
+//            }
+        }
+        catch (IOException e) {
             e.printStackTrace();
             System.out.println(e + "exception thrown at createCourses");
         }
 
     }
 
+    /**
+     * helper function that builds the courses
+     * @param file filename given by user
+     * @throws IOException
+     */
     private void buildCourseOffering(String file) throws IOException {
         OfferingFactory factory = new OfferingFactory();
         BufferedReader br = new BufferedReader(new FileReader(new File(file)));
@@ -45,7 +52,17 @@ public class Operations {
         br.close();
     }
 
+    public void calcFinalGrade(String id){
+
+    }
+
+    /**
+     * Print class record.
+     * @param courseName name of course user wants
+     * @param id user's ID
+     */
     public void printClassRecord(String courseName, String id) {
+        System.out.println();
         for (CourseOffering course : ModelRegister.getInstance().getAllCourses()) {
             //if course is requested;
             if(course.getCourseID().equals(courseName)) {
@@ -76,13 +93,6 @@ public class Operations {
         }
 
     }
-
-
-    public void calcFinalGrade(String id){
-
-    }
-
-
 
     /**Add notification preferences.
      *

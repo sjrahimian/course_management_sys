@@ -177,7 +177,7 @@ class CMS{
                     break;
                 case "3":
                     break;
-                case "4": System.out.print("\n\tGive course name (e.g., \"CS2212B\": ");
+                case "4": System.out.print("\n\t\tGive course name (e.g., \"CS2212B\": ");
                     String cou = input.next();
                     operations.printClassRecord(cou.toUpperCase(), instructor.getID());
                     break;
@@ -223,12 +223,12 @@ class CMS{
                 case "2":
                     break;
                 case "3":
-                    System.out.print("\n\tGive course name to change notice for (e.g., \"CS2212B\": ");
+                    System.out.print("\n\t\tGive course name to change notice for (e.g., \"CS2212B\": ");
                     String cou = input.next();
                     operations.setNotification(cou,student.getID());
                     break;
                 case "4":
-                    System.out.print("\n\tGive course name (e.g., \"CS2212B\": ");
+                    System.out.print("\n\t\tGive course name (e.g., \"CS2212B\": ");
                     String cour = input.next();
                     operations.printStudentCourse(cour,student.getID());
                     break;
