@@ -1,7 +1,15 @@
+/**
+ * @author Moe Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
+ * @version 0.1
+ * Winter cs2212
+ *
+ * Frontend that presents user end functions and accepts clients requests via command line style interface
+ * ~~where the magic happens~~
+ *
+ */
+
 import authenticatedUsers.*;
 import authenticationServer.AuthenticationToken;
-
-import loggedInUserFactory.LoggedInUserFactory;
 
 import java.io.*;
 import java.util.*;
@@ -22,10 +30,10 @@ class CMS{
     public void login() throws IOException {
         AuthenticationToken token;
         Authenticate auth = new Authenticate();
-        Database db = new Database("userDB.txt");
+        Database db = new Database("loginDB.txt");
         Scanner input = new Scanner(System.in);
         String password, id;
-        String[] possibleUser;
+        String[] userData;
 
         for (; ; ) {
             //try for user id
@@ -40,7 +48,7 @@ class CMS{
                 System.out.println("No such user.\n");
             }
             else{   //user id in database
-                possibleUser = db.getAllData(Integer.parseInt(id)); //try for password
+                userData = db.getAllData(Integer.parseInt(id)); //try for password
                 System.out.print("Password: ");
                 //disable input.next() --> for IDE testing, then enable following 3 lines for console testing
                 password = input.next();
@@ -52,10 +60,10 @@ class CMS{
                 	if(!password.matches("[0-9]+")) {
                     	System.out.println("Password invalid. Try again.\n");
                     }
-                    else if (auth.checkPassword(auth.encode(password), possibleUser[3])) {
+                    else if (auth.checkPassword(auth.encode(password), userData[3])) {
 
                         //check system state
-                        if(!possibleUser[4].equals("Admin") && !sys_state){ //system state is offline
+                        if(!userData[4].equals("Admin") && !sys_state){ //system state is offline
                             System.out.println("System is offline. Contact a System Administrator.\n");
                         }
                         else {  //system state is online or an Admin
@@ -91,33 +99,37 @@ class CMS{
         //switch statement after tokens
         switch(token.getUserType()){
             case "Admin":
-                Administrator(token,possibleUser);
+                LoggedInAdmin admin = new LoggedInAdmin();
+                admin.setupAdmin(token,userData);
+                Administrator(admin);
                 break;
             case "Instructor":
-                Instructor(token,possibleUser);
+                LoggedInInstructor instructor = new LoggedInInstructor();
+                instructor.setupInstructor(token,userData);
+                Instructor(instructor);
                 break;
             case "Student":
-                Student(token,possibleUser);
+                LoggedInStudent student = new LoggedInStudent();
+                student.setupStudent(token,userData);
+                Student(student);
         }
 
     }
 
     private void logout(){}
 
-    public void Administrator(AuthenticationToken tk, String[] user){
+    public void Administrator(LoggedInAdmin admin){
         Scanner input = new Scanner(System.in);
-        LoggedInUserFactory log = new LoggedInUserFactory();
-        LoggedInAdmin admin = new LoggedInAdmin();
-        admin.setupAdmin(tk,user);
+
 
         System.out.println("Welcome Administrator " + admin.getName() + " " + admin.getSurname() + ". Select an option:");
         System.out.print("\t1. START System State (auto-activates option 3)" +
                 "\n\t2. STOP System State" +
-                "\n\t3. Create Courses" +
+                "\n\t3. Create Course" +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
-        while((line.equals("logout")) != true){
+        while((line.toLowerCase().equals("logout")) != true){
 
             switch(line){
                 case "1":
@@ -154,11 +166,8 @@ class CMS{
 
     }
 
-    public void Instructor(AuthenticationToken tk, String[] user){
+    public void Instructor(LoggedInInstructor instructor){
     	Scanner input = new Scanner(System.in);
-        LoggedInInstructor instructor = new LoggedInInstructor();
-        instructor.setupInstructor(tk,user);
-
 
         System.out.println("Welcome Instructor " + instructor.getName() + " " + instructor.getSurname() + ". Select an option:");
         System.out.print("\t1. Add mark for a student." +
@@ -168,7 +177,7 @@ class CMS{
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
-        while((line.equals("logout")) != true){
+        while((line.toLowerCase().equals("logout")) != true){
 
             switch(line){
                 case "1":
@@ -177,7 +186,7 @@ class CMS{
                     break;
                 case "3":
                     break;
-                case "4": System.out.print("\n\t\tGive course name (e.g., \"CS2212B\": ");
+                case "4": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
                     String cou = input.next();
                     operations.printClassRecord(cou.toUpperCase(), instructor.getID());
                     break;
@@ -201,36 +210,31 @@ class CMS{
 
     }
 
-    public void Student(AuthenticationToken tk, String[] user){
+    public void Student(LoggedInStudent student){
     	Scanner input = new Scanner(System.in);
-        LoggedInStudent student = new LoggedInStudent();
-        student.setupStudent(tk,user);
 
-
-        System.out.println("Welcome Student " + user[0] + " " + user[1] + ". Select an option:");
+        System.out.println("Welcome Student " + student.getName() + " " + student.getSurname() + ". Select an option:");
         System.out.print("\t1. Enroll in course." +
-                "\n\t2. Select notification status." +
-                "\n\t3. Add notification preferences." +
-                "\n\t4. Print course record." +
+//                "\n\t2. Select notification status." +
+                "\n\t2. Add notification preferences." +
+                "\n\t3. Print course record." +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
-        while((line.equals("logout")) != true){
+        while((line.toLowerCase().equals("logout")) != true){
 
             switch(line){
                 case "1":
                     break;
                 case "2":
+                    System.out.print("\n\tGive course name (e.g., \"CS2212B\") for notification change: ");
+                    String cou = input.next();
+                    operations.setNotification(cou.toUpperCase(),student.getID());
                     break;
                 case "3":
-                    System.out.print("\n\t\tGive course name to change notice for (e.g., \"CS2212B\": ");
-                    String cou = input.next();
-                    operations.setNotification(cou,student.getID());
-                    break;
-                case "4":
-                    System.out.print("\n\t\tGive course name (e.g., \"CS2212B\": ");
+                    System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
                     String cour = input.next();
-                    operations.printStudentCourse(cour,student.getID());
+                    operations.printStudentCourse(cour.toUpperCase(),student.getID());
                     break;
                 default:
                     System.out.println("\nInvalid option.");

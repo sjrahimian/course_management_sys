@@ -2,7 +2,7 @@
 /**
  * @author Moe Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
  * @version 0.1
- * Fall cs2212
+ * Winter cs2212
  *
  * Will perform password authentication (e.g., comparison) and encryption activity
  *

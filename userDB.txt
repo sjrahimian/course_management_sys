@@ -1,7 +1,0 @@
-Name Surname ID PW UserType
-Lucky Luke 1111 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJXs+i1RSYub5belTsXB281S Admin
-Groucho Marx 2222 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJXdaoKpAT/a9+0bvRMbExzb Instructor
-Bart Sampsan 3333 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJXiqXaCJWj3qu2JxsQLRoby Student
-John Smith 1264 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJXwWg9rmf44rK3QLNyS3NS2 Student
-Kostas Kontogiannis 1234 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJXWKyfQAyWeiQ74lcjjU0Kj Instructor
-Mary Brown 3456 aUdCcjMaWM5vh0xjUfECgoPFk1LIb9h/BdGtEt96rJX9aOlWnuiBT+YHfkSC/1Hj Student

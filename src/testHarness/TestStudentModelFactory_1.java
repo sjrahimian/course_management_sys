@@ -11,6 +11,7 @@ import offerings.CourseOffering;
 import offerings.ICourseOffering;
 import offerings.OfferingFactory;
 import registrar.ModelRegister;
+import systemUsers.InstructorModel;
 import systemUsers.StudentModel;
 
 public class TestStudentModelFactory_1 {
@@ -53,19 +54,11 @@ public class TestStudentModelFactory_1 {
 //				for(ICourseOffering course2 : student.getCoursesAllowed())
 //				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
 //			}
+            for(InstructorModel ints : course.getInstructor()){
+			    System.out.println("@$#@$#@$@$#@#" + ints.getIsTutorOf() + "   " + ints.getSurname() + "   "+ ints.getID());
+            }
 		}
 
-        System.out.println("--------------");
-
-        ModelRegister temp = ModelRegister.getInstance();
-
-        CourseOffering course = temp.getRegisteredCourse("CS2213A");
-        List<StudentModel> studentList = course.getStudentsEnrolled();
-        Iterator<StudentModel> stuL = studentList.iterator();
-        while(stuL.hasNext()){
-            System.out.println(stuL);
-            stuL.next();
-        }
 
 
 
