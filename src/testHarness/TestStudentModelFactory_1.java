@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.*;
 
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
@@ -39,20 +40,32 @@ public class TestStudentModelFactory_1 {
 //		code to perform sanity checking of all our code
 //		by printing all of the data that we've loaded
 		for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
-			System.out.println("ID : " + course.getCourseID() + "\nCourse name : " + course.getCourseName() + "\nSemester : " + 
+			System.out.println("ID : " + course.getCourseID() + "\nCourse name : " + course.getCourseName() + "\nSemester : " +
 			course.getSemester());
 			System.out.println("Students allowed to enroll\n");
 			for(StudentModel student : course.getStudentsAllowedToEnroll()){
-				System.out.println("Student name : " + student.getName() + "\nStudent surname : " + student.getSurname() + 
-						"\nStudent ID : " + student.getID() + "\nStudent EvaluationType : " + 
+				System.out.println("Student name : " + student.getName() + "\nStudent surname : " + student.getSurname() +
+						"\nStudent ID : " + student.getID() + "\nStudent EvaluationType : " +
 						student.getEvaluationEntities().get(course) + "\n\n");
 			}
-			
-			for(StudentModel student : course.getStudentsAllowedToEnroll()){
-				for(ICourseOffering course2 : student.getCoursesAllowed())
-				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
-			}
+
+//			for(StudentModel student : course.getStudentsAllowedToEnroll()){
+//				for(ICourseOffering course2 : student.getCoursesAllowed())
+//				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
+//			}
 		}
+
+        System.out.println("--------------");
+
+        ModelRegister temp = ModelRegister.getInstance();
+
+        CourseOffering course = temp.getRegisteredCourse("CS2213A");
+        List<StudentModel> studentList = course.getStudentsEnrolled();
+        Iterator<StudentModel> stuL = studentList.iterator();
+        while(stuL.hasNext()){
+            System.out.println(stuL);
+            stuL.next();
+        }
 
 
 

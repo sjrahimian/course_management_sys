@@ -40,5 +40,13 @@ public class LoggedInStudent implements LoggedInAuthenticatedUser {
 	public void setAuthenticationToken(AuthenticationToken authenticationToken) {
 		this.authenticationToken = authenticationToken;
 	}
+
+	public void setupStudent(AuthenticationToken tk,String[] user){
+		setAuthenticationToken(tk);
+		setName(user[0]);
+		setSurname(user[1]);
+		setID(user[2]);
+
+	}
 	
 }

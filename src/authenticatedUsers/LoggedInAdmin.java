@@ -69,19 +69,11 @@ public class LoggedInAdmin implements LoggedInAuthenticatedUser {
         }
 	}
 
-	public void createCourses(){
-	    Scanner input = new Scanner(System.in);
-	    String line;
-        System.out.print("\n\tGive filename: ");
-        line = input.next();
-
-    }
-
-    private void buildCourseOffering(String file) throws IOException {
-        OfferingFactory factory = new OfferingFactory();
-        BufferedReader br = new BufferedReader(new FileReader(new File(file)));
-        CourseOffering courseOffering = factory.createCourseOffering(br);
-        br.close();
+    public void setupAdmin(AuthenticationToken tk,String[] user){
+        setAuthenticationToken(tk);
+        setName(user[0]);
+        setSurname(user[1]);
+        setID(user[2]);
 
     }
 	 

@@ -1,17 +1,18 @@
 import authenticatedUsers.*;
 import authenticationServer.AuthenticationToken;
-//import com.sun.deploy.util.StringUtils;
+
 import loggedInUserFactory.LoggedInUserFactory;
 
 import java.io.*;
 import java.util.*;
 import java.time.*;
 import java.time.format.*;
-import java.util.regex.Pattern;
+
 
 class CMS{
     private static Boolean sys_state = false;  //system is off
     private static Boolean sys_state_create = true;
+    private Operations operations;
     private int counter;
 
     public void CMS(){
@@ -73,6 +74,8 @@ class CMS{
                         }
                     }
                     else {
+                        System.out.println("password >>> " + auth.encode(password));
+
                         System.out.println("Incorrect password. Try again.\n");
                     }
                 }
@@ -104,10 +107,10 @@ class CMS{
     public void Administrator(AuthenticationToken tk, String[] user){
         Scanner input = new Scanner(System.in);
         LoggedInUserFactory log = new LoggedInUserFactory();
-        LoggedInAdmin admin;
-        admin = (LoggedInAdmin) log.createAuthenticatedUser(tk);
+        LoggedInAdmin admin = new LoggedInAdmin();
+        admin.setupAdmin(tk,user);
 
-        System.out.println("Welcome Administrator " + user[0] + " " + user[1] + ". Select an option:");
+        System.out.println("Welcome Administrator " + admin.getName() + " " + admin.getSurname() + ". Select an option:");
         System.out.print("\t1. START System State (auto-activates option 3)" +
                 "\n\t2. STOP System State" +
                 "\n\t3. Create Courses" +
@@ -121,14 +124,16 @@ class CMS{
                     sys_state = admin.modifySystemState(sys_state,1);
                     if(sys_state_create) {
                         sys_state_create = false;
-                        admin.createCourses();
+                        operations = new Operations();
+                        operations.createCourses();
+                        operations.init();
                     }
                     break;
                 case "2":
                     sys_state = admin.modifySystemState(sys_state,0);
                     break;
                 case "3":
-                    admin.createCourses();
+
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -151,11 +156,10 @@ class CMS{
 
     public void Instructor(AuthenticationToken tk, String[] user){
     	Scanner input = new Scanner(System.in);
-    	LoggedInUserFactory log = new LoggedInUserFactory();
-        LoggedInInstructor instructor;
-        instructor = (LoggedInInstructor) log.createAuthenticatedUser(tk);
+        LoggedInInstructor instructor = new LoggedInInstructor();
+        instructor.setupInstructor(tk,user);
 
-        System.out.println("Welcome Instructor " + user[0] + " " + user[1] + ". Select an option:");
+        System.out.println("Welcome Instructor " + instructor.getName() + " " + instructor.getSurname() + ". Select an option:");
         System.out.print("\t1. Add mark for a student." +
                 "\n\t2. Modify mark for a student." +
                 "\n\t3. Calculate final grade." +
@@ -173,6 +177,7 @@ class CMS{
                 case "3":
                     break;
                 case "4":
+
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -196,9 +201,9 @@ class CMS{
 
     public void Student(AuthenticationToken tk, String[] user){
     	Scanner input = new Scanner(System.in);
-        LoggedInUserFactory log = new LoggedInUserFactory();
-        LoggedInStudent student;
-        student = (LoggedInStudent) log.createAuthenticatedUser(tk);
+        LoggedInStudent student = new LoggedInStudent();
+        student.setupStudent(tk,user);
+
 
         System.out.println("Welcome Student " + user[0] + " " + user[1] + ". Select an option:");
         System.out.print("\t1. Enroll in course." +
@@ -216,8 +221,14 @@ class CMS{
                 case "2":
                     break;
                 case "3":
+                    System.out.print("\n\tGive course name to change notice for (e.g., \"CS2212B\": ");
+                    String cou = input.next();
+                    operations.setNotification(cou,student.getID());
                     break;
                 case "4":
+                    System.out.print("\n\tGive course name (e.g., \"CS2212B\": ");
+                    String cour = input.next();
+                    operations.printStudentCourse(cour,student.getID());
                     break;
                 default:
                     System.out.println("\nInvalid option.");

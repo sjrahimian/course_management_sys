@@ -40,5 +40,13 @@ public class LoggedInInstructor implements LoggedInAuthenticatedUser {
 	public void setAuthenticationToken(AuthenticationToken authenticationToken) {
 		this.authenticationToken = authenticationToken;
 	}
+
+	public void setupInstructor(AuthenticationToken tk,String[] user){
+		setAuthenticationToken(tk);
+		setName(user[0]);
+		setSurname(user[1]);
+		setID(user[2]);
+
+	}
 		
 }
