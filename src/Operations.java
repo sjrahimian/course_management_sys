@@ -45,22 +45,25 @@ public class Operations {
         br.close();
     }
 
-    public void printClassRecord() {
+    public void printClassRecord(String id) {
         for (CourseOffering course : ModelRegister.getInstance().getAllCourses()) {
-            System.out.println("Course ID: " + course.getCourseID() +
+            for(InstructorModel instructor : course.getInstructor()){
+        	
+            	System.out.println("Course ID: " + course.getCourseID() +
                     "\nCourse name: " + course.getCourseName() +
                     "\nSemester: " + course.getSemester() +
                     "\nInstructor: " + course.getInstructor());
-            for(InstructorModel instructor : course.getInstructor()){
+
                 System.out.println("Instructor: " + instructor.getName() + " " + instructor.getSurname() +
                                     "\nInstructor ID: " + instructor.getID());
-            }
+            
 
-            System.out.println("\nStudents allowed to enroll:");
-            for (StudentModel student : course.getStudentsAllowedToEnroll()) {
-                System.out.println("Student name: " + student.getName() + student.getSurname() +
-                        "\nStudent ID: " + student.getID() +
-                        "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) + "\n\n");
+	            System.out.println("\nStudents allowed to enroll:");
+	            for (StudentModel student : course.getStudentsAllowedToEnroll()) {
+	                System.out.println("Student name: " + student.getName() + student.getSurname() +
+	                        "\nStudent ID: " + student.getID() +
+	                        "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) + "\n\n");
+	            }
             }
 
             System.out.println("\t\t--------");

@@ -159,6 +159,7 @@ class CMS{
         LoggedInInstructor instructor = new LoggedInInstructor();
         instructor.setupInstructor(tk,user);
 
+
         System.out.println("Welcome Instructor " + instructor.getName() + " " + instructor.getSurname() + ". Select an option:");
         System.out.print("\t1. Add mark for a student." +
                 "\n\t2. Modify mark for a student." +
@@ -176,8 +177,7 @@ class CMS{
                     break;
                 case "3":
                     break;
-                case "4":
-
+                case "4": operations.printClassRecord();
                     break;
                 default:
                     System.out.println("\nInvalid option.");
