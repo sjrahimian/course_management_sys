@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cbac6bd-c36c-40f1-9c3b-c7a2908fcdf5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Marking.java" afterPath="$PROJECT_DIR$/src/Marking.java" />
-      <change beforePath="$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java" afterPath="$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java" />
-    </list>
+    <list default="true" id="9cbac6bd-c36c-40f1-9c3b-c7a2908fcdf5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -115,8 +112,8 @@
           <file leaf-file-name="CourseOffering.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/offerings/CourseOffering.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="101" column="47" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+                <state relative-caret-position="51">
+                  <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
                   <folding>
                     <element signature="method#setStudentsAllowedToEnroll#0;class#CourseOffering#0" expanded="false" />
                     <element signature="method#setEvaluationStrategies#0;class#CourseOffering#0" expanded="false" />
@@ -998,8 +995,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/offerings/CourseOffering.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="101" column="47" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
             <element signature="method#setStudentsAllowedToEnroll#0;class#CourseOffering#0" expanded="false" />
             <element signature="method#setEvaluationStrategies#0;class#CourseOffering#0" expanded="false" />
