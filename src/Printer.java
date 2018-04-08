@@ -19,7 +19,7 @@ public class Printer extends Operations{
      * @param courseName name of course user wants
      * @param id user's ID
      */
-    public void classRecord(String courseName, String id) {
+    protected void classRecord(String courseName, String id) {
         Boolean found = false;
         System.out.println();
         for (CourseOffering course : ModelRegister.getInstance().getAllCourses()) {
@@ -63,11 +63,11 @@ public class Printer extends Operations{
     }
 
     /**
-     * Print course record
+     * Print record for specified course by student
      * @param cID get the course id
      * @param sID user's id
      */
-    public void studentsCourses(String cID, String sID){
+    protected void singleStudentsCourse(String cID, String sID){
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
         String teachList = "";
 
@@ -91,8 +91,11 @@ public class Printer extends Operations{
 
     }
 
-
-    public void allStudentsCourses(String stuID){
+    /**
+     * prints all courses that a student is registered in
+     * @param stuID student id
+     */
+    protected void allStudentsCourses(String stuID){
         String teachList = "";
         for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
             for (StudentModel student : course.getStudentsEnrolled()) {

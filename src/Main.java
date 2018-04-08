@@ -125,7 +125,7 @@ class CMS{
         System.out.println("Welcome Administrator " + admin.getName() + " " + admin.getSurname() + ". Select an option:");
         System.out.print("\t1. START System State (auto-activates option 3)" +
                 "\n\t2. STOP System State" +
-                "\n\t3. Create Course" +
+                "\n\t3. Create Courses" +
                 "\n\t4. Enroll a student" +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
@@ -143,10 +143,10 @@ class CMS{
                     break;
                 case "2":
                     sys_state = admin.modifySystemState(sys_state,0);
-                    if(sys_state_create) {
-                        sys_state_create = true;
-                        operations = null;
-                    }
+//                    if(sys_state_create) {
+//                        sys_state_create = true;
+//                        operations = null;
+//                    }
                     break;
                 case "3":if(!sys_state){System.out.println("Turn system on first.");break;}
                     operations.loadCourses();
@@ -154,9 +154,9 @@ class CMS{
                 case "4":if(!sys_state){System.out.println("Turn system on first.");break;}
                     System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
                     String corID = input.next();
-                    System.out.print("\n\tStudent ID to be enrolled: ");
+                    System.out.print("\tStudent ID to be enrolled: ");
                     String stuID = input.next();
-                    operations.enrollStudent(corID.toUpperCase(),stuID);
+                    operations.enroll_1_Student(corID.toUpperCase(),stuID);
 
                     break;
                 default:
@@ -164,7 +164,7 @@ class CMS{
             }
 
 
-            System.out.print("\nSelect an option:" +
+            System.out.print("\n\nSelect an option:" +
                     "\n\t1. START System State (will also activate option 3)" +
                     "\n\t2. STOP System State" +
                     "\n\t3. Create Courses" +
@@ -186,7 +186,8 @@ class CMS{
         System.out.print("\t1. Add mark for a student." +
                 "\n\t2. Modify mark for a student." +
                 "\n\t3. Calculate final grade." +
-                "\n\t4. Print course record." +
+                "\n\t4. Print course roster." +
+                "\n\t5. Print single student's course." +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
@@ -201,18 +202,24 @@ class CMS{
                     break;
                 case "4": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
                     String cou = input.next();
-                    operations.printClassRecord(cou.toUpperCase(), instructor.getID());
+                    operations.printRoster(cou.toUpperCase(), instructor.getID());
+                    break;
+                case "5": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
+                    String cName = input.next();
+                    System.out.print("\tGive Student's ID: ");
+                    operations.printStudentCourse(cName.toUpperCase(), input.next());
                     break;
                 default:
                     System.out.println("\nInvalid option.");
             }
 
 
-            System.out.print("\nSelect an option:" +
+            System.out.print("\n\nSelect an option:" +
                     "\n\t1. Add mark for a student." +
                     "\n\t2. Modify mark for a student." +
                     "\n\t3. Calculate final grade." +
                     "\n\t4. Print course record." +
+                    "\n\t5. Print single student's course." +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
@@ -256,7 +263,7 @@ class CMS{
             }
 
 
-            System.out.print("\nSelect an option:" +
+            System.out.print("\n\nSelect an option:" +
                     "\n\t1. Enroll in course." +
 //                    "\n\t2. Select notification status." +
                     "\n\t2. Add notification preferences." +

@@ -51,29 +51,33 @@ public class Operations {
 
     }
 
-
     /**
      * Print class record.
      * @param courseName name of course user wants
      * @param id user's ID
      */
-    public void printClassRecord(String courseName, String id) {
+    public void printRoster(String courseName, String id) {
         Printer print = new Printer();
         if(doesCourseExist(courseName))
             print.classRecord(courseName,id);
     }
 
     /**
-     * Print course record
+     * Print course record for one student
      * @param courseName get the course id
      * @param sID user's id
      */
     public void printStudentCourse(String courseName, String sID){
         Printer print = new Printer();
+
         if(doesCourseExist(courseName))
-            print.studentsCourses(courseName,sID);
+            print.singleStudentsCourse(courseName,sID);
     }
 
+    /**
+     * prints all courses that a student has been registered in
+     * @param sID student id
+     */
     public void printAllStudentsCourses(String sID){
         Printer print = new Printer();
         print.allStudentsCourses(sID);
@@ -84,7 +88,7 @@ public class Operations {
      * @param cID course name
      * @param sID user id
      */
-    public void enrollStudent(String cID, String sID){
+    public void enroll_1_Student(String cID, String sID){
         if(!doesCourseExist(cID))
             return;
 
@@ -168,8 +172,7 @@ public class Operations {
 
     public void yabbadabba(String courseID, String studentID){
         Marking marking = new Marking();
-
-
+//        marking.newMarkinmarkinghahah(courseID, studentID);
 
 
 
