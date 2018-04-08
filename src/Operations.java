@@ -3,16 +3,45 @@ import offerings.CourseOffering;
 import offerings.ICourseOffering;
 import offerings.OfferingFactory;
 import registrar.ModelRegister;
-import systemUsers.InstructorModel;
 import systemUsers.StudentModel;
+import systemUsers.SystemUserModel;
 
 import java.io.*;
 import java.util.*;
 
 public class Operations {
-    private List<CourseOffering> coursesOffered;
     List<ICourseOffering> enrollStuList = new ArrayList<>();
-    List<StudentModel> enrollCoruseList = new ArrayList<>();
+    List<StudentModel> enrollCourseList = new ArrayList<>();
+
+    /**
+     * helper for checking courses
+     * @param cID course to find
+     */
+    public Boolean doesCourseExist(String cID){
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
+        if(course != null){ //if there is such a course
+            return true;
+        }
+
+        System.out.println("\nNo such course.");
+        return false;
+
+    }
+
+    /**
+     * helper for checking courses
+     * @param stuID course to find
+     */
+    public Boolean doesStudentExist(String stuID){
+        StudentModel student = (StudentModel) ModelRegister.getInstance().getRegisteredUser(stuID);
+        if(student != null){ //if there is such a course
+            return true;
+        }
+
+        System.out.println("\nNo such student.");
+        return false;
+
+    }
 
     public void loadCourses() {
         try {
@@ -51,76 +80,75 @@ public class Operations {
      * @param id user's ID
      */
     public void printClassRecord(String courseName, String id) {
-        Boolean found = false;
-        System.out.println();
-        for (CourseOffering course : ModelRegister.getInstance().getAllCourses()) {
-            //if course is requested;
-            if(course.getCourseID().equals(courseName)) {
-                found = true;
-                for(InstructorModel instructor : course.getInstructor()){
-                    //print only logged in profs class
-                    if(instructor.getID().equals(id)){
-                        System.out.println("Course ID: " + course.getCourseID() +
-                                "\nCourse name: " + course.getCourseName() +
-                                "\nSemester: " + course.getSemester());
-
-                        for(InstructorModel teach : course.getInstructor()) {
-                            System.out.println("Instructor: " + teach.getName() + " " + teach.getSurname() +
-                                    "\nInstructor ID: " + teach.getID());
-                        }
-
-                        System.out.println("\nStudent List:");
-                        if(!course.getStudentsEnrolled().isEmpty()){
-                            for (StudentModel student : course.getStudentsEnrolled()) {
-                                        System.out.println("Student name: " + student.getName() + " " + student.getSurname() +
-                                                "\nStudent ID: " + student.getID() +
-                                                "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) + "\n\n");
-                            }
-                        }
-                        else{
-                            System.out.println("\t\tNo students enrolled.");
-                        }
-
-                    }
-                }
-                break;
-            }
-
-        }
-        if(!found){
-            System.out.println("\t\t"+ courseName + " is not in the database.");
-        }
-
+        Printer print = new Printer();
+        if(doesCourseExist(courseName))
+            print.classRecord(courseName,id);
     }
 
+    /**
+     * Print course record
+     * @param courseName get the course id
+     * @param sID user's id
+     */
+    public void printStudentCourse(String courseName, String sID){
+        Printer print = new Printer();
+        if(doesCourseExist(courseName))
+            print.studentsCourses(courseName,sID);
+    }
+
+    public void printAllStudentsCourses(String sID){
+        Printer print = new Printer();
+        print.allStudentsCourses(sID);
+    }
+
+    /**
+     * Enrolls a student in course: adds student to course list, and course to student list
+     * @param cID course name
+     * @param sID user id
+     */
     public void enrollStudent(String cID, String sID){
+        if(!doesCourseExist(cID))
+            return;
+
+        if(!doesStudentExist(sID))
+            return;
+
+        Boolean registered = false;
 
         for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
             for(StudentModel student : course.getStudentsAllowedToEnroll()){
                 if(course.getCourseID().equals(cID) && student.getID().equals(sID)){
                     if(course.getStudentsEnrolled().isEmpty()){
+                        registered = true;
+
                         this.enrollStuList = new ArrayList<>();
-                        this.enrollCoruseList = new ArrayList<>();
+                        this.enrollCourseList = new ArrayList<>();
 
                         enrollStuList.add(course);
                         student.setCoursesEnrolled(enrollStuList);
 
-                        enrollCoruseList.add(student);
-                        course.setStudentsEnrolled(enrollCoruseList);
+                        enrollCourseList.add(student);
+                        course.setStudentsEnrolled(enrollCourseList);
 
-                        System.out.println("Enrolling " + student.getID() + " in " + course.getCourseID());
+                        System.out.println("\nEnrolling " + student.getID() + " in " + course.getCourseID());
                     }
                     else{
+                        registered = true;
+
                         this.enrollStuList.add(course);
                         student.setCoursesEnrolled(this.enrollStuList);
 
-                        this.enrollCoruseList.add(student);
-                        course.setStudentsEnrolled(this.enrollCoruseList);
+                        this.enrollCourseList.add(student);
+                        course.setStudentsEnrolled(this.enrollCourseList);
 
-                        System.out.println("Enrolling " + student.getID() + " in " + course.getCourseID());
+                        System.out.println("\nEnrolling " + student.getID() + " in " + course.getCourseID());
                     }
                 }
             }
+        }
+
+        if(!registered){
+            System.out.println("\n>>Denied enrollment<<");
         }
 
 
@@ -157,27 +185,6 @@ public class Operations {
 
                 }
             }
-        }
-    }
-
-    /**
-     * Print course record
-     * @param courseName get the course id
-     * @param sID user's id
-     */
-    public void printStudentCourse(String courseName, String sID){
-
-        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
-        for (StudentModel student : course.getStudentsAllowedToEnroll()) {
-            if(student.getID().equals(sID))
-                System.out.println("\nCourse ID: " + course.getCourseID() +
-                        "\nCourse Name: " + course.getCourseName() + course.getSemester() +
-                        "\nCourse Instructor: " + course.getInstructor() +
-                        "\nStudent Name: " + student.getName() + " " + student.getSurname() +
-                        "\nStudent ID: " + student.getID() +
-                        "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course));
-            if(student.getPerCourseMarks() != null)
-                System.out.println("Course Marks: " + student.getPerCourseMarks().get(course));
         }
     }
 
