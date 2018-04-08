@@ -247,17 +247,13 @@ class CMS{
             switch(line){
                 case "1":
                     break;
-                case "2":
-                    System.out.print("\n\tGive course name (e.g., \"CS2212B\") for notification change: ");
-                    String cou = input.next();
-                    operations.setNotification(cou.toUpperCase(),student.getID());
+                case "2": System.out.print("\n\tGive course name (e.g., \"CS2212B\") for notification change: ");
+                    operations.setNotification(input.next().toUpperCase(), student.getID());
                     break;
-                case "3":
-                    System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
-                    String cour = input.next();
-                    operations.printStudentCourse(cour.toUpperCase(),student.getID());
+                case "3": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
+                    operations.printStudentCourse(input.next().toUpperCase(),student.getID());
                     break;
-                case "4":operations.printAllStudentsCourses(student.getID());
+                case "4": operations.printAllStudentsCourses(student.getID());
                 default:
                     System.out.println("\nInvalid option.");
             }

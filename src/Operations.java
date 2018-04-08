@@ -32,7 +32,14 @@ public class Operations {
      * @param stuID course to find
      */
     public Boolean doesStudentExist(String stuID){
+
+        //need to make sure that the stuID is not a instructor ID
+//        SystemUserModel temp = ModelRegister.getInstance().getRegisteredUser(stuID);
+//        if(temp.getID().equals(stuID));
+
         StudentModel student = (StudentModel) ModelRegister.getInstance().getRegisteredUser(stuID);
+
+
         if(student != null){ //if there is such a course
             return true;
         }
@@ -46,7 +53,7 @@ public class Operations {
      * Load course registration files.
      */
     public void loadCourses() {
-        BuildACourse newCourse = new BuildACourse();
+        BuildCourses newCourse = new BuildCourses();
         newCourse.runRegistration();
 
     }
@@ -179,7 +186,7 @@ public class Operations {
     }
 
     public void createCourses(){
-        BuildACourse newCourse = new BuildACourse();
+        BuildCourses newCourse = new BuildCourses();
 
 
     }

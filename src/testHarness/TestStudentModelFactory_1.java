@@ -56,27 +56,36 @@ public class TestStudentModelFactory_1 {
                     if(course.getCourseID().equals("CS2212B")){
                         Marks m1 = new Marks();
                         m1.addToEvalStrategy("Final",2.22);
-                        Hashtable<ICourseOffering,Marks> markPackage = new Hashtable<>();
-                        markPackage.put(course,m1);
+                        m1.addToEvalStrategy("ASSIGNMENT-1", 88.2);
+                        m1.addToEvalStrategy("ASSIGNMENT-2", 23.2);
 
-                        Marks m2 = new Marks();
-                        m2.addToEvalStrategy("Assignment", 88.9);
-                        markPackage.put(course,m2);
+                        Map<ICourseOffering,Marks> markPackage = new Hashtable<>();
+                        markPackage.put(course,m1);
 
                         student.setPerCourseMarks(markPackage);
                     }
+                    System.out.println("#######");
+                    course.calculateFinalGrades();
+                    System.out.println("#######");
+
+//                    course.calculateFinalGrade(student.getID());
 
 
-                    System.out.println("Student " + student.getID() + student.getName());
-                    if(student.getPerCourseMarks() != null){
-                        System.out.println("Course Marks: " + student.getPerCourseMarks().get(course));
-                        Marks m;
-                        m = student.getPerCourseMarks().get(course);
-                        System.out.println("Course Marks: " + m.getValueWithKey("Assignment"));
 
+                    if(student.getPerCourseMarks() != null) {
+                        System.out.println("Course Marks:");
+                        if (student.getPerCourseMarks() != null) {
+                            Marks bundle = student.getPerCourseMarks().get(course);
+
+                            bundle.initializeIterator();
+                            while (bundle.hasNext()) {
+                                Map.Entry<String, Double> mark = bundle.getNextEntry();
+                                System.out.println(String.format("%1$-15s %2$.2f", mark.getKey(), mark.getValue()));
+                            }
+                        }
+                        else
+                            System.out.println("\t\tNo marks");
                     }
-                    else
-                        System.out.println("no marks");
                 }
 
 

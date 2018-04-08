@@ -17,12 +17,12 @@ public enum EvaluationTypes {
 	}
 
 	public static EvaluationTypes fromString(String text) {
-	for (EvaluationTypes b : EvaluationTypes.values()) {
-	  if (b.text.equalsIgnoreCase(text)) {
-		return b;
-	  }
-	}
-	return null;
+        for (EvaluationTypes b : EvaluationTypes.values()) {
+          if (b.text.equalsIgnoreCase(text)) {
+            return b;
+          }
+        }
+        return null;
 	}
 	
 }

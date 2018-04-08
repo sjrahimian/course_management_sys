@@ -13,7 +13,7 @@ import java.io.*;
  */
 
 
-public class BuildACourse {
+public class BuildCourses {
     private CourseOffering newCourse;
 
 
@@ -147,7 +147,7 @@ public class BuildACourse {
     //        banner();
     //
     //        this.newCourse = new CourseOffering();
-//    public BuildACourse(){
+//    public BuildCourses(){
 
 //    }
 

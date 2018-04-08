@@ -10,7 +10,7 @@ public class Marking {
     public Marking(){
     }
 
-    public void newMarkinmarkinghahah(String courseID){
+    public void newMarkinmarkinghahaha(String courseID){
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
 
         Marks m = new Marks();

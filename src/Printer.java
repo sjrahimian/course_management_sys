@@ -7,10 +7,13 @@
  *
  */
 
+import customDatatypes.Marks;
 import offerings.CourseOffering;
 import registrar.ModelRegister;
 import systemUsers.InstructorModel;
 import systemUsers.StudentModel;
+
+import java.util.Map;
 
 public class Printer extends Operations{
 
@@ -63,7 +66,7 @@ public class Printer extends Operations{
     }
 
     /**
-     * Print record for specified course by student
+     * Print record for specific course & student
      * @param cID get the course id
      * @param sID user's id
      */
@@ -84,8 +87,21 @@ public class Printer extends Operations{
                         "\nStudent Name: " + student.getName() + " " + student.getSurname() +
                         "\nStudent ID: " + student.getID() +
                         "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course));
-            if(student.getPerCourseMarks() != null)
-                System.out.println("Course Marks: " + student.getPerCourseMarks().get(course));
+            //print course marks
+            if(student.getPerCourseMarks() != null) {
+                System.out.println("Course Marks:");
+                if (student.getPerCourseMarks() != null) {
+                    Marks bundle = student.getPerCourseMarks().get(course);
+
+                    bundle.initializeIterator();
+                    while (bundle.hasNext()) {
+                        Map.Entry<String, Double> mark = bundle.getNextEntry();
+                        System.out.println(String.format("%1$-15s %2$.2f", mark.getKey(), mark.getValue()));
+                    }
+                }
+                else
+                    System.out.println("\t\tNo marks");
+            }
 
         }
 
@@ -111,8 +127,21 @@ public class Printer extends Operations{
                             "\nStudent Name: " + student.getName() + " " + student.getSurname() +
                             "\nStudent ID: " + student.getID() +
                             "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course));
-                if(student.getPerCourseMarks() != null)
-                    System.out.println("Course Marks: " + student.getPerCourseMarks().get(course));
+                //print course marks
+                if(student.getPerCourseMarks() != null) {
+                    System.out.println("Course Marks:");
+                    if (student.getPerCourseMarks() != null) {
+                        Marks bundle = student.getPerCourseMarks().get(course);
+
+                        bundle.initializeIterator();
+                        while (bundle.hasNext()) {
+                            Map.Entry<String, Double> mark = bundle.getNextEntry();
+                            System.out.println(String.format("%1$-15s %2$.2f", mark.getKey(), mark.getValue()));
+                        }
+                    }
+                    else
+                        System.out.println("\t\tNo marks");
+                }
 
             }
         }
