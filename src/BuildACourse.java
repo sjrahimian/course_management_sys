@@ -8,7 +8,7 @@
  */
 
 
-public class CreateCourse {
+public class BuildACourse {
 
 
 }

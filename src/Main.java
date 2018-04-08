@@ -137,7 +137,7 @@ class CMS{
                     if(sys_state_create) {
                         sys_state_create = false;
                         operations = new Operations();
-                        operations.createCourses();
+                        operations.loadCourses();
                         operations.init();
                     }
                     break;
@@ -145,7 +145,7 @@ class CMS{
                     sys_state = admin.modifySystemState(sys_state,0);
                     break;
                 case "3":
-
+                    operations.createCourses();
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -243,9 +243,9 @@ class CMS{
 
             System.out.print("\nSelect an option:" +
                     "\n\t1. Enroll in course." +
-                    "\n\t2. Select notification status." +
-                    "\n\t3. Add notification preferences." +
-                    "\n\t4. Print course record." +
+//                    "\n\t2. Select notification status." +
+                    "\n\t2. Add notification preferences." +
+                    "\n\t3. Print course record." +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 

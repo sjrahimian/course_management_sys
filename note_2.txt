@@ -1,7 +1,7 @@
 Intro-to-Programming	CS2213A	1
 TUTOR	LIST	2
 Kostas	Kontogiannis	1234
-Robert	Weber			5678
+Robert	Weber		5678
 ELLIGIBLE	STUDENTS	6
 John	Smith	1264	FC
 Mary	Brown	3456	FA

@@ -13,13 +13,12 @@ public class Operations {
     private ModelRegister register;
     private List<CourseOffering> coursesOffered;
 
-
     public void init(){
         this.register = ModelRegister.getInstance();
         this.coursesOffered = this.register.getAllCourses();
     }
 
-    public void createCourses() {
+    public void loadCourses() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 //            System.out.print("\n\tGive filename: ");
@@ -50,20 +49,18 @@ public class Operations {
         br.close();
     }
 
-    public void calcFinalGrade(String id){
-
-    }
-
     /**
      * Print class record.
      * @param courseName name of course user wants
      * @param id user's ID
      */
     public void printClassRecord(String courseName, String id) {
+        Boolean found = false;
         System.out.println();
         for (CourseOffering course : ModelRegister.getInstance().getAllCourses()) {
             //if course is requested;
             if(course.getCourseID().equals(courseName)) {
+                found = true;
                 for(InstructorModel instructor : course.getInstructor()){
                     //print only logged in profs class
                     if(instructor.getID().equals(id)){
@@ -86,19 +83,17 @@ public class Operations {
                             }
                         }
                         else{
-                            System.out.println("\t\t No students enrolled.");
+                            System.out.println("\t\tNo students enrolled.");
                         }
 
                     }
-                    else{
-                        System.out.println("\t\tAccess denied to: "+ courseName + ".");
-
-                    }
-
                 }
+                break;
             }
 
-
+        }
+        if(!found){
+            System.out.println("\t\t"+ courseName + " is not in the database.");
         }
 
     }
@@ -155,6 +150,16 @@ public class Operations {
                         "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) );
             //+ "\nCourse Marks: " + student.getPerCourseMarks().get(course));
         }
+    }
+
+    public void calcFinalGrade(String id){
+
+    }
+
+    public void createCourses(){
+        BuildACourse newCourse = new BuildACourse();
+
+
     }
 
 }

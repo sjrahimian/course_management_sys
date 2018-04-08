@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
 
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
@@ -50,17 +50,17 @@ public class TestStudentModelFactory_1 {
 						student.getEvaluationEntities().get(course) + "\n\n");
 			}
 
+			for(InstructorModel ints:course.getInstructor()){
+			    System.out.println("$$$$$$$ " + ints.getID() + "  " + ints.getSurname());
+            }
+
 //			for(StudentModel student : course.getStudentsAllowedToEnroll()){
 //				for(ICourseOffering course2 : student.getCoursesAllowed())
 //				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
 //			}
-            for(InstructorModel ints : course.getInstructor()){
-			    System.out.println("@$#@$#@$@$#@#" + ints.getIsTutorOf() + "   " + ints.getSurname() + "   "+ ints.getID());
-            }
 		}
 
-
-
+        System.out.println("--------------");
 
     }
 }
