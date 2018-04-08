@@ -1,4 +1,3 @@
-import customDatatypes.Marks;
 import customDatatypes.NotificationTypes;
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
@@ -12,8 +11,8 @@ import java.util.*;
 
 public class Operations {
     private List<CourseOffering> coursesOffered;
-    List<ICourseOffering> newStu = new ArrayList<>();
-    List<StudentModel> newCour = new ArrayList<>();
+    List<ICourseOffering> enrollStuList = new ArrayList<>();
+    List<StudentModel> enrollCoruseList = new ArrayList<>();
 
     public void loadCourses() {
         try {
@@ -100,23 +99,23 @@ public class Operations {
             for(StudentModel student : course.getStudentsAllowedToEnroll()){
                 if(course.getCourseID().equals(cID) && student.getID().equals(sID)){
                     if(course.getStudentsEnrolled().isEmpty()){
-                        this.newStu = new ArrayList<>();
-                        this.newCour = new ArrayList<>();
+                        this.enrollStuList = new ArrayList<>();
+                        this.enrollCoruseList = new ArrayList<>();
 
-                        newStu.add(course);
-                        student.setCoursesEnrolled(newStu);
+                        enrollStuList.add(course);
+                        student.setCoursesEnrolled(enrollStuList);
 
-                        newCour.add(student);
-                        course.setStudentsEnrolled(newCour);
+                        enrollCoruseList.add(student);
+                        course.setStudentsEnrolled(enrollCoruseList);
 
                         System.out.println("Enrolling " + student.getID() + " in " + course.getCourseID());
                     }
                     else{
-                        this.newStu.add(course);
-                        student.setCoursesEnrolled(this.newStu);
+                        this.enrollStuList.add(course);
+                        student.setCoursesEnrolled(this.enrollStuList);
 
-                        newCour.add(student);
-                        course.setStudentsEnrolled(newCour);
+                        this.enrollCoruseList.add(student);
+                        course.setStudentsEnrolled(this.enrollCoruseList);
 
                         System.out.println("Enrolling " + student.getID() + " in " + course.getCourseID());
                     }
