@@ -1,13 +1,12 @@
-import customDatatypes.Marks;
 import customDatatypes.NotificationTypes;
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
-import offerings.OfferingFactory;
 import registrar.ModelRegister;
 import systemUsers.StudentModel;
 
-import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Operations {
     List<ICourseOffering> enrollStuList = new ArrayList<>();
@@ -43,36 +42,15 @@ public class Operations {
 
     }
 
-    public void loadCourses() {
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//            System.out.print("\n\tGive filename: ");
-//            String line = reader.readLine();
-//            String[] lineSplit = line.split(" ");
-
-//            for (int i = 0; i <= lineSplit.length; i++) {
-                buildCourseOffering("note_1.txt");
-                buildCourseOffering("note_2.txt");
-//            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            System.out.println(e + "exception thrown at createCourses");
-        }
-
-    }
-
     /**
-     * helper function that builds the courses
-     * @param file filename given by user
-     * @throws IOException
+     * Load course registration files.
      */
-    private void buildCourseOffering(String file) throws IOException {
-        OfferingFactory factory = new OfferingFactory();
-        BufferedReader br = new BufferedReader(new FileReader(new File(file)));
-        CourseOffering courseOffering = factory.createCourseOffering(br);
-        br.close();
+    public void loadCourses() {
+        BuildACourse newCourse = new BuildACourse();
+        newCourse.runRegistration();
+
     }
+
 
     /**
      * Print class record.

@@ -1,14 +1,7 @@
-import customDatatypes.EvaluationTypes;
-import customDatatypes.Weights;
 import offerings.CourseOffering;
-import offerings.ICourseOffering;
-import registrar.ModelRegister;
-import systemUserModelFactories.InstructorModelFactory;
-import systemUserModelFactories.SystemUserModelFactory;
-import systemUsers.InstructorModel;
-import systemUsers.StudentModel;
+import offerings.OfferingFactory;
 
-import java.util.*;
+import java.io.*;
 
 /**
  * @author Moe Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
@@ -24,107 +17,139 @@ public class BuildACourse {
     private CourseOffering newCourse;
 
 
-    public BuildACourse(){
-        this.newCourse = new CourseOffering();
+    public void runRegistration() {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//            System.out.print("\n\tGive filename (separate multiple filenames with a space): ");
+//            String line = reader.readLine();
+//            String[] lineSplit = line.split(" ");
 
-        banner();
-        courseID();
-        courseName();
-        instructor();
-
-        semester();
-
-        ModelRegister.getInstance().registerCourse(this.newCourse.getCourseID(), this.newCourse);
-
-    }
-
-    private void studentEnrolled(){
-
-        this.newCourse.setStudentsEnrolled(new ArrayList<StudentModel>());
-
-    }
-
-    private void StudentsAllowed(){
-
-        this.newCourse.setStudentsAllowedToEnroll(new ArrayList<StudentModel>());
-
-    }
-
-    private void EvalStart(){
-
-        this.newCourse.setEvaluationStrategies(new HashMap<EvaluationTypes, Weights>());
-    }
-
-    private void instructor(){
-        InstructorModel newInstructorModel = new InstructorModel();
-
-        Scanner scan = new Scanner(System.in);
-        String input;
-        System.out.print("\nEnter Course ID: ");
-        input = scan.next();
-
-        if(!ModelRegister.getInstance().checkIfUserHasAlreadyBeenCreated(input)){
-            System.out.print("\nEnter Course ID: ");
-            input = scan.next();
-            newInstructorModel.setName(input);
-
-            System.out.print("\nEnter Course ID: ");
-            input = scan.next();
-            newInstructorModel.setSurname(input);
-
-            System.out.print("\nEnter Course ID: ");
-            input = scan.next();
-
-            newInstructorModel.setID(input);
-            System.out.print("\nEnter Course ID: ");
-            input = scan.next();
-
-            newInstructorModel.setIsTutorOf(new ArrayList<ICourseOffering>());
-            ModelRegister.getInstance().registerUser(newInstructorModel.getID(), newInstructorModel);
+//            for (int i = 0; i <= lineSplit.length; i++) {
+            buildCourseOffering("note_1.txt");
+            buildCourseOffering("note_2.txt");
+//            }
+            banner();
         }
-        newInstructorModel = (InstructorModel) ModelRegister.getInstance().getRegisteredUser(input);
-        newInstructorModel.getIsTutorOf().add(this.newCourse);
-
-        this.newCourse.getInstructor().add(newInstructorModel);
+        catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(e + "exception thrown. Error in course registration.");
+        }
 
     }
 
-    private void courseName(){
-        Scanner scan = new Scanner(System.in);
-        String input;
-        System.out.print("\nEnter Course ID: ");
-        input = scan.next();
-
-        this.newCourse.setCourseName(input);
-    }
-
-    private void courseID(){
-        Scanner scan = new Scanner(System.in);
-        String input;
-
-        System.out.print("\nEnter Course ID: ");
-        input = scan.next();
-        this.newCourse.setCourseID(input.toUpperCase());
-    }
-
-    private void semester(){
-        Scanner scan = new Scanner(System.in);
-        String input;
-
-        System.out.print("\nEnter Semester: ");
-        input = scan.next();
-
-        if(!input.matches("[0-9]+"))
-            System.out.println("Invalid, not a number.\n");
-        else
-            this.newCourse.setSemester(Integer.parseInt(input));
+    /**
+     * helper function that builds the courses
+     * @param file filename given by user
+     * @throws IOException
+     */
+    private void buildCourseOffering(String file) throws IOException {
+        OfferingFactory factory = new OfferingFactory();
+        BufferedReader br = new BufferedReader(new FileReader(new File(file)));
+        CourseOffering courseOffering = factory.createCourseOffering(br);
+        br.close();
     }
 
     private void banner(){
-        System.out.println("\n :: New Course Register ::");
+        System.out.println("\n :: New course registered ::");
     }
 
 
+    //            this.newCourse.setSemester(Integer.parseInt(input));
+    //        else
+    //            System.out.println("Invalid, not a number.\n");
+    //        if(!input.matches("[0-9]+"))
+    //
+    //        input = scan.next();
+    //        System.out.print("\nEnter Semester: ");
+    //
+    //        String input;
+    //        Scanner scan = new Scanner(System.in);
+    //    private void semester(){
+    //
+    //    }
+    //        this.newCourse.setCourseID(input.toUpperCase());
+    //        input = scan.next();
+    //        System.out.print("\nEnter Course ID: ");
+    //
+    //        String input;
+    //        Scanner scan = new Scanner(System.in);
+    //    private void courseID(){
+    //
+    //    }
+    //        this.newCourse.setCourseName(input);
+    //
+    //        input = scan.next();
+    //        System.out.print("\nEnter Course ID: ");
+    //        String input;
+    //        Scanner scan = new Scanner(System.in);
+    //    private void courseName(){
+    //
+    //    }
+    //
+    //        this.newCourse.getInstructor().add(newInstructorModel);
+    //
+    //        newInstructorModel.getIsTutorOf().add(this.newCourse);
+    //        newInstructorModel = (InstructorModel) ModelRegister.getInstance().getRegisteredUser(input);
+    //        }
+    //            ModelRegister.getInstance().registerUser(newInstructorModel.getID(), newInstructorModel);
+    //            newInstructorModel.setIsTutorOf(new ArrayList<ICourseOffering>());
+    //
+    //            input = scan.next();
+    //            System.out.print("\nEnter Course ID: ");
+    //            newInstructorModel.setID(input);
+    //
+    //            input = scan.next();
+    //            System.out.print("\nEnter Course ID: ");
+    //
+    //            newInstructorModel.setSurname(input);
+    //            input = scan.next();
+    //            System.out.print("\nEnter Course ID: ");
+    //
+    //            newInstructorModel.setName(input);
+    //            input = scan.next();
+    //            System.out.print("\nEnter Course ID: ");
+    //        if(!ModelRegister.getInstance().checkIfUserHasAlreadyBeenCreated(input)){
+    //
+    //        input = scan.next();
+    //        System.out.print("\nEnter Course ID: ");
+    //        String input;
+    //        Scanner scan = new Scanner(System.in);
+    //
+    //        InstructorModel newInstructorModel = new InstructorModel();
+    //    private void instructor(){
+    //
+    //    }
+    //        this.newCourse.setEvaluationStrategies(new HashMap<EvaluationTypes, Weights>());
+    //
+    //    private void EvalStart(){
+    //
+    //    }
+    //
+    //        this.newCourse.setStudentsAllowedToEnroll(new ArrayList<StudentModel>());
+    //
+    //    private void StudentsAllowed(){
+    //
+    //    }
+    //
+    //        this.newCourse.setStudentsEnrolled(new ArrayList<StudentModel>());
+    //
+    //    private void studentEnrolled(){
+    //
+    //    }
+    //
+    //        ModelRegister.getInstance().registerCourse(this.newCourse.getCourseID(), this.newCourse);
+    //
+    //        semester();
+    //
+    //        instructor();
+    //        courseName();
+    //        courseID();
+    //        banner();
+    //
+    //        this.newCourse = new CourseOffering();
+//    public BuildACourse(){
+
+//    }
 
 
 }
