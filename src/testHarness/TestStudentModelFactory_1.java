@@ -27,9 +27,9 @@ public class TestStudentModelFactory_1 {
 //		Create an instance of an OfferingFactory
 		OfferingFactory factory = new OfferingFactory();
 
-		BufferedReader br = new BufferedReader(new FileReader(new File("note_1.txt")));
 //		Use the factory to populate as many instances of courses as many files we've got.
-		CourseOffering	courseOffering = factory.createCourseOffering(br);
+        BufferedReader br = new BufferedReader(new FileReader(new File("note_1.txt")));
+        CourseOffering	courseOffering = factory.createCourseOffering(br);
 		br.close();
 
 //		Loading 1 file at a time
@@ -50,17 +50,14 @@ public class TestStudentModelFactory_1 {
 						student.getEvaluationEntities().get(course) + "\n\n");
 			}
 
-			for(InstructorModel ints:course.getInstructor()){
-			    System.out.println("$$$$$$$ " + ints.getID() + "  " + ints.getSurname());
-            }
 
-//			for(StudentModel student : course.getStudentsAllowedToEnroll()){
-//				for(ICourseOffering course2 : student.getCoursesAllowed())
-//				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
-//			}
-		}
+			for(StudentModel student : course.getStudentsAllowedToEnroll()){
+				for(ICourseOffering course2 : student.getCoursesAllowed())
+				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
+			}
+            System.out.println("--------------");
+        }
 
-        System.out.println("--------------");
 
     }
 }

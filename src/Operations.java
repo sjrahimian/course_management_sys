@@ -1,6 +1,7 @@
 import customDatatypes.Marks;
 import customDatatypes.NotificationTypes;
 import offerings.CourseOffering;
+import offerings.ICourseOffering;
 import offerings.OfferingFactory;
 import registrar.ModelRegister;
 import systemUsers.InstructorModel;
@@ -10,13 +11,9 @@ import java.io.*;
 import java.util.*;
 
 public class Operations {
-    private ModelRegister register;
     private List<CourseOffering> coursesOffered;
-
-    public void init(){
-        this.register = ModelRegister.getInstance();
-        this.coursesOffered = this.register.getAllCourses();
-    }
+    List<ICourseOffering> newStu = new ArrayList<>();
+    List<StudentModel> newCour = new ArrayList<>();
 
     public void loadCourses() {
         try {
@@ -98,6 +95,35 @@ public class Operations {
 
     }
 
+    public void enrollStudent(String cID, String sID){
+        List<StudentModel> studentList = null;
+
+
+        for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
+            if(course.getCourseID().equals(cID)) {
+                for(StudentModel student : course.getStudentsAllowedToEnroll()){
+                    if(student.getID().equals(sID)){
+                        for(ICourseOffering course2 : student.getCoursesAllowed()){
+                            newStu.add(course2);
+                            student.setCoursesEnrolled(newStu);
+                            System.out.println(student.getCoursesEnrolled());
+
+                            newCour.add(student);
+                            course2.setStudentsEnrolled(newCour);
+                            System.out.println("Enrolling " + student.getID() + " in " + course2.getCourseID());
+                        }
+                    }
+
+
+                }
+            }
+
+            System.out.println("--------------");
+        }
+
+
+    }
+
     /**Add notification preferences.
      *
      * @param courseName get the course id
@@ -108,7 +134,7 @@ public class Operations {
         System.out.print("\n\tGive Notification Type (\"EMAIL\", \"PHONE\", \"MAIL\": ");
         String line = input.next();
 
-        CourseOffering course = this.register.getRegisteredCourse(courseName);
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
         for (StudentModel student : course.getStudentsAllowedToEnroll()) {
             if(student.getID().equals(id)){
                 switch (line.toUpperCase()){
@@ -139,7 +165,7 @@ public class Operations {
      */
     public void printStudentCourse(String courseName, String sID){
 
-        CourseOffering course = this.register.getRegisteredCourse(courseName);
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
         for (StudentModel student : course.getStudentsAllowedToEnroll()) {
             if(student.getID().equals(sID))
                 System.out.println("\nCourse ID: " + course.getCourseID() +
@@ -147,12 +173,13 @@ public class Operations {
                         "\nCourse Instructor: " + course.getInstructor() +
                         "\nStudent Name: " + student.getName() + " " + student.getSurname() +
                         "\nStudent ID: " + student.getID() +
-                        "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) );
-            //+ "\nCourse Marks: " + student.getPerCourseMarks().get(course));
+                        "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course));
+            if(student.getPerCourseMarks() != null)
+                System.out.println("Course Marks: " + student.getPerCourseMarks().get(course));
         }
     }
 
-    public void calcFinalGrade(String id){
+    public void addGrade(String id){
 
     }
 

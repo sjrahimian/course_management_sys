@@ -116,7 +116,7 @@ class CMS{
 
     }
 
-    private void logout(){}
+    private void logout(){System.out.println("Goodbye.");}
 
     public void Administrator(LoggedInAdmin admin){
         Scanner input = new Scanner(System.in);
@@ -126,6 +126,7 @@ class CMS{
         System.out.print("\t1. START System State (auto-activates option 3)" +
                 "\n\t2. STOP System State" +
                 "\n\t3. Create Course" +
+                "\n\t4. Enroll a student" +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
@@ -138,14 +139,21 @@ class CMS{
                         sys_state_create = false;
                         operations = new Operations();
                         operations.loadCourses();
-                        operations.init();
                     }
                     break;
                 case "2":
                     sys_state = admin.modifySystemState(sys_state,0);
                     break;
                 case "3":
-                    operations.createCourses();
+                    operations.loadCourses();
+                    break;
+                case "4":
+                    System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
+                    String corID = input.next();
+                    System.out.print("\n\tStudent ID to be enrolled: ");
+                    String stuID = input.next();
+                    operations.enrollStudent(corID.toUpperCase(),stuID);
+
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -156,6 +164,7 @@ class CMS{
                     "\n\t1. START System State (will also activate option 3)" +
                     "\n\t2. STOP System State" +
                     "\n\t3. Create Courses" +
+                    "\n\t4. Enroll a student" +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
@@ -173,7 +182,7 @@ class CMS{
         System.out.print("\t1. Add mark for a student." +
                 "\n\t2. Modify mark for a student." +
                 "\n\t3. Calculate final grade." +
-                "\n\t4. Print class record." +
+                "\n\t4. Print course record." +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
@@ -199,7 +208,7 @@ class CMS{
                     "\n\t1. Add mark for a student." +
                     "\n\t2. Modify mark for a student." +
                     "\n\t3. Calculate final grade." +
-                    "\n\t4. Print class record." +
+                    "\n\t4. Print course record." +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 
