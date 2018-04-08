@@ -1,8 +1,3 @@
-import offerings.CourseOffering;
-import offerings.OfferingFactory;
-
-import java.io.*;
-
 /**
  * @author Moe Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
  * @version 0.1
@@ -12,11 +7,16 @@ import java.io.*;
  *
  */
 
+import offerings.CourseOffering;
+import offerings.OfferingFactory;
+import java.io.*;
 
 public class BuildCourses {
     private CourseOffering newCourse;
 
-
+    /**
+     * Makes file requests to user, parses if more than one is provided, then creates courses
+     */
     public void runRegistration() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -28,7 +28,6 @@ public class BuildCourses {
             buildCourseOffering("note_1.txt");
             buildCourseOffering("note_2.txt");
 //            }
-            banner();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -46,11 +45,12 @@ public class BuildCourses {
         OfferingFactory factory = new OfferingFactory();
         BufferedReader br = new BufferedReader(new FileReader(new File(file)));
         CourseOffering courseOffering = factory.createCourseOffering(br);
+        banner(courseOffering.getCourseName(), courseOffering.getCourseID());
         br.close();
     }
 
-    private void banner(){
-        System.out.println("\n :: New course registered ::");
+    private void banner(String name, String id){
+        System.out.println("\n :: New course data " + name + ", " + id + " loaded ::");
     }
 
 

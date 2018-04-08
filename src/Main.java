@@ -10,7 +10,6 @@
 
 import authenticatedUsers.*;
 import authenticationServer.AuthenticationToken;
-
 import java.io.*;
 import java.util.*;
 import java.time.*;
@@ -121,7 +120,6 @@ class CMS{
     public void Administrator(LoggedInAdmin admin){
         Scanner input = new Scanner(System.in);
 
-
         System.out.println("Welcome Administrator " + admin.getName() + " " + admin.getSurname() + ". Select an option:");
         System.out.print("\t1. START System State (auto-activates option 3)" +
                 "\n\t2. STOP System State" +
@@ -141,12 +139,13 @@ class CMS{
                         operations.loadCourses();
                     }
                     break;
-                case "2":
-                    sys_state = admin.modifySystemState(sys_state,0);
-//                    if(sys_state_create) {
-//                        sys_state_create = true;
-//                        operations = null;
-//                    }
+                case "2": System.out.print("CAUTION!! ARE YOU SURE YOU WANT TO SHUTDOWN THE SYSTEM??\n\t\t'Yes' or 'no': ");
+                    String choice = input.next();
+                    if(choice.toUpperCase().equals("Y") || choice.toUpperCase().equals("YES"))
+                        sys_state = admin.modifySystemState(sys_state,0);
+                    else
+                        System.out.println("Phew! That was close.");
+//                    if(sys_state_create) {//                        sys_state_create = true;//                        operations = null;//                    }
                     break;
                 case "3":if(!sys_state){System.out.println("Turn system on first.");break;}
                     operations.loadCourses();

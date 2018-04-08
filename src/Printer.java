@@ -12,7 +12,6 @@ import offerings.CourseOffering;
 import registrar.ModelRegister;
 import systemUsers.InstructorModel;
 import systemUsers.StudentModel;
-
 import java.util.Map;
 
 public class Printer extends Operations{

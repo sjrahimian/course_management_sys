@@ -10,7 +10,9 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+import customDatatypes.EvaluationTypes;
 import customDatatypes.Marks;
+import customDatatypes.Weights;
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
 import offerings.OfferingFactory;
@@ -64,13 +66,14 @@ public class TestStudentModelFactory_1 {
 
                         student.setPerCourseMarks(markPackage);
                     }
+
+                    Map<EvaluationTypes, Weights> w = course.getEvaluationStrategies();
+
                     System.out.println("#######");
                     course.calculateFinalGrades();
                     System.out.println("#######");
 
 //                    course.calculateFinalGrade(student.getID());
-
-
 
                     if(student.getPerCourseMarks() != null) {
                         System.out.println("Course Marks:");
