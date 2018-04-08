@@ -70,7 +70,7 @@ class CMS{
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("EEE, d MMMM, YYYY HH:mm:ss z VV ");
                             ZonedDateTime now = ZonedDateTime.now();
                             String OS = System.getProperty("os.name");
-                            System.out.println("\n\tTrump University: Course Management System (CMS)");
+                            System.out.println("\n\tWossamotta U: Course Management System (CMS)");
                             System.out.println("\tLogging in on " + OS + " on " + now.format(dtf) + "\n");
 
                             //generate whenever someone logs in and set methods
@@ -273,7 +273,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         CMS run = new CMS();
         for(;;){
-            System.out.println("Trump University: Course Management System (CMS)");
+            System.out.println("Wossamotta U: Course Management System (CMS)");
             System.out.println("\t\tCTRL-D to exit.\n");
             run.login();
 
