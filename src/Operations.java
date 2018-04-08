@@ -70,19 +70,12 @@ public class Operations {
                                     "\nInstructor ID: " + teach.getID());
                         }
 
-
                         System.out.println("\nStudent List:");
                         if(!course.getStudentsEnrolled().isEmpty()){
                             for (StudentModel student : course.getStudentsEnrolled()) {
-
-                                        System.out.println("COURSE COURSE COURSE" + course.getCourseID()
-                                        + "     list" + course.getStudentsEnrolled());
                                         System.out.println("Student name: " + student.getName() + " " + student.getSurname() +
                                                 "\nStudent ID: " + student.getID() +
                                                 "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) + "\n\n");
-
-
-
                             }
                         }
                         else{
@@ -110,23 +103,15 @@ public class Operations {
                         this.newStu = new ArrayList<>();
                         this.newCour = new ArrayList<>();
 
-                        System.out.print(cID + "====" + course.getCourseID());
-                        System.out.print(sID + "====" + student.getID());
                         newStu.add(course);
                         student.setCoursesEnrolled(newStu);
 
-                        newCour.add(student); ///there is a bug here; adding the same student twice.
+                        newCour.add(student);
                         course.setStudentsEnrolled(newCour);
 
                         System.out.println("Enrolling " + student.getID() + " in " + course.getCourseID());
                     }
-                    else{ System.out.println("This should print when doing cs2213a");
-                        this.newStu = student.getCoursesEnrolled();
-                        this.newCour = course.getStudentsEnrolled();
-
-                        System.out.print(cID + "====" + course.getCourseID());
-                        System.out.print(sID + "====" + student.getID());
-
+                    else{
                         this.newStu.add(course);
                         student.setCoursesEnrolled(this.newStu);
 
@@ -135,10 +120,8 @@ public class Operations {
 
                         System.out.println("Enrolling " + student.getID() + " in " + course.getCourseID());
                     }
-
                 }
             }
-            System.out.println("111111--------------");
         }
 
 
