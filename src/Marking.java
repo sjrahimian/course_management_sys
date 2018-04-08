@@ -13,7 +13,9 @@ import registrar.ModelRegister;
 import customDatatypes.Marks;
 import systemUsers.StudentModel;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
+import java.util.Scanner;
 
 
 public class Marking {
@@ -21,26 +23,50 @@ public class Marking {
     public Marking(){
     }
 
-    public void newMarkinmarkinghahaha(String cID, String sID, String type, Double grade){
-        Map<ICourseOffering,Marks> markPackage = new HashMap<>();
+    public void addMark(String cID, String sID, String type, Double grade){
+        Scanner input = new Scanner(System.in);
+        Map<ICourseOffering,Marks> marksPackage = new Hashtable<>();
 
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
-        for(StudentModel s : course.getStudentsEnrolled()){
-            if(s.getID().equals(sID)){
-                Marks merks = new Marks();
-                merks.addToEvalStrategy(type,grade);
-                markPackage.put(course, merks);
-
-                s.setPerCourseMarks(markPackage);
-
-            }
+        StudentModel student = findStudent(course, sID);
+        if(student == null){
+            System.out.println("No such student.");
+            return;
         }
+
+        Marks merks = new Marks();
+        merks.addToEvalStrategy(type,grade);
+
+        for(;;){
+            System.out.print("\tDo you want to add more grades for student (" + sID + ")? Y/N: ");
+            String ans = input.next();
+            if(ans.toUpperCase().equals("No.") | ans.toUpperCase().equals("N")){
+                break;
+            }
+            System.out.print("\tEnter type ('Final' or 'ASSIGNMENT-1'): ");
+            String t = input.next();
+            System.out.print("\tEnter grade: ");
+            Double g = input.nextDouble();
+
+            merks.addToEvalStrategy(t,g);
+
+        }
+
+        marksPackage.put(course, merks);
+        student.setPerCourseMarks(marksPackage);
 
         Marks m = new Marks();
         m.addToEvalStrategy("Final",2.22);
 
     }
 
+    public StudentModel findStudent(CourseOffering c, String id){
+        for (StudentModel s : c.getStudentsEnrolled()){
+            if(s.getID().equals(id))
+                return s;
+        }
 
+        return null;
+    }
 
 }

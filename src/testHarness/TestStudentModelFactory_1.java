@@ -5,10 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import customDatatypes.EvaluationTypes;
 import customDatatypes.Marks;
@@ -57,17 +54,14 @@ public class TestStudentModelFactory_1 {
                 if(student.getID().equals("1264")){
                     if(course.getCourseID().equals("CS2212B")){
                         Marks m1 = new Marks();
-                        m1.addToEvalStrategy("Final",2.22);
-                        m1.addToEvalStrategy("ASSIGNMENT-1", 88.2);
-                        m1.addToEvalStrategy("ASSIGNMENT-2", 23.2);
+                        m1.addToEvalStrategy("Final",22.22);
+                        m1.addToEvalStrategy("Midterm", 88.2);
 
                         Map<ICourseOffering,Marks> markPackage = new Hashtable<>();
                         markPackage.put(course,m1);
 
                         student.setPerCourseMarks(markPackage);
                     }
-
-                    Map<EvaluationTypes, Weights> w = course.getEvaluationStrategies();
 
                     System.out.println("#######");
                     course.calculateFinalGrades();
