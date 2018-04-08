@@ -144,10 +144,10 @@ class CMS{
                 case "2":
                     sys_state = admin.modifySystemState(sys_state,0);
                     break;
-                case "3":
-                    operations.loadCourses();
+                case "3":if(sys_state){operations.loadCourses();}
+                        else{System.out.println("Turn system on first.");}
                     break;
-                case "4":
+                case "4":if(!sys_state){System.out.println("Turn system on first."); break;}
                     System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
                     String corID = input.next();
                     System.out.print("\n\tStudent ID to be enrolled: ");
