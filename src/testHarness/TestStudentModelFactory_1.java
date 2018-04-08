@@ -43,17 +43,24 @@ public class TestStudentModelFactory_1 {
 		for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
 			System.out.println("ID : " + course.getCourseID() + "\nCourse name : " + course.getCourseName() + "\nSemester : " +
 			course.getSemester());
-			System.out.println("Students allowed to enroll\n");
+//			System.out.println("Students allowed to enroll\n");
 			for(StudentModel student : course.getStudentsAllowedToEnroll()){
-				System.out.println("Student name : " + student.getName() + "\nStudent surname : " + student.getSurname() +
-						"\nStudent ID : " + student.getID() + "\nStudent EvaluationType : " +
-						student.getEvaluationEntities().get(course) + "\n\n");
+//				System.out.println("Student name : " + student.getName() + "\nStudent surname : " + student.getSurname() +
+//						"\nStudent ID : " + student.getID() + "\nStudent EvaluationType : " +
+//						student.getEvaluationEntities().get(course) + "\n\n");
+			System.out.println("Student " + student.getID());
+
+
 			}
 
 
 			for(StudentModel student : course.getStudentsAllowedToEnroll()){
 				for(ICourseOffering course2 : student.getCoursesAllowed())
 				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
+
+
+
+
 			}
             System.out.println("--------------");
         }

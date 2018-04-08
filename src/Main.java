@@ -231,6 +231,7 @@ class CMS{
 //                "\n\t2. Select notification status." +
                 "\n\t2. Add notification preferences." +
                 "\n\t3. Print course record." +
+                "\n\t4. Print all course records." +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
         String line = input.next();
 
@@ -259,7 +260,8 @@ class CMS{
                     "\n\t1. Enroll in course." +
 //                    "\n\t2. Select notification status." +
                     "\n\t2. Add notification preferences." +
-                    "\n\t3. Print course record." +
+                    "\n\t3. Print single course record." +
+                    "\n\t4. Print all course records." +
                     "\n\tType \"logout\" to leave\n\t\t$> ");
             line = input.next();
 

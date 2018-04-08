@@ -91,6 +91,7 @@ public class Printer extends Operations{
 
     }
 
+
     public void allStudentsCourses(String stuID){
         String teachList = "";
         for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){

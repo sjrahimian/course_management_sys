@@ -1,10 +1,10 @@
+import customDatatypes.Marks;
 import customDatatypes.NotificationTypes;
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
 import offerings.OfferingFactory;
 import registrar.ModelRegister;
 import systemUsers.StudentModel;
-import systemUsers.SystemUserModel;
 
 import java.io.*;
 import java.util.*;
@@ -188,7 +188,12 @@ public class Operations {
         }
     }
 
-    public void addGrade(String id){
+    public void yabbadabba(String courseID, String studentID){
+        Marking marking = new Marking();
+
+
+
+
 
     }
 
