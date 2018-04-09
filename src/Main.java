@@ -198,10 +198,8 @@ class CMS{
                     String cou = input.next();
                     operations.printRoster(cou.toUpperCase(), instructor.getID());
                     break;
-                case "5": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
-                    String cName = input.next();
-                    System.out.print("\tGive Student's ID: ");
-                    operations.printStudentCourse(cName.toUpperCase(), input.next());
+                case "5":
+                    operations.printStudentCourse();
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -229,7 +227,6 @@ class CMS{
 
         System.out.println("Welcome Student " + student.getName() + " " + student.getSurname() + ". Select an option:");
         System.out.print("\t1. Enroll in course." +
-//                "\n\t2. Select notification status." +
                 "\n\t2. Add notification preferences." +
                 "\n\t3. Print course record." +
                 "\n\t4. Print all course records." +
@@ -255,7 +252,6 @@ class CMS{
 
             System.out.print("\n\nSelect an option:" +
                     "\n\t1. Enroll in course." +
-//                    "\n\t2. Select notification status." +
                     "\n\t2. Add notification preferences." +
                     "\n\t3. Print single course record." +
                     "\n\t4. Print all course records." +

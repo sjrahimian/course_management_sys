@@ -72,12 +72,24 @@ public class Operations {
 
     /**
      * Print course record for one student
-     * @param courseID get the course id
-     * @param studentID user's id
      */
-    public void printStudentCourse(String courseID, String studentID){
+    public void printStudentCourse(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
+        String courseID = input.next();
+
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
+        if(course == null){
+            System.out.println("\nNo such course: " + courseID);
+            return;
+        }
+
+        System.out.print("\tGive Student's ID: ");
+        String studentID = input.next();
+
         Printer print = new Printer();
-        print.singleStudentsCourse(courseID,studentID);
+        print.singleStudentsCourse(course,studentID);
     }
 
     /**

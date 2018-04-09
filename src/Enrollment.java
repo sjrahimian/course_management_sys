@@ -1,6 +1,5 @@
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
-import registrar.ModelRegister;
 import systemUsers.StudentModel;
 import java.util.*;
 
@@ -43,10 +42,10 @@ public class Enrollment {
                     this.enrollStuList = new ArrayList<>();
                     this.enrollCourseList = new ArrayList<>();
 
-                    enrollStuList.add(course);
+                    this.enrollStuList.add(course);
                     stuList.setCoursesEnrolled(enrollStuList);
 
-                    enrollCourseList.add(stuList);
+                    this.enrollCourseList.add(stuList);
                     course.setStudentsEnrolled(enrollCourseList);
 
                     System.out.println("\nEnrolling " + stuList.getID() + " in " + course.getCourseID());
@@ -87,6 +86,8 @@ public class Enrollment {
 
         return null;
     }
+
+
 
     /* old enroll backup */
 //    /**
