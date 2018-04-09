@@ -50,6 +50,21 @@ public class Operations {
     }
 
     /**
+     * finds a student and returns them
+     * @param c course
+     * @param studentID student id
+     * @return
+     */
+    public StudentModel findStudent(CourseOffering c, String studentID){
+        for (StudentModel s : c.getStudentsAllowedToEnroll()){
+            if(s.getID().equals(studentID))
+                return s;
+        }
+
+        return null;
+    }
+
+    /**
      * Load course registration files.
      */
     public void loadCourses() {
@@ -154,27 +169,35 @@ public class Operations {
         String line = input.next();
 
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
-        for (StudentModel student : course.getStudentsAllowedToEnroll()) {
-            if(student.getID().equals(id)){
-                switch (line.toUpperCase()){
-                    case "EMAIL": student.setNotificationType(NotificationTypes.EMAIL);
-                        System.out.println("\nYou should receive emails from now on, unless it gets lost.");
-                        break;
-                    case "PHONE": student.setNotificationType(NotificationTypes.CELLPHONE);
-                        System.out.println("\nRing ring.");
-                        break;
-                    case "PIGEON": student.setNotificationType(NotificationTypes.PIGEON_POST);
-                        System.out.println("\n1957 called. Pigeon's are no longer used.");
-                        break;
-                    case "MAIL": student.setNotificationType(NotificationTypes.MAIL);
-                        System.out.println("\nWe are licking the stamps. Expect slobbery mail.");
-                        break;
-                    default:
-                        System.out.println("\nInvalid selection. Process aborted and returning to main.");
-
-                }
-            }
+        if(course == null){
+            System.out.println("\nNo such course.");
+            return;
         }
+
+        StudentModel student = findStudent(course, id);
+        if(student == null){
+            System.out.println("\nNo such student.");
+            return;
+        }
+
+        switch (line.toUpperCase()){
+            case "EMAIL": student.setNotificationType(NotificationTypes.EMAIL);
+                System.out.println("\nYou should receive emails from now on, unless it gets lost.");
+                break;
+            case "PHONE": student.setNotificationType(NotificationTypes.CELLPHONE);
+                System.out.println("\nRing ring.");
+                break;
+            case "PIGEON": student.setNotificationType(NotificationTypes.PIGEON_POST);
+                System.out.println("\n1957 called. Pigeon's are no longer used.");
+                break;
+            case "MAIL": student.setNotificationType(NotificationTypes.MAIL);
+                System.out.println("\nWe are licking the stamps. Expect slobbery mail.");
+                break;
+            default:
+                System.out.println("\nInvalid selection. Process aborted and returning to main.");
+
+        }
+
     }
 
     /**

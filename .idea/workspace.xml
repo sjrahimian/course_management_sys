@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cbac6bd-c36c-40f1-9c3b-c7a2908fcdf5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/Marking.java" afterPath="$PROJECT_DIR$/src/Marking.java" />
       <change beforePath="$PROJECT_DIR$/src/Operations.java" afterPath="$PROJECT_DIR$/src/Operations.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,8 +22,8 @@
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-378">
-                  <caret line="197" column="50" lean-forward="true" selection-start-line="197" selection-start-column="50" selection-end-line="197" selection-end-column="50" />
+                <state relative-caret-position="222">
+                  <caret line="242" column="0" lean-forward="true" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#628#629#0" expanded="true" />
@@ -36,13 +33,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Marks.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/customDatatypes/Marks.java">
+          <file leaf-file-name="Marking.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Marking.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+                <state relative-caret-position="372">
+                  <caret line="69" column="77" lean-forward="false" selection-start-line="69" selection-start-column="77" selection-end-line="69" selection-end-column="77" />
                   <folding>
-                    <element signature="e#1436#1437#0" expanded="true" />
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="docComment;method#addMark#0;class#Marking#0" expanded="false" />
+                    <element signature="method#addMark#0;class#Marking#0" expanded="false" />
+                    <element signature="docComment;method#updateMark#0;class#Marking#0" expanded="false" />
+                    <element signature="method#updateMark#0;class#Marking#0" expanded="false" />
+                    <element signature="docComment;method#findStudent#0;class#Marking#0" expanded="false" />
+                    <element signature="method#findStudent#0;class#Marking#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -65,8 +69,8 @@
           <file leaf-file-name="Operations.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Operations.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="151">
-                  <caret line="12" column="60" lean-forward="false" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+                <state relative-caret-position="-257">
+                  <caret line="57" column="71" lean-forward="false" selection-start-line="57" selection-start-column="71" selection-end-line="57" selection-end-column="71" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="docComment;method#doesCourseExist#0;class#Operations#0" expanded="false" />
@@ -74,6 +78,8 @@
                     <element signature="docComment;method#doesStudentExist#0;class#Operations#0" expanded="false" />
                     <element signature="method#doesStudentExist#0;class#Operations#0" expanded="false" />
                     <element signature="e#937#994#0" expanded="false" />
+                    <element signature="docComment;method#findStudent#0;class#Operations#0" expanded="false" />
+                    <element signature="method#findStudent#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#loadCourses#0;class#Operations#0" expanded="false" />
                     <element signature="method#loadCourses#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#printRoster#0;class#Operations#0" expanded="false" />
@@ -85,7 +91,6 @@
                     <element signature="docComment;method#enroll_1_Student#0;class#Operations#0" expanded="false" />
                     <element signature="method#enroll_1_Student#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#setNotification#0;class#Operations#0" expanded="false" />
-                    <element signature="method#setNotification#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#addStudentMark#0;class#Operations#0" expanded="false" />
                     <element signature="method#addStudentMark#0;class#Operations#0" expanded="false" />
                     <element signature="method#modifyMark#0;class#Operations#0" expanded="false" />
@@ -284,7 +289,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestStudentModelFactory_1">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -440,7 +445,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.49555555" order="6" side_tool="false" content_ui="tabs" />
@@ -450,7 +454,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30967742" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -916,16 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/customDatatypes/Marks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="e#1436#1437#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/offerings/CourseOffering.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -947,10 +941,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/customDatatypes/Marks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#1436#1437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Marking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        <state relative-caret-position="372">
+          <caret line="69" column="77" lean-forward="false" selection-start-line="69" selection-start-column="77" selection-end-line="69" selection-end-column="77" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -966,8 +970,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="197" column="50" lean-forward="true" selection-start-line="197" selection-start-column="50" selection-end-line="197" selection-end-column="50" />
+        <state relative-caret-position="222">
+          <caret line="242" column="0" lean-forward="true" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#628#629#0" expanded="true" />
@@ -978,8 +982,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Operations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="12" column="60" lean-forward="false" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+        <state relative-caret-position="-257">
+          <caret line="57" column="71" lean-forward="false" selection-start-line="57" selection-start-column="71" selection-end-line="57" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#doesCourseExist#0;class#Operations#0" expanded="false" />
@@ -987,6 +991,8 @@
             <element signature="docComment;method#doesStudentExist#0;class#Operations#0" expanded="false" />
             <element signature="method#doesStudentExist#0;class#Operations#0" expanded="false" />
             <element signature="e#937#994#0" expanded="false" />
+            <element signature="docComment;method#findStudent#0;class#Operations#0" expanded="false" />
+            <element signature="method#findStudent#0;class#Operations#0" expanded="false" />
             <element signature="docComment;method#loadCourses#0;class#Operations#0" expanded="false" />
             <element signature="method#loadCourses#0;class#Operations#0" expanded="false" />
             <element signature="docComment;method#printRoster#0;class#Operations#0" expanded="false" />
@@ -998,7 +1004,6 @@
             <element signature="docComment;method#enroll_1_Student#0;class#Operations#0" expanded="false" />
             <element signature="method#enroll_1_Student#0;class#Operations#0" expanded="false" />
             <element signature="docComment;method#setNotification#0;class#Operations#0" expanded="false" />
-            <element signature="method#setNotification#0;class#Operations#0" expanded="false" />
             <element signature="docComment;method#addStudentMark#0;class#Operations#0" expanded="false" />
             <element signature="method#addStudentMark#0;class#Operations#0" expanded="false" />
             <element signature="method#modifyMark#0;class#Operations#0" expanded="false" />
