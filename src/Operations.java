@@ -201,6 +201,9 @@ public class Operations {
 
     }
 
+    /**
+     * allows user to modify a previously entered mark
+     */
     public void modifyMark(){
         Scanner input = new Scanner(System.in);
         Marking m = new Marking();
@@ -212,7 +215,7 @@ public class Operations {
         String cID = input.next();
 
         System.out.print("\t** Following is case sensitive **\n\t"+
-                "Enter type as 'Final', 'Midterm', or 'ASSIGNMENT-X': ");
+                "Enter type as 'Final', 'Midterm', or 'ASSIGNMENT-x': ");
         String typ = input.next();
 
         System.out.print("\tEnter revised grade (Format as '0.0'): ");

@@ -22,6 +22,13 @@ public class Marking {
     public Marking(){
     }
 
+    /**
+     * allows for mark submission
+     * @param cID course id
+     * @param sID student id
+     * @param type assessment type 'Final', 'Midterm', or 'ASSIGNMENT-x', where x is any integer
+     * @param grade grade received
+     */
     public void addMark(String cID, String sID, String type, Double grade){
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
         if(course == null){
@@ -53,6 +60,13 @@ public class Marking {
 
     }
 
+    /**
+     * allows user to change a already submitted grade
+     * @param cID course id
+     * @param sID student id
+     * @param type assessment type 'Final', 'Midterm', or 'ASSIGNMENT-x', where x is any integer
+     * @param grade grade to be changed
+     */
     public void updateMark(String cID, String sID, String type, Double grade){
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
         if(course == null){
@@ -76,6 +90,12 @@ public class Marking {
 
     }
 
+    /**
+     * finds a student and returns them
+     * @param c course
+     * @param id student id
+     * @return
+     */
     public StudentModel findStudent(CourseOffering c, String id){
         for (StudentModel s : c.getStudentsEnrolled()){
             if(s.getID().equals(id))
