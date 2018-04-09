@@ -198,7 +198,7 @@ class CMS{
             switch(line){
                 case "1": operations.addStudentMark();
                     break;
-                case "2":
+                case "2": operations.modifyMark();
                     break;
                 case "3":
                     break;
