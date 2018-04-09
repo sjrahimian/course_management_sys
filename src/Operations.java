@@ -192,9 +192,9 @@ public class Operations {
         String typ = input.next();
 
         System.out.print("\tEnter grade received: ");
-        String gra = input.next();
+        Double gra = input.nextDouble();
 
-        submitMark.addMark(cID, sID, typ, Integer.);
+        submitMark.addMark(cID, sID, typ, gra);
 
 
 
