@@ -29,7 +29,7 @@ class CMS{
     public void login() throws IOException {
         AuthenticationToken token;
         Authenticate auth = new Authenticate();
-        Database db = new Database("loginDB.txt");
+        Database db = new Database("../loginDB.txt");
         Scanner input = new Scanner(System.in);
         String password, id;
         String[] userData;
@@ -190,7 +190,7 @@ class CMS{
                     break;
                 case "2": operations.modifyMark();
                     break;
-                case "3":
+                case "3": operations.calculateGrade();
                     break;
                 case "4": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
                     String cou = input.next();
