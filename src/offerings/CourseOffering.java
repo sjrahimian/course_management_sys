@@ -88,7 +88,7 @@ public class CourseOffering implements ICourseOffering{
 //	Calculates the Final Grades using the Weights and Marks utility classes see the comments in 
 //	these classes if unsure of how this works
 	public void calculateFinalGrades(){
-        System.out.println("@@@@@@@");
+//        System.out.println("@@@@@@@");
         Double finalGrade;
 		for(StudentModel studentModel : studentsEnrolled){
 			finalGrade = 0D;
@@ -99,7 +99,7 @@ public class CourseOffering implements ICourseOffering{
 				weights.next();
 				finalGrade += weights.getCurrentValue() * marks.getValueWithKey(weights.getCurrentKey());
 			}
-            System.out.println(studentModel.getID() + "\t--> FINAL GRADE :: " + finalGrade);
+//            System.out.println(studentModel.getID() + "\t--> FINAL GRADE :: " + finalGrade);
         }
 
     }
@@ -107,14 +107,14 @@ public class CourseOffering implements ICourseOffering{
 //	Calculates the Final Grades using the Weights and Marks utility classes see the comments in 
 //	these classes if unsure of how this works
 	public void calculateFinalGrade(String ID){
-	    System.out.print("@@@@@@@");
 		StudentModel target = null;
 		Double finalGrade;
 		for(StudentModel studentModel : studentsEnrolled)
 			if (studentModel.getID().equals(ID)) 
 				target = studentModel;
 		finalGrade = 0D;
-		Weights weights = evaluationStrategies.get(target.getEvaluationEntities().get(this));
+		EvaluationTypes evalEntities = target.getEvaluationEntities().get(this);
+		Weights weights = evaluationStrategies.get(evalEntities);
 		Marks marks  = target.getPerCourseMarks().get(this);
 		weights.initializeIterator();
 		while(weights.hasNext()){
@@ -122,7 +122,7 @@ public class CourseOffering implements ICourseOffering{
 			finalGrade += weights.getCurrentValue() * marks.getValueWithKey(weights.getCurrentKey());
 		}
 
-		System.out.println("FINAL GRADE :: " + finalGrade);
+//		System.out.println("FINAL GRADE :: " + finalGrade);
 	}
 	
 }

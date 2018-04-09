@@ -1,5 +1,5 @@
 
-package testHarness;
+//package testHarness;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,16 +27,17 @@ public class TestStudentModelFactory_1 {
 //	}
 
 	public static void main(String[] args) throws IOException{
+        Operations operations = new Operations();
 //		Create an instance of an OfferingFactory
 		OfferingFactory factory = new OfferingFactory();
 
 //		Use the factory to populate as many instances of courses as many files we've got.
-        BufferedReader br = new BufferedReader(new FileReader(new File("note_1.txt")));
+        BufferedReader br = new BufferedReader(new FileReader(new File("../note_1.txt")));
         CourseOffering	courseOffering = factory.createCourseOffering(br);
 		br.close();
 
 //		Loading 1 file at a time
-		br = new BufferedReader(new FileReader(new File("note_2.txt")));
+		br = new BufferedReader(new FileReader(new File("../note_2.txt")));
 //		here we have only two files
 		courseOffering = factory.createCourseOffering(br);
 		br.close();
@@ -51,8 +52,10 @@ public class TestStudentModelFactory_1 {
 //				System.out.println("Student name : " + student.getName() + "\nStudent surname : " + student.getSurname() +
 //						"\nStudent ID : " + student.getID() + "\nStudent EvaluationType : " +
 //						student.getEvaluationEntities().get(course) + "\n\n");
+				
+                operations.enroll_1_Student(course.getCourseID(), student.getID());
                 if(student.getID().equals("1264")){
-                    if(course.getCourseID().equals("CS2212B")){
+                    if(course.getCourseID().equals("CS2213A")){
                         Marks m1 = new Marks();
                         m1.addToEvalStrategy("Final",22.22);
                         m1.addToEvalStrategy("Midterm", 88.2);
@@ -64,27 +67,27 @@ public class TestStudentModelFactory_1 {
                     }
 
 
-
                     System.out.println("#######");
-                    course.calculateFinalGrades();
+//                    course.calculateFinalGrades();
                     System.out.println("#######");
 
-//                    course.calculateFinalGrade(student.getID());
+                    
 
                     if(student.getPerCourseMarks() != null) {
                         System.out.println("Course Marks:");
-                        if (student.getPerCourseMarks() != null) {
-                            Marks bundle = student.getPerCourseMarks().get(course);
+                        Marks bundle = student.getPerCourseMarks().get(course);
 
-                            bundle.initializeIterator();
-                            while (bundle.hasNext()) {
-                                Map.Entry<String, Double> mark = bundle.getNextEntry();
-                                System.out.println(String.format("%1$-15s %2$.2f", mark.getKey(), mark.getValue()));
-                            }
+                        bundle.initializeIterator();
+                        while (bundle.hasNext()) {
+                            Map.Entry<String, Double> mark = bundle.getNextEntry();
+                            System.out.println(String.format("%1$-15s %2$.2f", mark.getKey(), mark.getValue()));
                         }
-                        else
-                            System.out.println("\t\tNo marks");
+                        course.calculateFinalGrade(student.getID());
                     }
+                    else
+                    	System.out.println("\t\tNo marks");
+                    
+
                 }
 
 

@@ -9,14 +9,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Operations {
-    List<ICourseOffering> enrollStuList = new ArrayList<>();
-    List<StudentModel> enrollCourseList = new ArrayList<>();
-
     /**
      * helper for checking courses
      * @param cID course to find
      */
-    public Boolean doesCourseExist(String cID){
+    public static Boolean doesCourseExist(String cID){
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
         if(course != null){ //if there is such a course
             return true;
@@ -31,7 +28,7 @@ public class Operations {
      * helper for checking courses
      * @param stuID course to find
      */
-    public Boolean doesStudentExist(String stuID){
+    public static Boolean doesStudentExist(String stuID){
 
         //need to make sure that the stuID is not a instructor ID
 //        SystemUserModel temp = ModelRegister.getInstance().getRegisteredUser(stuID);
@@ -52,7 +49,7 @@ public class Operations {
     /**
      * Load course registration files.
      */
-    public void loadCourses() {
+    public static void loadCourses() {
         BuildCourses newCourse = new BuildCourses();
         newCourse.runRegistration();
 
@@ -63,7 +60,7 @@ public class Operations {
      * @param courseName name of course user wants
      * @param id user's ID
      */
-    public void printRoster(String courseName, String id) {
+    public static void printRoster(String courseName, String id) {
         Printer print = new Printer();
         if(doesCourseExist(courseName))
             print.classRecord(courseName,id);
@@ -74,7 +71,7 @@ public class Operations {
      * @param courseName get the course id
      * @param sID user's id
      */
-    public void printStudentCourse(String courseName, String sID){
+    public static void printStudentCourse(String courseName, String sID){
         Printer print = new Printer();
 
         if(doesCourseExist(courseName))
@@ -85,7 +82,7 @@ public class Operations {
      * prints all courses that a student has been registered in
      * @param sID student id
      */
-    public void printAllStudentsCourses(String sID){
+    public static void printAllStudentsCourses(String sID){
         Printer print = new Printer();
         print.allStudentsCourses(sID);
     }
@@ -95,7 +92,7 @@ public class Operations {
      * @param cID course name
      * @param sID user id
      */
-    public void enroll_1_Student(String cID, String sID){
+    public static void enroll_1_Student(String cID, String sID){
         if(!doesCourseExist(cID))
             return;
 
@@ -105,13 +102,14 @@ public class Operations {
         Boolean registered = false;
 
         for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
+            List<ICourseOffering> enrollStuList = new ArrayList<>();
+            List<StudentModel> enrollCourseList = new ArrayList<>();
+            
             for(StudentModel student : course.getStudentsAllowedToEnroll()){
                 if(course.getCourseID().equals(cID) && student.getID().equals(sID)){
                     if(course.getStudentsEnrolled().isEmpty()){
                         registered = true;
 
-                        this.enrollStuList = new ArrayList<>();
-                        this.enrollCourseList = new ArrayList<>();
 
                         enrollStuList.add(course);
                         student.setCoursesEnrolled(enrollStuList);
@@ -124,11 +122,11 @@ public class Operations {
                     else{
                         registered = true;
 
-                        this.enrollStuList.add(course);
-                        student.setCoursesEnrolled(this.enrollStuList);
+                        enrollStuList.add(course);
+                        student.setCoursesEnrolled(enrollStuList);
 
-                        this.enrollCourseList.add(student);
-                        course.setStudentsEnrolled(this.enrollCourseList);
+                        enrollCourseList.add(student);
+                        course.setStudentsEnrolled(enrollCourseList);
 
                         System.out.println("\nEnrolling " + student.getID() + " in " + course.getCourseID());
                     }
@@ -148,7 +146,7 @@ public class Operations {
      * @param courseName get the course id
      * @param id user's id
      */
-    public void setNotification(String courseName,String id){
+    public static void setNotification(String courseName,String id){
         Scanner input = new Scanner(System.in);
         System.out.print("\n\tGive Notification Type (\"EMAIL\", \"PHONE\", \"MAIL\": ");
         String line = input.next();
@@ -177,7 +175,7 @@ public class Operations {
         }
     }
 
-    public void addStudentMark(){
+    public static void addStudentMark(){
         Scanner input = new Scanner(System.in);
         Marking submitMark = new Marking();
 
@@ -201,7 +199,7 @@ public class Operations {
 
     }
 
-    public void createCourses(){
+    public static void createCourses(){
         BuildCourses newCourse = new BuildCourses();
 
 
