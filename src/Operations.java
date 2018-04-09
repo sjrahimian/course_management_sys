@@ -177,8 +177,25 @@ public class Operations {
         }
     }
 
-    public void yabbadabba(String courseID, String studentID){
-        System.out.println();
+    public void addStudentMark(){
+        Scanner input = new Scanner(System.in);
+        Marking submitMark = new Marking();
+
+        System.out.print("\n\t\t::: Mark Management :::\n\n\tEnter Student ID: ");
+        String sID = input.next();
+
+        System.out.print("\tEnter Course ID: ");
+        String cID = input.next();
+
+        System.out.print("\t** Following is case sensitive **\n\t "+
+                "Enter type as 'Final', 'Midterm', or 'ASSIGNMENT-X': ");
+        String typ = input.next();
+
+        System.out.print("\tEnter grade received: ");
+        String gra = input.next();
+
+        submitMark.addMark(cID, sID, typ, Integer.);
+
 
 
 

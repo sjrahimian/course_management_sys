@@ -63,6 +63,8 @@ public class TestStudentModelFactory_1 {
                         student.setPerCourseMarks(markPackage);
                     }
 
+
+
                     System.out.println("#######");
                     course.calculateFinalGrades();
                     System.out.println("#######");

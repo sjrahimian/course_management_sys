@@ -193,7 +193,7 @@ class CMS{
         while((line.toLowerCase().equals("logout")) != true){
 
             switch(line){
-                case "1":
+                case "1": operations.addStudentMark();
                     break;
                 case "2":
                     break;
