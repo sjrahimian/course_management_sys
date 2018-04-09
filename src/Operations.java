@@ -1,53 +1,22 @@
+/**
+ * @author Mohamed Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
+ * @version 0.1
+ * Winter cs2212
+ *
+ * Interface between frontend and backend functions implementations
+ *
+ */
+
 import customDatatypes.NotificationTypes;
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
 import registrar.ModelRegister;
 import systemUsers.StudentModel;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Operations {
     List<ICourseOffering> enrollStuList = new ArrayList<>();
     List<StudentModel> enrollCourseList = new ArrayList<>();
-
-    /**
-     * helper for checking courses
-     * @param cID course to find
-     */
-    public Boolean doesCourseExist(String cID){
-        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
-        if(course != null){ //if there is such a course
-            return true;
-        }
-
-        System.out.println("\nNo such course.");
-        return false;
-
-    }
-
-    /**
-     * helper for checking courses
-     * @param stuID course to find
-     */
-    public Boolean doesStudentExist(String stuID){
-
-        //need to make sure that the stuID is not a instructor ID
-//        SystemUserModel temp = ModelRegister.getInstance().getRegisteredUser(stuID);
-//        if(temp.getID().equals(stuID));
-
-        StudentModel student = (StudentModel) ModelRegister.getInstance().getRegisteredUser(stuID);
-
-
-        if(student != null){ //if there is such a course
-            return true;
-        }
-
-        System.out.println("\nNo such student.");
-        return false;
-
-    }
 
     /**
      * finds a student and returns them
@@ -75,77 +44,139 @@ public class Operations {
 
     /**
      * Print class record.
-     * @param courseName name of course user wants
-     * @param id user's ID
+     * @param courseID name of course user wants
+     * @param instructorID user's ID
      */
-    public void printRoster(String courseName, String id) {
+    public void printRoster(String courseID, String instructorID) {
         Printer print = new Printer();
-        if(doesCourseExist(courseName))
-            print.classRecord(courseName,id);
+        print.classRecord(courseID,instructorID);
     }
 
     /**
      * Print course record for one student
-     * @param courseName get the course id
-     * @param sID user's id
+     * @param courseID get the course id
+     * @param studentID user's id
      */
-    public void printStudentCourse(String courseName, String sID){
+    public void printStudentCourse(String courseID, String studentID){
         Printer print = new Printer();
-
-        if(doesCourseExist(courseName))
-            print.singleStudentsCourse(courseName,sID);
+        print.singleStudentsCourse(courseID,studentID);
     }
 
     /**
      * prints all courses that a student has been registered in
-     * @param sID student id
+     * @param studentID student id
      */
-    public void printAllStudentsCourses(String sID){
+    public void printAllStudentsCourses(String studentID){
         Printer print = new Printer();
-        print.allStudentsCourses(sID);
+        print.allStudentsCourses(studentID);
     }
 
     /**
      * Enrolls a student in course: adds student to course list, and course to student list
-     * @param cID course name
-     * @param sID user id
+     * @param courseID course name
+     * @param studentID user id
      */
-    public void enroll_1_Student(String cID, String sID){
-        if(!doesCourseExist(cID))
+    public void enroll_1_Student(String courseID, String studentID){
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
+        if(course == null){
+            System.out.println("\nNo such course: " + courseID);
             return;
+        }
 
-        if(!doesStudentExist(sID))
+        StudentModel student = findStudent(course, studentID);
+        if(student == null){
+            System.out.println("\nNo such student: " + studentID);
             return;
+        }
 
         Boolean registered = false;
 
-        for(CourseOffering course : ModelRegister.getInstance().getAllCourses()){
-            for(StudentModel student : course.getStudentsAllowedToEnroll()){
-                if(course.getCourseID().equals(cID) && student.getID().equals(sID)){
-                    if(course.getStudentsEnrolled().isEmpty()){
+        for(CourseOffering course2 : ModelRegister.getInstance().getAllCourses()){
+            for(StudentModel student2 : course2.getStudentsAllowedToEnroll()){
+                if(course2.getCourseID().equals(courseID) && student2.getID().equals(studentID)){
+                    if(course2.getStudentsEnrolled().isEmpty()){
                         registered = true;
 
                         this.enrollStuList = new ArrayList<>();
                         this.enrollCourseList = new ArrayList<>();
 
-                        enrollStuList.add(course);
-                        student.setCoursesEnrolled(enrollStuList);
+                        enrollStuList.add(course2);
+                        student2.setCoursesEnrolled(enrollStuList);
 
-                        enrollCourseList.add(student);
-                        course.setStudentsEnrolled(enrollCourseList);
+                        enrollCourseList.add(student2);
+                        course2.setStudentsEnrolled(enrollCourseList);
 
-                        System.out.println("\nEnrolling " + student.getID() + " in " + course.getCourseID());
+                        System.out.println("\nEnrolling " + student2.getID() + " in " + course2.getCourseID());
                     }
                     else{
                         registered = true;
 
-                        this.enrollStuList.add(course);
-                        student.setCoursesEnrolled(this.enrollStuList);
+                        this.enrollStuList.add(course2);
+                        student2.setCoursesEnrolled(this.enrollStuList);
 
-                        this.enrollCourseList.add(student);
-                        course.setStudentsEnrolled(this.enrollCourseList);
+                        this.enrollCourseList.add(student2);
+                        course2.setStudentsEnrolled(this.enrollCourseList);
 
-                        System.out.println("\nEnrolling " + student.getID() + " in " + course.getCourseID());
+                        System.out.println("\nEnrolling " + student2.getID() + " in " + course2.getCourseID());
+                    }
+                }
+            }
+        }
+
+        if(!registered){
+            System.out.println("\n>>Denied enrollment<<");
+        }
+
+
+    }
+
+    /**
+     * Enrolls a student in course: adds student to course list, and course to student list
+     * @param courseID course name
+     * @param studentID user id
+     */
+    public void enroll_Student(String courseID, String studentID){
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
+        if(course == null){
+            System.out.println("\nNo such course: " + courseID);
+            return;
+        }
+
+        StudentModel student = findStudent(course, studentID);
+        if(student == null){
+            System.out.println("\nNo such student: " + studentID);
+            return;
+        }
+
+        Boolean registered = false;
+
+        for(CourseOffering course2 : ModelRegister.getInstance().getAllCourses()){
+            for(StudentModel student2 : course2.getStudentsAllowedToEnroll()){
+                if(course2.getCourseID().equals(courseID) && student2.getID().equals(studentID)){
+                    if(course2.getStudentsEnrolled().isEmpty()){
+                        registered = true;
+
+                        this.enrollStuList = new ArrayList<>();
+                        this.enrollCourseList = new ArrayList<>();
+
+                        enrollStuList.add(course2);
+                        student2.setCoursesEnrolled(enrollStuList);
+
+                        enrollCourseList.add(student2);
+                        course2.setStudentsEnrolled(enrollCourseList);
+
+                        System.out.println("\nEnrolling " + student2.getID() + " in " + course2.getCourseID());
+                    }
+                    else{
+                        registered = true;
+
+                        this.enrollStuList.add(course2);
+                        student2.setCoursesEnrolled(this.enrollStuList);
+
+                        this.enrollCourseList.add(student2);
+                        course2.setStudentsEnrolled(this.enrollCourseList);
+
+                        System.out.println("\nEnrolling " + student2.getID() + " in " + course2.getCourseID());
                     }
                 }
             }
@@ -165,8 +196,6 @@ public class Operations {
      */
     public void setNotification(String courseName,String id){
         Scanner input = new Scanner(System.in);
-        System.out.print("\n\tGive Notification Type (\"EMAIL\", \"PHONE\", \"MAIL\": ");
-        String line = input.next();
 
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
         if(course == null){
@@ -180,6 +209,8 @@ public class Operations {
             return;
         }
 
+        System.out.print("\tGive Notification Type (\"EMAIL\", \"PHONE\", \"MAIL\"): ");
+        String line = input.next();
         switch (line.toUpperCase()){
             case "EMAIL": student.setNotificationType(NotificationTypes.EMAIL);
                 System.out.println("\nYou should receive emails from now on, unless it gets lost.");
@@ -188,7 +219,7 @@ public class Operations {
                 System.out.println("\nRing ring.");
                 break;
             case "PIGEON": student.setNotificationType(NotificationTypes.PIGEON_POST);
-                System.out.println("\n1957 called. Pigeon's are no longer used.");
+                System.out.println("\nHand delivered to your door by a man dressed as a giant pigeon.");
                 break;
             case "MAIL": student.setNotificationType(NotificationTypes.MAIL);
                 System.out.println("\nWe are licking the stamps. Expect slobbery mail.");

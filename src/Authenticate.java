@@ -1,6 +1,5 @@
-
 /**
- * @author Moe Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
+ * @author Mohamed Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
  * @version 0.1
  * Winter cs2212
  *

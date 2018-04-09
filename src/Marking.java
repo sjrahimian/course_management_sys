@@ -1,5 +1,5 @@
 /**
- * @author Moe Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
+ * @author Mohamed Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
  * @version 0.1
  * Winter cs2212
  *
@@ -29,7 +29,7 @@ public class Marking {
      * @param type assessment type 'Final', 'Midterm', or 'ASSIGNMENT-x', where x is any integer
      * @param grade grade received
      */
-    public void addMark(String cID, String sID, String type, Double grade){
+    protected void addMark(String cID, String sID, String type, Double grade){
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
         if(course == null){
             System.out.println("No such course.");
@@ -67,7 +67,7 @@ public class Marking {
      * @param type assessment type 'Final', 'Midterm', or 'ASSIGNMENT-x', where x is any integer
      * @param grade grade to be changed
      */
-    public void updateMark(String cID, String sID, String type, Double grade){
+    protected void updateMark(String cID, String sID, String type, Double grade){
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
         if(course == null){
             System.out.println("\nNo such course.");
@@ -96,7 +96,7 @@ public class Marking {
      * @param id student id
      * @return
      */
-    public StudentModel findStudent(CourseOffering c, String id){
+    protected StudentModel findStudent(CourseOffering c, String id){
         for (StudentModel s : c.getStudentsEnrolled()){
             if(s.getID().equals(id))
                 return s;
