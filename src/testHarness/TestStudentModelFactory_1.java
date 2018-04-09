@@ -53,6 +53,9 @@ public class TestStudentModelFactory_1 {
 //						student.getEvaluationEntities().get(course) + "\n\n");
                 if(student.getID().equals("1264")){
                     if(course.getCourseID().equals("CS2212B")){
+                        course.setStudentsEnrolled(course.getStudentsEnrolled());
+                        student.setCoursesEnrolled(student.getCoursesEnrolled());
+
                         Marks m1 = new Marks();
                         m1.addToEvalStrategy("Final",22.22);
                         m1.addToEvalStrategy("Midterm", 88.2);
@@ -61,15 +64,30 @@ public class TestStudentModelFactory_1 {
                         markPackage.put(course,m1);
 
                         student.setPerCourseMarks(markPackage);
+
+
+                        Map<ICourseOffering, Marks> marksPackage;
+                        Marks marks;
+                        if(student.getPerCourseMarks() == null){
+                            marksPackage = new Hashtable<>();
+                            marks = new Marks();
+                            marks.addToEvalStrategy("Final", 88.2);
+
+                            marksPackage.put(course, marks);
+                            student.setPerCourseMarks(marksPackage);
+                        }
+                        else{
+
+                            marks = student.getPerCourseMarks().get(course);
+                            marks.addToEvalStrategy("Midterm", 77.0);
+                        }
+
+                        System.out.println("#######");
+//                    course.calculateFinalGrades();
+                        course.calculateFinalGrade(student.getID());
+                        System.out.println("#######");
+
                     }
-
-
-
-                    System.out.println("#######");
-                    course.calculateFinalGrades();
-                    System.out.println("#######");
-
-//                    course.calculateFinalGrade(student.getID());
 
                     if(student.getPerCourseMarks() != null) {
                         System.out.println("Course Marks:");

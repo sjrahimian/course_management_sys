@@ -177,33 +177,48 @@ public class Operations {
         }
     }
 
+    /**
+     * allows user to add new mark for a student
+     */
     public void addStudentMark(){
         Scanner input = new Scanner(System.in);
         Marking submitMark = new Marking();
 
-        System.out.print("\n\t\t::: Mark Management :::\n\n\tEnter Student ID: ");
+        System.out.print("\n\t\t::: Mark Management: Add :::\n\n\tEnter Student ID: ");
         String sID = input.next();
 
         System.out.print("\tEnter Course ID: ");
         String cID = input.next();
 
-        System.out.print("\t** Following is case sensitive **\n\t "+
+        System.out.print("\t** Following is case sensitive **\n\t"+
                 "Enter type as 'Final', 'Midterm', or 'ASSIGNMENT-X': ");
         String typ = input.next();
 
-        System.out.print("\tEnter grade received: ");
-        String gra = input.next();
+        System.out.print("\tEnter grade received (Format as '0.0'): ");
+        Double gra = input.nextDouble();
 
-        submitMark.addMark(cID, sID, typ, Integer.);
-
-
-
+        submitMark.addMark(cID, sID, typ, gra);
 
     }
 
-    public void createCourses(){
-        BuildCourses newCourse = new BuildCourses();
+    public void modifyMark(){
+        Scanner input = new Scanner(System.in);
+        Marking m = new Marking();
 
+        System.out.print("\n\t\t::: Mark Management: Modify :::\n\n\tEnter Student ID: ");
+        String sID = input.next();
+
+        System.out.print("\tEnter Course ID: ");
+        String cID = input.next();
+
+        System.out.print("\t** Following is case sensitive **\n\t"+
+                "Enter type as 'Final', 'Midterm', or 'ASSIGNMENT-X': ");
+        String typ = input.next();
+
+        System.out.print("\tEnter revised grade (Format as '0.0'): ");
+        Double gra = input.nextDouble();
+
+        m.updateMark(cID, sID, typ, gra);
 
     }
 

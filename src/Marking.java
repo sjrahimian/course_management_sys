@@ -24,23 +24,57 @@ public class Marking {
 
     public void addMark(String cID, String sID, String type, Double grade){
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
+        if(course == null){
+            System.out.println("No such course.");
+            return;
+        }
+
         StudentModel student = findStudent(course, sID);
         if(student == null){
             System.out.println("No such student.");
             return;
         }
 
-        Map<ICourseOffering,Marks> marksPackage = new Hashtable<>();
+        Map<ICourseOffering, Marks> marksPackage;
+        Marks marks;
+        if(student.getPerCourseMarks() == null){
+            marksPackage = new Hashtable<>();
+            marks = new Marks();
 
-        Marks merks = new Marks();
-        merks.addToEvalStrategy(type,grade);
+            marks.addToEvalStrategy(type, grade);
 
-        marksPackage.put(course, merks);
-        student.setPerCourseMarks(marksPackage);
+            marksPackage.put(course, marks);
+            student.setPerCourseMarks(marksPackage);
+        }
+        else{
+            marks = student.getPerCourseMarks().get(course);
+            marks.addToEvalStrategy(type, grade);
+        }
 
     }
 
+    public void updateMark(String cID, String sID, String type, Double grade){
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
+        if(course == null){
+            System.out.println("\nNo such course.");
+            return;
+        }
 
+        StudentModel student = findStudent(course, sID);
+        if(student == null){
+            System.out.println("\nNo such student.");
+            return;
+        }
+
+        if(student.getPerCourseMarks() == null){
+            System.out.println("\nThis student has no assessments on file. Perhaps you meant to add a mark.");
+        }
+        else{
+            Marks marks = student.getPerCourseMarks().get(course);
+            marks.addToEvalStrategy(type, grade);
+        }
+
+    }
 
     public StudentModel findStudent(CourseOffering c, String id){
         for (StudentModel s : c.getStudentsEnrolled()){
