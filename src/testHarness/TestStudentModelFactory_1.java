@@ -1,4 +1,4 @@
-//package testHarness;
+package testHarness;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,13 +15,6 @@ import registrar.ModelRegister;
 import systemUsers.StudentModel;
 
 public class TestStudentModelFactory_1 {
-
-    //	public static void main(String[] args) throws IOException{
-    //		// TODO Auto-generated method stub
-    //		SystemUserModelFactory factory = new StudentModelFactory();
-    //		BufferedReader br = new BufferedReader(new FileReader(new File("note_1.txt")));
-    //		factory.createSystemUserModel(br, null);
-    //	}
 
     public static void main(String[] args) throws IOException {
         //		Create an instance of an OfferingFactory
@@ -43,11 +36,7 @@ public class TestStudentModelFactory_1 {
         //		by printing all of the data that we've loaded
         for (CourseOffering course: ModelRegister.getInstance().getAllCourses()) {
             System.out.println("ID : " + course.getCourseID() + "\nCourse name : " + course.getCourseName() + "\nSemester : " + course.getSemester());
-            //			System.out.println("Students allowed to enroll\n");
             for (StudentModel student: course.getStudentsAllowedToEnroll()) {
-                //				System.out.println("Student name : " + student.getName() + "\nStudent surname : " + student.getSurname() +
-                //						"\nStudent ID : " + student.getID() + "\nStudent EvaluationType : " +
-                //						student.getEvaluationEntities().get(course) + "\n\n");
 
                 if (student.getID().equals("1264")) {
                     if (course.getCourseID().equals("CS2213A")) {
@@ -70,29 +59,6 @@ public class TestStudentModelFactory_1 {
                         System.out.println("#######");
 
 
-                        //                        Map<ICourseOffering, Marks> marksPackage;
-                        //                        Marks marks;
-                        //                        if(student.getPerCourseMarks() == null){
-                        //                            marksPackage = new Hashtable<>();
-                        //                            marks = new Marks();
-                        //                            marks.addToEvalStrategy("Final", 88.2);
-                        //
-                        //                            marksPackage.put(course, marks);
-                        //                            student.setPerCourseMarks(marksPackage);
-                        //                        }
-                        //                        else{
-                        //
-                        //                            marks = student.getPerCourseMarks().get(course);
-                        //                            marks.addToEvalStrategy("Midterm", 77.0);
-                        //                        }
-                        //
-                        //                        System.out.println("#######");
-                        ////                    course.calculateFinalGrades();
-                        //                        course.calculateFinalGrade(student.getID());
-                        //                        System.out.println("#######");
-                        //
-                        //                    }
-
                         if (student.getPerCourseMarks() != null) {
                             System.out.println("Course Marks:");
                             Marks bundle = student.getPerCourseMarks().get(course);
@@ -114,11 +80,6 @@ public class TestStudentModelFactory_1 {
 
                 }
 
-
-                //			for(StudentModel student : course.getStudentsAllowedToEnroll()){
-                //				for(ICourseOffering course2 : student.getCoursesAllowed())
-                //				System.out.println(student.getName() + "\t\t -> " + course2.getCourseName());
-                //			}
                 System.out.println("--------------");
             }
         }
