@@ -81,8 +81,6 @@ class CMS{
                         }
                     }
                     else {
-                        System.out.println("password >>> " + auth.encode(password));
-
                         System.out.println("Incorrect password. Try again.\n");
                     }
                 }
@@ -198,8 +196,8 @@ class CMS{
                     String cou = input.next();
                     operations.printRoster(cou.toUpperCase(), instructor.getID());
                     break;
-                case "5":
-                    operations.printStudentCourse();
+                case "5": System.out.print("\tGive Student's ID: ");
+                    operations.printStudentCourse(input.next());
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -241,10 +239,10 @@ class CMS{
                 case "2": System.out.print("\n\tGive course name (e.g., \"CS2212B\") for notification change: ");
                     operations.setNotification(input.next().toUpperCase(), student.getID());
                     break;
-                case "3": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
-                    operations.printStudentCourse(input.next().toUpperCase(),student.getID());
+                case "3": operations.printStudentCourse(student.getID());
                     break;
                 case "4": operations.printAllStudentsCourses(student.getID());
+                    break;
                 default:
                     System.out.println("\nInvalid option.");
             }

@@ -9,16 +9,12 @@
 
 import customDatatypes.NotificationTypes;
 import offerings.CourseOffering;
-import offerings.ICourseOffering;
 import registrar.ModelRegister;
 import systemUsers.StudentModel;
 import systemUsers.SystemUserModel;
-
 import java.util.*;
 
 public class Operations {
-    private List<ICourseOffering> enrollStuList = new ArrayList<>();
-    private List<StudentModel> enrollCourseList = new ArrayList<>();
     private Enrollment enrollMe = new Enrollment();
 
     /**
@@ -73,20 +69,21 @@ public class Operations {
     /**
      * Print course record for one student
      */
-    public void printStudentCourse(){
+    public void printStudentCourse(String studentID){
         Scanner input = new Scanner(System.in);
+
+        if(!doesSoAndSoExist(studentID))
+            return;
 
         System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
         String courseID = input.next();
+        courseID = courseID.toUpperCase();
 
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
         if(course == null){
             System.out.println("\nNo such course: " + courseID);
             return;
         }
-
-        System.out.print("\tGive Student's ID: ");
-        String studentID = input.next();
 
         Printer print = new Printer();
         print.singleStudentsCourse(course,studentID);

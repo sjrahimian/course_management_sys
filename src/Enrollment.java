@@ -1,3 +1,13 @@
+/**
+ * @author Mohamed Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
+ * @version 0.1
+ * Winter cs2212
+ *
+ * Frontend that presents user end functions and accepts clients requests via command line style interface
+ * ~~where the magic happens~~
+ *
+ */
+
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
 import systemUsers.StudentModel;
