@@ -81,8 +81,6 @@ class CMS{
                         }
                     }
                     else {
-                        System.out.println("password >>> " + auth.encode(password));
-
                         System.out.println("Incorrect password. Try again.\n");
                     }
                 }
@@ -151,15 +149,7 @@ class CMS{
                     operations.loadCourses();
                     break;
                 case "4":if(!sys_state){System.out.println("Turn system on first.");break;}
-                    System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
-                    String corID = input.next();
-                    if(!operations.doesCourseExist(corID)) {
-                    	break;
-                    }
-                    System.out.print("\tStudent ID to be enrolled: ");
-                    String stuID = input.next();
-                    operations.enroll_1_Student(corID.toUpperCase(),stuID);
-
+                    operations.enrollStudent();
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -187,7 +177,7 @@ class CMS{
         System.out.println("Welcome Instructor " + instructor.getName() + " " + instructor.getSurname() + ". Select an option:");
         System.out.print("\t1. Add mark for a student." +
                 "\n\t2. Modify mark for a student." +
-                "\n\t3. Calculate final grade." +
+                "\n\t3. Calculate final grade for student." +
                 "\n\t4. Print course roster." +
                 "\n\t5. Print single student's course." +
                 "\n\tType \"logout\" to leave\n\t\t$> ");
@@ -206,10 +196,8 @@ class CMS{
                     String cou = input.next();
                     operations.printRoster(cou.toUpperCase(), instructor.getID());
                     break;
-                case "5": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
-                    String cName = input.next();
-                    System.out.print("\tGive Student's ID: ");
-                    operations.printStudentCourse(cName.toUpperCase(), input.next());
+                case "5": System.out.print("\tGive Student's ID: ");
+                    operations.printStudentCourse(input.next());
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -237,7 +225,6 @@ class CMS{
 
         System.out.println("Welcome Student " + student.getName() + " " + student.getSurname() + ". Select an option:");
         System.out.print("\t1. Enroll in course." +
-//                "\n\t2. Select notification status." +
                 "\n\t2. Add notification preferences." +
                 "\n\t3. Print course record." +
                 "\n\t4. Print all course records." +
@@ -247,15 +234,15 @@ class CMS{
         while((line.toLowerCase().equals("logout")) != true){
 
             switch(line){
-                case "1":
+                case "1": operations.enrollStudentRequest(student.getID());
                     break;
                 case "2": System.out.print("\n\tGive course name (e.g., \"CS2212B\") for notification change: ");
                     operations.setNotification(input.next().toUpperCase(), student.getID());
                     break;
-                case "3": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
-                    operations.printStudentCourse(input.next().toUpperCase(),student.getID());
+                case "3": operations.printStudentCourse(student.getID());
                     break;
                 case "4": operations.printAllStudentsCourses(student.getID());
+                    break;
                 default:
                     System.out.println("\nInvalid option.");
             }
@@ -263,7 +250,6 @@ class CMS{
 
             System.out.print("\n\nSelect an option:" +
                     "\n\t1. Enroll in course." +
-//                    "\n\t2. Select notification status." +
                     "\n\t2. Add notification preferences." +
                     "\n\t3. Print single course record." +
                     "\n\t4. Print all course records." +

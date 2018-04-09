@@ -18,89 +18,81 @@ public class Printer extends Operations{
 
     /**
      * Print class record.
-     * @param courseName name of course user wants
-     * @param id user's ID
+     * @param courseID name of course user wants
+     * @param intsID user's ID
      */
-    protected void classRecord(String courseName, String id) {
-        Boolean found = false;
+    protected void classRecord(String courseID, String intsID) {
         System.out.println();
-        for (CourseOffering course : ModelRegister.getInstance().getAllCourses()) {
-            //if course is requested;
-            if(course.getCourseID().equals(courseName)) {
-                found = true;
-                for(InstructorModel instructor : course.getInstructor()){
-                    //print only logged in profs class
-                    if(instructor.getID().equals(id)){
-                        System.out.println("Course ID: " + course.getCourseID() +
-                                "\nCourse name: " + course.getCourseName() +
-                                "\nSemester: " + course.getSemester());
 
-                        for(InstructorModel teach : course.getInstructor()) {
-                            System.out.println("Instructor: " + teach.getName() + " " + teach.getSurname() +
-                                    "\nInstructor ID: " + teach.getID());
-                        }
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
+        if(course == null){
+            System.out.println("\nNo such course: " + courseID);
+            return;
+        }
 
-                        System.out.println("\nStudent List:");
-                        if(!course.getStudentsEnrolled().isEmpty()){
-                            for (StudentModel student : course.getStudentsEnrolled()) {
-                                System.out.println("Student name: " + student.getName() + " " + student.getSurname() +
-                                        "\nStudent ID: " + student.getID() +
-                                        "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) + "\n\n");
-                            }
-                        }
-                        else{
-                            System.out.println("\t\tNo students enrolled.");
-                        }
+        for(InstructorModel instructor : course.getInstructor()){
+            //print only logged in profs class
+            if(instructor.getID().equals(intsID)){
+                System.out.println("Course ID: " + course.getCourseID() +
+                        "\nCourse name: " + course.getCourseName() +
+                        "\nSemester: " + course.getSemester());
 
+                for(InstructorModel teach : course.getInstructor()) {
+                    System.out.println("Instructor: " + teach.getName() + " " + teach.getSurname() +
+                            "\nInstructor ID: " + teach.getID());
+                }
+
+                System.out.println("\n\t-- Student List: --");
+                if(!course.getStudentsEnrolled().isEmpty()){
+                    for (StudentModel student : course.getStudentsEnrolled()) {
+                        System.out.println("Student name: " + student.getName() + " " + student.getSurname() +
+                                "\nStudent ID: " + student.getID() +
+                                "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course) + "\n\n");
                     }
                 }
-                break;
-            }
+                else{
+                    System.out.println("\t\tNo students enrolled.");
+                }
 
-        }
-        if(!found){
-            System.out.println("\t\t"+ courseName + " is not in the database.");
+            }
         }
 
     }
 
     /**
      * Print record for specific course & student
-     * @param cID get the course id
+     * @param course get the course of interest
      * @param sID user's id
      */
-    protected void singleStudentsCourse(String cID, String sID){
-        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
-        String teachList = "";
+    protected void singleStudentsCourse(CourseOffering course, String sID){
+        String instructorList = "";
 
         for (StudentModel student : course.getStudentsEnrolled()){
 
             //construct instructor list
             for(InstructorModel instructor : course.getInstructor()){
-                teachList += "\nCourse Instructor: " + instructor.getName() + instructor.getSurname();
+                instructorList += "\nCourse Instructor: " + instructor.getName() + instructor.getSurname();
             }
 
             if(student.getID().equals(sID))
                 System.out.println("\nCourse ID: " + course.getCourseID() +
-                        "\nCourse Name: " + course.getCourseName() + course.getSemester() + teachList +
+                        "\nCourse Name: " + course.getCourseName() + course.getSemester() + instructorList +
                         "\nStudent Name: " + student.getName() + " " + student.getSurname() +
                         "\nStudent ID: " + student.getID() +
                         "\nStudent EvaluationType: " + student.getEvaluationEntities().get(course));
             //print course marks
             if(student.getPerCourseMarks() != null) {
                 System.out.println("Course Marks:");
-                if (student.getPerCourseMarks() != null) {
-                    Marks bundle = student.getPerCourseMarks().get(course);
+                Marks bundle = student.getPerCourseMarks().get(course);
 
-                    bundle.initializeIterator();
-                    while (bundle.hasNext()) {
-                        Map.Entry<String, Double> mark = bundle.getNextEntry();
-                        System.out.println(String.format("%1$-15s %2$.2f", mark.getKey(), mark.getValue()));
-                    }
+                bundle.initializeIterator();
+                while (bundle.hasNext()) {
+                    Map.Entry<String, Double> mark = bundle.getNextEntry();
+                    System.out.println(String.format("%1$-15s %2$.2f", mark.getKey(), mark.getValue()));
                 }
-                else
-                    System.out.println("\t\tNo marks");
             }
+            else
+                System.out.println("\t\tNo marks");
 
         }
 
