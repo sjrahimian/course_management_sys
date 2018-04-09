@@ -41,13 +41,11 @@ public class Enrollment {
             return;
         }
 
-        Boolean registered = false;
 
         for(StudentModel stuList : course.getStudentsAllowedToEnroll()){
             if(stuList.getID().equals(studentID)){
                 //there is no enrollment list
                 if(course.getStudentsEnrolled().isEmpty()){
-                    registered = true;
 
                     this.enrollStuList = new ArrayList<>();
                     this.enrollCourseList = new ArrayList<>();
@@ -62,7 +60,6 @@ public class Enrollment {
                 }
                 //there already is an enrollment list
                 else{
-                    registered = true;
 
                     this.enrollStuList.add(course);
                     stuList.setCoursesEnrolled(this.enrollStuList);
@@ -75,9 +72,6 @@ public class Enrollment {
             }
         }
 
-        //did we register anyone this time?
-        if(!registered){
-        }
 
 
     }

@@ -18,7 +18,6 @@ import systemUsers.SystemUserModel;
 import java.util.*;
 
 public class Operations {
-    private Enrollment enrollMe = new Enrollment();
     /**
      * helper for checking courses
      * @param cID course to find
@@ -89,8 +88,10 @@ public class Operations {
     public static void printStudentCourse(String studentID){
         Scanner input = new Scanner(System.in);
 
-        if(!doesSoAndSoExist(studentID))
+        if(!doesSoAndSoExist(studentID)) {
+            input.close();
             return;
+        }
 
         System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
         String courseID = input.next();
@@ -99,11 +100,13 @@ public class Operations {
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
         if(course == null){
             System.out.println("\nNo such course: " + courseID);
+            input.close();
             return;
         }
 
         Printer print = new Printer();
         print.singleStudentsCourse(course,studentID);
+        input.close();
     }
 
     /**
@@ -114,71 +117,31 @@ public class Operations {
         Printer print = new Printer();
         print.allStudentsCourses(studentID);
     }
-
+    
     /**
-     * enrolls a new student
+     * sets new notification preference
      */
-    public static void enrollStudent(){
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
-        String c = input.next();
-        c = c.toUpperCase();
-
-        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(c);
-        if(course == null){
-            System.out.println("\nNo such course: " + c);
-            return;
-        }
-
-        System.out.print("\tStudent ID to be enrolled: ");
-        String s = input.next();
-
-        if(doesSoAndSoExist(s))
-            this.enrollMe.enroll_Student(course,s);
-    }
-
-    public void enrollStudentRequest(String studentID){
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
-        String c = input.next();
-        c = c.toUpperCase();
-
-        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(c);
-        if(course == null){
-            System.out.println("\nNo such course: " + c);
-            return;
-        }
-
-        this.enrollMe.enroll_Student(course,studentID);
-
-    }
-
-    /**Add notification preferences.
-     *
-     * @param courseName get the course id
-     * @param id user's id
-     */
-    public static void setNotification(String courseName,String id){
-        Scanner input = new Scanner(System.in);
-
-        input.close();
-
-        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
+    public static void changeNotificationPreference(String studentID) {
+    	Scanner input = new Scanner(System.in);
+    	System.out.print("\n\tGive course name (e.g., \"CS2212B\") for notification change: ");
+    	String courseName = input.next();
+    	CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
         if(course == null){
             System.out.println("\nNo such course.");
+            input.close();
             return;
         }
 
-        StudentModel student = findStudent(course, id);
+        StudentModel student = findStudent(course, studentID);
         if(student == null){
             System.out.println("\nNo such student.");
+            input.close();
             return;
         }
 
         System.out.print("\tGive Notification Type (\"EMAIL\", \"PHONE\", \"MAIL\"): ");
         String line = input.next();
+        
         switch (line.toUpperCase()){
             case "EMAIL": student.setNotificationType(NotificationTypes.EMAIL);
                 System.out.println("\nYou should receive emails from now on, unless it gets lost.");
@@ -194,8 +157,53 @@ public class Operations {
                 break;
             default:
                 System.out.println("\nInvalid selection. Process aborted and returning to main.");
-
+                
         }
+    }
+
+    /**
+     * enrolls a new student
+     */
+    public static void enrollStudent(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
+        String c = input.next();
+        c = c.toUpperCase();
+
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(c);
+        if(course == null){
+            System.out.println("\nNo such course: " + c);
+            input.close();
+            return;
+        }
+
+        System.out.print("\tStudent ID to be enrolled: ");
+        String s = input.next();
+        input.close();
+
+        if(doesSoAndSoExist(s)) {
+        	Enrollment enrollment = new Enrollment();
+            enrollment.enroll_Student(course,s);
+        }
+    }
+
+    public static void enrollStudentRequest(String studentID){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
+        String c = input.next();
+        input.close();
+        c = c.toUpperCase();
+
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(c);
+        if(course == null){
+            System.out.println("\nNo such course: " + c);
+            return;
+        }
+        
+        Enrollment enrollment = new Enrollment();
+        enrollment.enroll_Student(course,studentID);
 
     }
 

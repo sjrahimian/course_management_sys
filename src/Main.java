@@ -19,7 +19,6 @@ import java.time.format.*;
 class CMS{
     private static Boolean sys_state = false;  //system is off
     private static Boolean sys_state_create = true;
-    private Operations operations;
     private int counter;
 
     public void CMS(){
@@ -133,8 +132,7 @@ class CMS{
                     sys_state = admin.modifySystemState(sys_state,1);
                     if(sys_state_create) {
                         sys_state_create = false;
-                        operations = new Operations();
-                        operations.loadCourses();
+                        Operations.loadCourses();
                     }
                     break;
                 case "2": System.out.print("CAUTION!! ARE YOU SURE YOU WANT TO SHUTDOWN THE SYSTEM??\n\t\t'Yes' or 'no': ");
@@ -143,13 +141,12 @@ class CMS{
                         sys_state = admin.modifySystemState(sys_state,0);
                     else
                         System.out.println("Phew! That was close.");
-//                    if(sys_state_create) {//                        sys_state_create = true;//                        operations = null;//                    }
                     break;
                 case "3":if(!sys_state){System.out.println("Turn system on first.");break;}
-                    operations.loadCourses();
+                	Operations.loadCourses();
                     break;
                 case "4":if(!sys_state){System.out.println("Turn system on first.");break;}
-                    operations.enrollStudent();
+                	Operations.enrollStudent();
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -186,18 +183,18 @@ class CMS{
         while((line.toLowerCase().equals("logout")) != true){
 
             switch(line){
-                case "1": operations.addStudentMark();
+                case "1": Operations.addStudentMark();
                     break;
-                case "2": operations.modifyMark();
+                case "2": Operations.modifyMark();
                     break;
-                case "3": operations.calculateGrade();
+                case "3": Operations.calculateGrade();
                     break;
                 case "4": System.out.print("\n\tGive course name (e.g., \"CS2212B\"): ");
                     String cou = input.next();
-                    operations.printRoster(cou.toUpperCase(), instructor.getID());
+                    Operations.printRoster(cou.toUpperCase(), instructor.getID());
                     break;
                 case "5": System.out.print("\tGive Student's ID: ");
-                    operations.printStudentCourse(input.next());
+                	Operations.printStudentCourse(input.next());
                     break;
                 default:
                     System.out.println("\nInvalid option.");
@@ -234,14 +231,13 @@ class CMS{
         while((line.toLowerCase().equals("logout")) != true){
 
             switch(line){
-                case "1": operations.enrollStudentRequest(student.getID());
+                case "1": Operations.enrollStudentRequest(student.getID());
                     break;
-                case "2": System.out.print("\n\tGive course name (e.g., \"CS2212B\") for notification change: ");
-                    operations.setNotification(input.next().toUpperCase(), student.getID());
+                case "2": Operations.changeNotificationPreference(student.getID());
                     break;
-                case "3": operations.printStudentCourse(student.getID());
+                case "3": Operations.printStudentCourse(student.getID());
                     break;
-                case "4": operations.printAllStudentsCourses(student.getID());
+                case "4": Operations.printAllStudentsCourses(student.getID());
                     break;
                 default:
                     System.out.println("\nInvalid option.");

@@ -50,7 +50,6 @@ public class TestStudentModelFactory_1 {
 
                 if (student.getID().equals("1264")) {
                     if (course.getCourseID().equals("CS2213A")) {
-                        Operations.enroll_1_Student(course.getCourseID(), student.getID());
 
                         Marks m1 = new Marks();
                         m1.addToEvalStrategy("Final", 0.80);

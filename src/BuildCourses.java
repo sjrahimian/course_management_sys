@@ -19,15 +19,15 @@ public class BuildCourses {
      */
     public void runRegistration() {
         try {
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//            System.out.print("\n\tGive filename (separate multiple filenames with a space): ");
-//            String line = reader.readLine();
-//            String[] lineSplit = line.split(" ");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.print("\n\tGive filename (separate multiple filenames with a comma): ");
+            String line = reader.readLine();
+            String[] lineSplit = line.split(",");
 
-//            for (int i = 0; i <= lineSplit.length; i++) {
-            buildCourseOffering("../note_1.txt");
-            buildCourseOffering("../note_2.txt");
-//            }
+            for (int i = 0; i < lineSplit.length; i++) {
+//            buildCourseOffering("../note_1.txt");
+            	buildCourseOffering(lineSplit[i]);
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -50,7 +50,7 @@ public class BuildCourses {
     }
 
     private void banner(String name, String id){
-        System.out.println("\n :: New course data " + name + ", " + id + " loaded ::");
+        System.out.println(":: New course data " + name + ", " + id + " loaded ::");
     }
 
 
