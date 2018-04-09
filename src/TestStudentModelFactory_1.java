@@ -27,7 +27,6 @@ public class TestStudentModelFactory_1 {
 //	}
 
 	public static void main(String[] args) throws IOException{
-        Operations operations = new Operations();
 //		Create an instance of an OfferingFactory
 		OfferingFactory factory = new OfferingFactory();
 
@@ -53,7 +52,7 @@ public class TestStudentModelFactory_1 {
 //						"\nStudent ID : " + student.getID() + "\nStudent EvaluationType : " +
 //						student.getEvaluationEntities().get(course) + "\n\n");
 				
-                operations.enroll_1_Student(course.getCourseID(), student.getID());
+                Operations.enroll_1_Student(course.getCourseID(), student.getID());
                 if(student.getID().equals("1264")){
                     if(course.getCourseID().equals("CS2213A")){
                         course.setStudentsEnrolled(course.getStudentsEnrolled());
