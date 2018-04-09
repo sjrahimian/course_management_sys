@@ -1,5 +1,5 @@
 /**
- * @author Moe Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
+ * @author Mohamed Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
  * @version 0.1
  * Winter cs2212
  *
@@ -25,8 +25,8 @@ public class BuildCourses {
 //            String[] lineSplit = line.split(" ");
 
 //            for (int i = 0; i <= lineSplit.length; i++) {
-            buildCourseOffering("note_1.txt");
-            buildCourseOffering("note_2.txt");
+            buildCourseOffering("../note_1.txt");
+            buildCourseOffering("../note_2.txt");
 //            }
         }
         catch (IOException e) {

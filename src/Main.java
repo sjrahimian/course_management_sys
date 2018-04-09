@@ -1,5 +1,5 @@
 /**
- * @author Moe Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
+ * @author Mohamed Moselhy, Abdullah Khan, Brandon Mathew, Sama Rahimian
  * @version 0.1
  * Winter cs2212
  *
@@ -29,7 +29,7 @@ class CMS{
     public void login() throws IOException {
         AuthenticationToken token;
         Authenticate auth = new Authenticate();
-        Database db = new Database("loginDB.txt");
+        Database db = new Database("../loginDB.txt");
         Scanner input = new Scanner(System.in);
         String password, id;
         String[] userData;
@@ -153,6 +153,9 @@ class CMS{
                 case "4":if(!sys_state){System.out.println("Turn system on first.");break;}
                     System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
                     String corID = input.next();
+                    if(!operations.doesCourseExist(corID)) {
+                    	break;
+                    }
                     System.out.print("\tStudent ID to be enrolled: ");
                     String stuID = input.next();
                     operations.enroll_1_Student(corID.toUpperCase(),stuID);
