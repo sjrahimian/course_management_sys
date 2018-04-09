@@ -17,6 +17,7 @@ import systemUsers.StudentModel;
 import systemUsers.SystemUserModel;
 import java.util.*;
 
+@SuppressWarnings("resource")
 public class Operations {
     /**
      * helper for checking courses
@@ -85,11 +86,11 @@ public class Operations {
     /**
      * Print course record for one student
      */
-    public static void printStudentCourse(String studentID){
+	public static void printStudentCourse(String studentID){
         Scanner input = new Scanner(System.in);
 
         if(!doesSoAndSoExist(studentID)) {
-            input.close();
+            ;
             return;
         }
 
@@ -100,13 +101,13 @@ public class Operations {
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
         if(course == null){
             System.out.println("\nNo such course: " + courseID);
-            input.close();
+            ;
             return;
         }
 
         Printer print = new Printer();
         print.singleStudentsCourse(course,studentID);
-        input.close();
+        ;
     }
 
     /**
@@ -128,14 +129,14 @@ public class Operations {
     	CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
         if(course == null){
             System.out.println("\nNo such course.");
-            input.close();
+            ;
             return;
         }
 
         StudentModel student = findStudent(course, studentID);
         if(student == null){
             System.out.println("\nNo such student.");
-            input.close();
+            ;
             return;
         }
 
@@ -157,7 +158,7 @@ public class Operations {
                 break;
             default:
                 System.out.println("\nInvalid selection. Process aborted and returning to main.");
-                
+                ;
         }
     }
 
@@ -174,13 +175,13 @@ public class Operations {
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(c);
         if(course == null){
             System.out.println("\nNo such course: " + c);
-            input.close();
+            ;
             return;
         }
 
         System.out.print("\tStudent ID to be enrolled: ");
         String s = input.next();
-        input.close();
+        ;
 
         if(doesSoAndSoExist(s)) {
         	Enrollment enrollment = new Enrollment();
@@ -193,7 +194,6 @@ public class Operations {
 
         System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
         String c = input.next();
-        input.close();
         c = c.toUpperCase();
 
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(c);
@@ -214,7 +214,7 @@ public class Operations {
         Scanner input = new Scanner(System.in);
         Marking submitMark = new Marking();
 
-        System.out.print("\n\t\t::: Mark Management: Add :::\n\n\tEnter Student ID: ");
+        System.out.print("\n\t\t::: Mark Management: Add Assessment :::\n\n\tEnter Student ID: ");
         String sID = input.next();
 
         System.out.print("\tEnter Course ID: ");
@@ -229,7 +229,7 @@ public class Operations {
 
         submitMark.addMark(cID, sID, typ, gra);
 
-        input.close();
+        ;
     }
 
     /**
@@ -239,7 +239,7 @@ public class Operations {
         Scanner input = new Scanner(System.in);
         Marking m = new Marking();
 
-        System.out.print("\n\t\t::: Mark Management: Modify :::\n\n\tEnter Student ID: ");
+        System.out.print("\n\t\t::: Mark Management: Modify Assessment :::\n\n\tEnter Student ID: ");
         String sID = input.next();
 
         System.out.print("\tEnter Course ID: ");
@@ -254,7 +254,7 @@ public class Operations {
 
         m.updateMark(cID, sID, typ, gra);
         
-        input.close();
+        ;
     }
     
     public static void calculateGrade() {
@@ -266,7 +266,7 @@ public class Operations {
         System.out.print("\tEnter Course ID: ");
         String cID = input.next();
         
-        input.close();
+        ;
     	
     	CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
     	if (course == null) {

@@ -29,7 +29,8 @@ public class TestStudentModelFactory_1 {
 
         //		Use the factory to populate as many instances of courses as many files we've got.
         BufferedReader br = new BufferedReader(new FileReader(new File("../note_1.txt")));
-        CourseOffering courseOffering = factory.createCourseOffering(br);
+        @SuppressWarnings("unused")
+		CourseOffering courseOffering = factory.createCourseOffering(br);
         br.close();
 
         //		Loading 1 file at a time
