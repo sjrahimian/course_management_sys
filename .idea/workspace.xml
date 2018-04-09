@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cbac6bd-c36c-40f1-9c3b-c7a2908fcdf5" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Enrollment.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/loginDB.txt" afterPath="$PROJECT_DIR$/loginDB.txt" />
-      <change beforePath="$PROJECT_DIR$/src/Authenticate.java" afterPath="$PROJECT_DIR$/src/Authenticate.java" />
-      <change beforePath="$PROJECT_DIR$/src/AuthenticateError.java" afterPath="$PROJECT_DIR$/src/AuthenticateError.java" />
-      <change beforePath="$PROJECT_DIR$/src/BuildCourses.java" afterPath="$PROJECT_DIR$/src/BuildCourses.java" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" afterPath="$PROJECT_DIR$/src/Database.java" />
+      <change beforePath="$PROJECT_DIR$/note_2.txt" afterPath="$PROJECT_DIR$/note_2.txt" />
+      <change beforePath="$PROJECT_DIR$/note_3.txt" afterPath="$PROJECT_DIR$/note_3.txt" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/Marking.java" afterPath="$PROJECT_DIR$/src/Marking.java" />
       <change beforePath="$PROJECT_DIR$/src/Operations.java" afterPath="$PROJECT_DIR$/src/Operations.java" />
       <change beforePath="$PROJECT_DIR$/src/Printer.java" afterPath="$PROJECT_DIR$/src/Printer.java" />
     </list>
@@ -31,8 +29,8 @@
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1785">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="3" />
+                <state relative-caret-position="599">
+                  <caret line="241" column="73" lean-forward="false" selection-start-line="241" selection-start-column="73" selection-end-line="241" selection-end-column="73" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                     <element signature="imports" expanded="true" />
@@ -43,32 +41,53 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Operations.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="note_3.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/note_3.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="note_2.txt" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/note_2.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Operations.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Operations.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="270">
-                  <caret line="137" column="65" lean-forward="false" selection-start-line="137" selection-start-column="65" selection-end-line="137" selection-end-column="65" />
+                  <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                     <element signature="imports" expanded="true" />
+                    <element signature="docComment;method#doesSoAndSoExist#0;class#Operations#0" expanded="false" />
+                    <element signature="method#doesSoAndSoExist#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#findStudent#0;class#Operations#0" expanded="false" />
                     <element signature="method#findStudent#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#loadCourses#0;class#Operations#0" expanded="false" />
+                    <element signature="method#loadCourses#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#printRoster#0;class#Operations#0" expanded="false" />
                     <element signature="method#printRoster#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#printStudentCourse#0;class#Operations#0" expanded="false" />
                     <element signature="method#printStudentCourse#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#printAllStudentsCourses#0;class#Operations#0" expanded="false" />
                     <element signature="method#printAllStudentsCourses#0;class#Operations#0" expanded="false" />
-                    <element signature="docComment;method#enroll_1_Student#0;class#Operations#0" expanded="false" />
-                    <element signature="method#enroll_1_Student#0;class#Operations#0" expanded="false" />
-                    <element signature="docComment;method#enroll_Student#0;class#Operations#0" expanded="false" />
-                    <element signature="method#enroll_Student#0;class#Operations#0" expanded="false" />
+                    <element signature="docComment;method#enrollStudent#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#setNotification#0;class#Operations#0" expanded="false" />
                     <element signature="method#setNotification#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#addStudentMark#0;class#Operations#0" expanded="false" />
                     <element signature="method#addStudentMark#0;class#Operations#0" expanded="false" />
                     <element signature="docComment;method#modifyMark#0;class#Operations#0" expanded="false" />
+                    <element signature="method#modifyMark#0;class#Operations#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -88,7 +107,41 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="TestStudentModelFactory_1.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Enrollment.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Enrollment.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="219">
+                  <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="docComment;class#Enrollment#0" expanded="false" />
+                    <element signature="docComment;method#enroll_Student#0;class#Enrollment#0" expanded="false" />
+                    <element signature="docComment;method#findStudent#0;class#Enrollment#0" expanded="false" />
+                    <element signature="method#findStudent#0;class#Enrollment#0" expanded="false" />
+                    <element signature="e#2760#2769#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Printer.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Printer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="593">
+                  <caret line="49" column="112" lean-forward="false" selection-start-line="49" selection-start-column="112" selection-end-line="49" selection-end-column="112" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="docComment;method#classRecord#0;class#Printer#0" expanded="false" />
+                    <element signature="docComment;method#singleStudentsCourse#0;class#Printer#0" expanded="false" />
+                    <element signature="method#singleStudentsCourse#0;class#Printer#0" expanded="false" />
+                    <element signature="docComment;method#allStudentsCourses#0;class#Printer#0" expanded="false" />
+                    <element signature="method#allStudentsCourses#0;class#Printer#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TestStudentModelFactory_1.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1581">
@@ -122,6 +175,7 @@
       <find>authentication</find>
       <find>authenticationServer</find>
       <find>Marks</find>
+      <find>Student List</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,27 +212,29 @@
         <option value="$PROJECT_DIR$/src/customDatatypes/NotificationTypes.java" />
         <option value="$PROJECT_DIR$/userDB.txt" />
         <option value="$PROJECT_DIR$/src/CreateCourse.java" />
-        <option value="$PROJECT_DIR$/note_2.txt" />
         <option value="$PROJECT_DIR$/src/AddMark.java" />
         <option value="$PROJECT_DIR$/src/Grading.java" />
         <option value="$PROJECT_DIR$/src/BuildACourse.java" />
         <option value="$PROJECT_DIR$/src/customDatatypes/EvaluationTypes.java" />
         <option value="$PROJECT_DIR$/src/offerings/CourseOffering.java" />
-        <option value="$PROJECT_DIR$/note_3.txt" />
         <option value="$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java" />
-        <option value="$PROJECT_DIR$/loginDB.txt" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Marking.java" />
         <option value="$PROJECT_DIR$/src/Database.java" />
         <option value="$PROJECT_DIR$/src/Authenticate.java" />
         <option value="$PROJECT_DIR$/src/AuthenticateError.java" />
         <option value="$PROJECT_DIR$/src/BuildCourses.java" />
+        <option value="$PROJECT_DIR$/src/Enroll.java" />
+        <option value="$PROJECT_DIR$/note_2.txt" />
         <option value="$PROJECT_DIR$/src/Printer.java" />
         <option value="$PROJECT_DIR$/src/Operations.java" />
+        <option value="$PROJECT_DIR$/src/Enrollment.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/note_3.txt" />
+        <option value="$PROJECT_DIR$/loginDB.txt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="1080" />
     <option name="height" value="1050" />
   </component>
@@ -231,12 +287,6 @@
               <item name="cm_sys" type="b2602c69:ProjectViewProjectNode" />
               <item name="cm_sys" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cm_sys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cm_sys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -426,8 +476,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.49555555" order="6" side_tool="false" content_ui="tabs" />
@@ -437,7 +486,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30967742" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -517,13 +566,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/egEntry.java" />
-    <entry file="file://$PROJECT_DIR$/src/Authenticate.java" />
     <entry file="file://$PROJECT_DIR$/src/Sys_Usr.java" />
     <entry file="file://$PROJECT_DIR$/src/systemUserModelFactories/SystemUserModelFactory.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -803,14 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/note_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/customDatatypes/Marks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -829,30 +868,6 @@
             <element signature="method#setStudentsAllowedToEnroll#0;class#CourseOffering#0" expanded="false" />
             <element signature="method#setEvaluationStrategies#0;class#CourseOffering#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/note_3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/note_2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginDB.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -895,14 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AuthenticateError.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BuildCourses.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -918,21 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Printer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding>
-            <element signature="docComment;method#classRecord#0;class#Printer#0" expanded="false" />
-            <element signature="method#classRecord#0;class#Printer#0" expanded="false" />
-            <element signature="docComment;method#singleStudentsCourse#0;class#Printer#0" expanded="false" />
-            <element signature="method#singleStudentsCourse#0;class#Printer#0" expanded="false" />
-            <element signature="docComment;method#allStudentsCourses#0;class#Printer#0" expanded="false" />
-            <element signature="method#allStudentsCourses#0;class#Printer#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/testHarness/TestStudentModelFactory_1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
@@ -943,10 +935,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Enroll.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Printer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="49" column="112" lean-forward="false" selection-start-line="49" selection-start-column="112" selection-end-line="49" selection-end-column="112" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="docComment;method#classRecord#0;class#Printer#0" expanded="false" />
+            <element signature="docComment;method#singleStudentsCourse#0;class#Printer#0" expanded="false" />
+            <element signature="method#singleStudentsCourse#0;class#Printer#0" expanded="false" />
+            <element signature="docComment;method#allStudentsCourses#0;class#Printer#0" expanded="false" />
+            <element signature="method#allStudentsCourses#0;class#Printer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Enrollment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Enrollment#0" expanded="false" />
+            <element signature="docComment;method#enroll_Student#0;class#Enrollment#0" expanded="false" />
+            <element signature="docComment;method#findStudent#0;class#Enrollment#0" expanded="false" />
+            <element signature="method#findStudent#0;class#Enrollment#0" expanded="false" />
+            <element signature="e#2760#2769#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Operations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#doesSoAndSoExist#0;class#Operations#0" expanded="false" />
+            <element signature="method#doesSoAndSoExist#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#findStudent#0;class#Operations#0" expanded="false" />
+            <element signature="method#findStudent#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#loadCourses#0;class#Operations#0" expanded="false" />
+            <element signature="method#loadCourses#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#printRoster#0;class#Operations#0" expanded="false" />
+            <element signature="method#printRoster#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#printStudentCourse#0;class#Operations#0" expanded="false" />
+            <element signature="method#printStudentCourse#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#printAllStudentsCourses#0;class#Operations#0" expanded="false" />
+            <element signature="method#printAllStudentsCourses#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#enrollStudent#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#setNotification#0;class#Operations#0" expanded="false" />
+            <element signature="method#setNotification#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#addStudentMark#0;class#Operations#0" expanded="false" />
+            <element signature="method#addStudentMark#0;class#Operations#0" expanded="false" />
+            <element signature="docComment;method#modifyMark#0;class#Operations#0" expanded="false" />
+            <element signature="method#modifyMark#0;class#Operations#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AuthenticateError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="2" lean-forward="true" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1785">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="3" />
+        <state relative-caret-position="599">
+          <caret line="241" column="73" lean-forward="false" selection-start-line="241" selection-start-column="73" selection-end-line="241" selection-end-column="73" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -956,32 +1032,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Operations.java">
+    <entry file="file://$PROJECT_DIR$/loginDB.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="137" column="65" lean-forward="false" selection-start-line="137" selection-start-column="65" selection-end-line="137" selection-end-column="65" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#findStudent#0;class#Operations#0" expanded="false" />
-            <element signature="method#findStudent#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#loadCourses#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#printRoster#0;class#Operations#0" expanded="false" />
-            <element signature="method#printRoster#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#printStudentCourse#0;class#Operations#0" expanded="false" />
-            <element signature="method#printStudentCourse#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#printAllStudentsCourses#0;class#Operations#0" expanded="false" />
-            <element signature="method#printAllStudentsCourses#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#enroll_1_Student#0;class#Operations#0" expanded="false" />
-            <element signature="method#enroll_1_Student#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#enroll_Student#0;class#Operations#0" expanded="false" />
-            <element signature="method#enroll_Student#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#setNotification#0;class#Operations#0" expanded="false" />
-            <element signature="method#setNotification#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#addStudentMark#0;class#Operations#0" expanded="false" />
-            <element signature="method#addStudentMark#0;class#Operations#0" expanded="false" />
-            <element signature="docComment;method#modifyMark#0;class#Operations#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note_3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note_2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

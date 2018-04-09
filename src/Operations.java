@@ -12,11 +12,29 @@ import offerings.CourseOffering;
 import offerings.ICourseOffering;
 import registrar.ModelRegister;
 import systemUsers.StudentModel;
+import systemUsers.SystemUserModel;
+
 import java.util.*;
 
 public class Operations {
-    List<ICourseOffering> enrollStuList = new ArrayList<>();
-    List<StudentModel> enrollCourseList = new ArrayList<>();
+    private List<ICourseOffering> enrollStuList = new ArrayList<>();
+    private List<StudentModel> enrollCourseList = new ArrayList<>();
+    private Enrollment enrollMe = new Enrollment();
+
+    /**
+     * helper for checking courses
+     * @param stuID course to find
+     */
+    public static Boolean doesSoAndSoExist(String stuID){
+        SystemUserModel user = ModelRegister.getInstance().getRegisteredUser(stuID);
+        if(user != null){ //if there is such a course
+            return true;
+        }
+
+        System.out.println("\nNo such user id: " + stuID);
+        return false;
+
+    }
 
     /**
      * finds a student and returns them
@@ -72,120 +90,43 @@ public class Operations {
     }
 
     /**
-     * Enrolls a student in course: adds student to course list, and course to student list
-     * @param courseID course name
-     * @param studentID user id
+     * enrolls a new student
      */
-    public void enroll_1_Student(String courseID, String studentID){
-        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
+    public void enrollStudent(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
+        String c = input.next();
+        c = c.toUpperCase();
+
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(c);
         if(course == null){
-            System.out.println("\nNo such course: " + courseID);
+            System.out.println("\nNo such course: " + c);
             return;
         }
 
-        StudentModel student = findStudent(course, studentID);
-        if(student == null){
-            System.out.println("\nNo such student: " + studentID);
-            return;
-        }
+        System.out.print("\tStudent ID to be enrolled: ");
+        String s = input.next();
 
-        Boolean registered = false;
-
-        for(CourseOffering course2 : ModelRegister.getInstance().getAllCourses()){
-            for(StudentModel student2 : course2.getStudentsAllowedToEnroll()){
-                if(course2.getCourseID().equals(courseID) && student2.getID().equals(studentID)){
-                    if(course2.getStudentsEnrolled().isEmpty()){
-                        registered = true;
-
-                        this.enrollStuList = new ArrayList<>();
-                        this.enrollCourseList = new ArrayList<>();
-
-                        enrollStuList.add(course2);
-                        student2.setCoursesEnrolled(enrollStuList);
-
-                        enrollCourseList.add(student2);
-                        course2.setStudentsEnrolled(enrollCourseList);
-
-                        System.out.println("\nEnrolling " + student2.getID() + " in " + course2.getCourseID());
-                    }
-                    else{
-                        registered = true;
-
-                        this.enrollStuList.add(course2);
-                        student2.setCoursesEnrolled(this.enrollStuList);
-
-                        this.enrollCourseList.add(student2);
-                        course2.setStudentsEnrolled(this.enrollCourseList);
-
-                        System.out.println("\nEnrolling " + student2.getID() + " in " + course2.getCourseID());
-                    }
-                }
-            }
-        }
-
-        if(!registered){
-            System.out.println("\n>>Denied enrollment<<");
-        }
-
+        if(doesSoAndSoExist(s))
+            this.enrollMe.enroll_Student(course,s);
 
     }
 
-    /**
-     * Enrolls a student in course: adds student to course list, and course to student list
-     * @param courseID course name
-     * @param studentID user id
-     */
-    public void enroll_Student(String courseID, String studentID){
-        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseID);
+    public void enrollStudentRequest(String studentID){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("\n\tCourse (e.g., \"CS2212B\") to enroll in: ");
+        String c = input.next();
+        c = c.toUpperCase();
+
+        CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(c);
         if(course == null){
-            System.out.println("\nNo such course: " + courseID);
+            System.out.println("\nNo such course: " + c);
             return;
         }
 
-        StudentModel student = findStudent(course, studentID);
-        if(student == null){
-            System.out.println("\nNo such student: " + studentID);
-            return;
-        }
-
-        Boolean registered = false;
-
-        for(CourseOffering course2 : ModelRegister.getInstance().getAllCourses()){
-            for(StudentModel student2 : course2.getStudentsAllowedToEnroll()){
-                if(course2.getCourseID().equals(courseID) && student2.getID().equals(studentID)){
-                    if(course2.getStudentsEnrolled().isEmpty()){
-                        registered = true;
-
-                        this.enrollStuList = new ArrayList<>();
-                        this.enrollCourseList = new ArrayList<>();
-
-                        enrollStuList.add(course2);
-                        student2.setCoursesEnrolled(enrollStuList);
-
-                        enrollCourseList.add(student2);
-                        course2.setStudentsEnrolled(enrollCourseList);
-
-                        System.out.println("\nEnrolling " + student2.getID() + " in " + course2.getCourseID());
-                    }
-                    else{
-                        registered = true;
-
-                        this.enrollStuList.add(course2);
-                        student2.setCoursesEnrolled(this.enrollStuList);
-
-                        this.enrollCourseList.add(student2);
-                        course2.setStudentsEnrolled(this.enrollCourseList);
-
-                        System.out.println("\nEnrolling " + student2.getID() + " in " + course2.getCourseID());
-                    }
-                }
-            }
-        }
-
-        if(!registered){
-            System.out.println("\n>>Denied enrollment<<");
-        }
-
+        this.enrollMe.enroll_Student(course,studentID);
 
     }
 

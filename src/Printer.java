@@ -42,7 +42,7 @@ public class Printer extends Operations{
                             "\nInstructor ID: " + teach.getID());
                 }
 
-                System.out.println("\nStudent List:");
+                System.out.println("\n\t-- Student List: --");
                 if(!course.getStudentsEnrolled().isEmpty()){
                     for (StudentModel student : course.getStudentsEnrolled()) {
                         System.out.println("Student name: " + student.getName() + " " + student.getSurname() +
