@@ -10,7 +10,12 @@
 
 public class AuthenticateError extends Exception{
 
-    public AuthenticateError(String str){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public AuthenticateError(String str){
         super(str);
     }
 }

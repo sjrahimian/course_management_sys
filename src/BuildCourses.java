@@ -12,14 +12,14 @@ import offerings.OfferingFactory;
 import java.io.*;
 
 public class BuildCourses {
-    private CourseOffering newCourse;
+//    private CourseOffering newCourse;
 
     /**
      * Makes file requests to user, parses if more than one is provided, then creates courses
      */
     public void runRegistration() {
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 //            System.out.print("\n\tGive filename (separate multiple filenames with a space): ");
 //            String line = reader.readLine();
 //            String[] lineSplit = line.split(" ");

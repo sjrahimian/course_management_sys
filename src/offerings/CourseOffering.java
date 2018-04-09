@@ -99,7 +99,7 @@ public class CourseOffering implements ICourseOffering{
 				weights.next();
 				finalGrade += weights.getCurrentValue() * marks.getValueWithKey(weights.getCurrentKey());
 			}
-//            System.out.println(studentModel.getID() + "\t--> FINAL GRADE :: " + finalGrade);
+            System.out.println(studentModel.getID() + "\t--> FINAL GRADE :: " + finalGrade);
         }
 
     }

@@ -14,7 +14,6 @@ import customDatatypes.Marks;
 import systemUsers.StudentModel;
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.Scanner;
 
 
 public class Marking {

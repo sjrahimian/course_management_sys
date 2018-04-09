@@ -1,4 +1,7 @@
+import customDatatypes.EvaluationTypes;
+import customDatatypes.Marks;
 import customDatatypes.NotificationTypes;
+import customDatatypes.Weights;
 import offerings.CourseOffering;
 import offerings.ICourseOffering;
 import registrar.ModelRegister;
@@ -6,6 +9,7 @@ import systemUsers.StudentModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Operations {
@@ -166,6 +170,8 @@ public class Operations {
         System.out.print("\n\tGive Notification Type (\"EMAIL\", \"PHONE\", \"MAIL\": ");
         String line = input.next();
 
+        input.close();
+
         CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(courseName);
         if(course == null){
             System.out.println("\nNo such course.");
@@ -215,11 +221,12 @@ public class Operations {
                 "Enter type as 'Final', 'Midterm', or 'ASSIGNMENT-X': ");
         String typ = input.next();
 
-        System.out.print("\tEnter grade received (Format as '0.0'): ");
+        System.out.print("\tEnter grade received (Format as '0.0' in decimal, i.e. 94% would be 0.94): ");
         Double gra = input.nextDouble();
 
         submitMark.addMark(cID, sID, typ, gra);
 
+        input.close();
     }
 
     /**
@@ -239,15 +246,56 @@ public class Operations {
                 "Enter type as 'Final', 'Midterm', or 'ASSIGNMENT-x': ");
         String typ = input.next();
 
-        System.out.print("\tEnter revised grade (Format as '0.0'): ");
+        System.out.print("\tEnter revised grade in decimal, i.e. 94% would be 0.94): ");
         Double gra = input.nextDouble();
 
         m.updateMark(cID, sID, typ, gra);
+        
+        input.close();
     }
+    
+    public static void calculateGrade() {
+        Scanner input = new Scanner(System.in);
 
-    public static void createCourses(){
-        BuildCourses newCourse = new BuildCourses();
+        System.out.print("\n\t\t::: Calculate Grade :::\n\n\tEnter Student ID: ");
+        String sID = input.next();
 
+        System.out.print("\tEnter Course ID: ");
+        String cID = input.next();
+        
+        input.close();
+    	
+    	CourseOffering course = ModelRegister.getInstance().getRegisteredCourse(cID);
+    	if (course == null) {
+    		System.out.println("No such course");
+    		return;
+    	}
+    	
+    	StudentModel student = findStudent(course, sID);
+    	if(student == null) {
+    		System.out.println("Student does not exist");
+    		return;
+    	}
+    	
+    	List<StudentModel> students = course.getStudentsEnrolled();
+    	if (!students.contains(student)) {
+    		System.out.println("Student is not enrolled in this course");
+    		return;
+    	}
+    	
+		double finalGrade = 0D;
+		Map<EvaluationTypes, Weights> evaluationStrategies = course.getEvaluationStrategies(); 
+		EvaluationTypes evalEntities = student.getEvaluationEntities().get(course);
+		Weights weights = evaluationStrategies.get(evalEntities);
+		Marks marks  = student.getPerCourseMarks().get(course);
+		weights.initializeIterator();
+		while(weights.hasNext()){
+			weights.next();
+			finalGrade += weights.getCurrentValue() * marks.getValueWithKey(weights.getCurrentKey());
+		}
+		
+        System.out.println(sID + "\t--> FINAL GRADE :: " + finalGrade);
+    	
     }
 
 }
