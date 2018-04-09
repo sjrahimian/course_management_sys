@@ -52,7 +52,7 @@ public class Operations {
      * @param studentID student id
      * @return
      */
-    public StudentModel findStudent(CourseOffering c, String studentID){
+    public static StudentModel findStudent(CourseOffering c, String studentID){
         for (StudentModel s : c.getStudentsAllowedToEnroll()){
             if(s.getID().equals(studentID))
                 return s;
@@ -239,12 +239,14 @@ public class Operations {
                 "Enter type as 'Final', 'Midterm', or 'ASSIGNMENT-x': ");
         String typ = input.next();
 
-    public static void createCourses(){
-        BuildCourses newCourse = new BuildCourses();
         System.out.print("\tEnter revised grade (Format as '0.0'): ");
         Double gra = input.nextDouble();
 
         m.updateMark(cID, sID, typ, gra);
+    }
+
+    public static void createCourses(){
+        BuildCourses newCourse = new BuildCourses();
 
     }
 
